@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "font": "laserfont2",
+  "version": "2.0.0",
+  "copyright": "Copyright (c) 2026 Artkis",
+  "tested_at_utc": "2026-09-19T06:45:26.905149+00:00",
+  "native_engine": "AutoCAD Core Console 2023",
+  "test_scope": "Isolated native conversion fixtures with synthetic lettering; no existing drawing modified",
+  "source_sha256": "0e128ea1b4b53ff815e222bf6169b40fd5018b9cd769e65ff12e62f87dae2e3d",
+  "polyline_source_sha256": "021e728c145ea845a74c8f57c1b80b3aa250baeb423ddf918ec10227262499c4",
+  "files": {
+    "LASER2.lsp": {
+      "sha256": "80814e01f14d49dfb7a953ba33fa5e76fb271c7254434285ff98258fe03c7933",
+      "bytes": 61381
+    },
+    "laserfont2.shp": {
+      "sha256": "d64160c1f0b6381b44ade416889fa6ed74fe8257c132030d28c452e03cac11c1",
+      "bytes": 110039
+    },
+    "laserfont2.shx": {
+      "sha256": "319551ac418382aef879cb5ce23a3d18bb45684629352267716b83c323c4d417",
+      "bytes": 39422
+    }
+  },
+  "font_compilation": "PASS",
+  "exact_bezier_conversion": {
+    "tested_labels": 5,
+    "tested_paths": 135,
+    "exact_splines": 97,
+    "exact_lines": 38,
+    "max_control_point_error_mm": 1.7053025658242404e-13,
+    "all_knots_exact": true,
+    "all_splines_open_cubic_planar": true,
+    "creation_command_and_one_undo_pass": true,
+    "TEXT_and_MTEXT_conversion_pass": true
+  },
+  "fitted_polyline_conversion": {
+    "labels": 2,
+    "open_zero_width_polylines": 85,
+    "circular_arc_segments": 759,
+    "max_xy_error_mm": 2.5421149729252077e-13,
+    "max_bulge_error": 5.551115123125783e-16,
+    "command_and_undo_pass": true
+  },
+  "shx_display_approximation": {
+    "cap_height": 20,
+    "conservative_display_bound_mm": 0.011071067811865475,
+    "maximum_sampled_display_error_mm": 0.009018181772550617
+  },
+  "limitations": [
+    "GUI APPLOAD installation was not tested.",
+    "CypCut import, output motion and physical laser cutting were not tested.",
+    "SHX is display-only; exact curves and fitted bulged polylines come from the embedded source geometry."
+  ],
+  "licensing": {
+    "font_data": "OFL-1.1",
+    "utility_code": "MIT"
+  }
+}

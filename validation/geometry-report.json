@@ -1,0 +1,3151 @@
+{
+  "generated_utc": "2026-09-19T06:45:07.248588+00:00",
+  "source_file": "glyphs-v2.json",
+  "source_sha256": "0e128ea1b4b53ff815e222bf6169b40fd5018b9cd769e65ff12e62f87dae2e3d",
+  "dependencies": {
+    "ezdxf": "1.4.2",
+    "shapely": "2.1.2"
+  },
+  "sampling_tolerance_mm": 0.00025,
+  "glyphs": {
+    "A": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 2,
+      "segments": 9,
+      "length_mm_approx": 43.53315621487309,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.390137
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.390137
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.390137
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.390137
+        },
+        {
+          "path": 1,
+          "join": 1,
+          "delta_per_mm": 0.005263
+        },
+        {
+          "path": 1,
+          "join": 3,
+          "delta_per_mm": 0.005263
+        }
+      ],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 3.6231697006061268,
+          "endpoint_distance_from_cut_mm": [
+            9.844354214220862e-16,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.623169700606126,
+          "endpoint_distance_from_cut_mm": [
+            7.351353657991518e-16,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "B": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 4,
+      "segments": 12,
+      "length_mm_approx": 59.980853793288375,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            3
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (0 9.999999999999998)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.0625
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.25025
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.25025
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.25025
+        },
+        {
+          "path": 0,
+          "join": 5,
+          "delta_per_mm": 0.25025
+        },
+        {
+          "path": 0,
+          "join": 6,
+          "delta_per_mm": 0.0625
+        },
+        {
+          "path": 1,
+          "join": 1,
+          "delta_per_mm": 0.039305
+        },
+        {
+          "path": 2,
+          "join": 1,
+          "delta_per_mm": 0.039305
+        }
+      ],
+      "counter_count": 2,
+      "bridge_count": 4,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 2.999999999999996,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 2.9999999999999987,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 2,
+          "counter": 1,
+          "width_mm": 2.999999999999996,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 3,
+          "counter": 1,
+          "width_mm": 2.9999999999999987,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 2
+    },
+    "C": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 5,
+      "length_mm_approx": 39.77150773895234,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.071667
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.071667
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "D": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 2,
+      "segments": 8,
+      "length_mm_approx": 52.03918445029572,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.252511
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.252511
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.08
+        },
+        {
+          "path": 1,
+          "join": 1,
+          "delta_per_mm": 0.252511
+        },
+        {
+          "path": 1,
+          "join": 2,
+          "delta_per_mm": 0.252511
+        },
+        {
+          "path": 1,
+          "join": 3,
+          "delta_per_mm": 0.08
+        }
+      ],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 3.0,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.0,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "E": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 2,
+      "segments": 6,
+      "length_mm_approx": 51.4927381966674,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            1
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (0 9.999999999999998)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.25
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.25
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.25
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.25
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "F": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 2,
+      "segments": 4,
+      "length_mm_approx": 40.24636909833368,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            1
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (0 10.999999999999998)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.25
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.25
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "G": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 8,
+      "length_mm_approx": 51.29202211543516,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.071667
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.041667
+        },
+        {
+          "path": 0,
+          "join": 5,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 0,
+          "join": 6,
+          "delta_per_mm": 0.252511
+        },
+        {
+          "path": 0,
+          "join": 7,
+          "delta_per_mm": 0.252511
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "H": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 3,
+      "segments": 3,
+      "length_mm_approx": 52.0,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            2
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (0 10)"
+        },
+        {
+          "paths": [
+            1,
+            2
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (12 10)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "I": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 3,
+      "segments": 3,
+      "length_mm_approx": 35.99999999999999,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            1
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (3.999999999999999 19.999999999999996)"
+        },
+        {
+          "paths": [
+            1,
+            2
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (3.999999999999999 0)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "J": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 3,
+      "length_mm_approx": 31.702674177328785,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.083333
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "K": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 2,
+      "segments": 3,
+      "length_mm_approx": 52.21612191267388,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            1
+          ],
+          "type": "Point",
+          "contact": "tangential_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (0 10)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "L": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 3,
+      "length_mm_approx": 31.246369098333687,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.25
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.25
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "M": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.000000226140045,
+      "cut_paths": 1,
+      "segments": 7,
+      "length_mm_approx": 63.51066559692228,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.232487
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.232487
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.380921
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.380921
+        },
+        {
+          "path": 0,
+          "join": 5,
+          "delta_per_mm": 0.232487
+        },
+        {
+          "path": 0,
+          "join": 6,
+          "delta_per_mm": 0.232487
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "N": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 5,
+      "length_mm_approx": 61.50889243494216,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.194639
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.194639
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.194639
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.194639
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "O": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 2,
+      "segments": 4,
+      "length_mm_approx": 45.04934628099453,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 2.9999999999999982,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.0000000000000053,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "P": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 2,
+      "segments": 7,
+      "length_mm_approx": 43.08463284499501,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.333333
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.333333
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 1,
+          "join": 2,
+          "delta_per_mm": 0.083333
+        }
+      ],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 2.9999999999999987,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 2.999999999999999,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "Q": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 3,
+      "segments": 5,
+      "length_mm_approx": 49.808078261001505,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 2.9999999999999982,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.0000000000000053,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "R": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 3,
+      "segments": 8,
+      "length_mm_approx": 58.70513219680831,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            2
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (0 9.999999999999998)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.333333
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.333333
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 1,
+          "join": 2,
+          "delta_per_mm": 0.083333
+        }
+      ],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 2.9999999999999987,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 2.999999999999999,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "S": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 6,
+      "length_mm_approx": 47.249220056926454,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.039259
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.081481
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.034151
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.081481
+        },
+        {
+          "path": 0,
+          "join": 5,
+          "delta_per_mm": 0.039259
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "T": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 2,
+      "segments": 2,
+      "length_mm_approx": 33.99999999999999,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            1
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (6.999999999999998 19.999999999999996)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "U": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 4,
+      "length_mm_approx": 47.47858081071834,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.083333
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "V": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 3,
+      "length_mm_approx": 42.10862341948546,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.131024
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.131024
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "W": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.000000025658277,
+      "cut_paths": 1,
+      "segments": 7,
+      "length_mm_approx": 61.40146728351672,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.17292
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.17292
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.240607
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.240607
+        },
+        {
+          "path": 0,
+          "join": 5,
+          "delta_per_mm": 0.17292
+        },
+        {
+          "path": 0,
+          "join": 6,
+          "delta_per_mm": 0.17292
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "X": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 3,
+      "segments": 3,
+      "length_mm_approx": 43.647615158762406,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "Y": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 2,
+      "segments": 4,
+      "length_mm_approx": 32.43421701285007,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            1
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (6 11.582435206036491)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.32967
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.32967
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "Z": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 1,
+      "segments": 5,
+      "length_mm_approx": 45.56553525809533,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.306247
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.306247
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.306247
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.306247
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "0": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 3,
+      "segments": 5,
+      "length_mm_approx": 53.21029757338036,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 2.9999999999999982,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.0000000000000053,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "1": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.000001078147697,
+      "cut_paths": 2,
+      "segments": 4,
+      "length_mm_approx": 35.65112422569595,
+      "intersections": [
+        {
+          "paths": [
+            0,
+            1
+          ],
+          "type": "Point",
+          "contact": "endpoint_contact",
+          "proper_crossing": false,
+          "overlap_mm": 0.0,
+          "wkt": "POINT (5.105743683522719 0)"
+        }
+      ],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.346231
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.346231
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "2": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 5,
+      "length_mm_approx": 47.18426287434413,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.111111
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.004969
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.272109
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "3": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 1,
+      "segments": 6,
+      "length_mm_approx": 48.53690547578622,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.05551
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.328571
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.328571
+        },
+        {
+          "path": 0,
+          "join": 5,
+          "delta_per_mm": 0.05551
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "4": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 2,
+      "segments": 4,
+      "length_mm_approx": 39.76614665445797,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.406558
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.406558
+        }
+      ],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 4.0,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.0,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "5": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 1,
+      "segments": 8,
+      "length_mm_approx": 50.67980943119669,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.3125
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.3125
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.3125
+        },
+        {
+          "path": 0,
+          "join": 4,
+          "delta_per_mm": 0.3125
+        },
+        {
+          "path": 0,
+          "join": 5,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 0,
+          "join": 6,
+          "delta_per_mm": 0.027211
+        },
+        {
+          "path": 0,
+          "join": 7,
+          "delta_per_mm": 0.05551
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "6": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 2,
+      "segments": 8,
+      "length_mm_approx": 51.44609986352965,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.166667
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.053333
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 1,
+          "join": 1,
+          "delta_per_mm": 0.052721
+        },
+        {
+          "path": 1,
+          "join": 2,
+          "delta_per_mm": 0.012094
+        }
+      ],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 3.0000000000000013,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.0,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "7": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 19.999999999999996,
+      "cut_paths": 1,
+      "segments": 3,
+      "length_mm_approx": 33.4739599424423,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.298142
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.298142
+        }
+      ],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    "8": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 3,
+      "segments": 9,
+      "length_mm_approx": 50.53734314159435,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.269848
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.153333
+        },
+        {
+          "path": 1,
+          "join": 1,
+          "delta_per_mm": 0.157509
+        },
+        {
+          "path": 1,
+          "join": 2,
+          "delta_per_mm": 0.154193
+        },
+        {
+          "path": 2,
+          "join": 1,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 2,
+          "join": 2,
+          "delta_per_mm": 0.444444
+        }
+      ],
+      "counter_count": 2,
+      "bridge_count": 4,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 3.1764760348537187,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.2015621187164243,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 2,
+          "counter": 1,
+          "width_mm": 3.2310988842807022,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 3,
+          "counter": 1,
+          "width_mm": 3.0,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 2
+    },
+    "9": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 20.0,
+      "cut_paths": 2,
+      "segments": 8,
+      "length_mm_approx": 51.446099863529625,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [
+        {
+          "path": 0,
+          "join": 1,
+          "delta_per_mm": 0.166667
+        },
+        {
+          "path": 0,
+          "join": 2,
+          "delta_per_mm": 0.053333
+        },
+        {
+          "path": 0,
+          "join": 3,
+          "delta_per_mm": 0.083333
+        },
+        {
+          "path": 1,
+          "join": 1,
+          "delta_per_mm": 0.052721
+        },
+        {
+          "path": 1,
+          "join": 2,
+          "delta_per_mm": 0.012094
+        }
+      ],
+      "counter_count": 1,
+      "bridge_count": 2,
+      "bridge_checks": [
+        {
+          "bridge": 0,
+          "counter": 0,
+          "width_mm": 3.0000000000000013,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        },
+        {
+          "bridge": 1,
+          "counter": 0,
+          "width_mm": 3.0,
+          "endpoint_distance_from_cut_mm": [
+            0.0,
+            0.0
+          ],
+          "interior_cut_intersection": false
+        }
+      ],
+      "conceptual_counter_cycles": 1
+    },
+    "-": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 0,
+      "cut_paths": 1,
+      "segments": 1,
+      "length_mm_approx": 8.0,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    },
+    " ": {
+      "faults": [],
+      "notes": [],
+      "height_mm": 0,
+      "cut_paths": 0,
+      "segments": 0,
+      "length_mm_approx": 0,
+      "intersections": [],
+      "closed_cut_cycles": 0,
+      "tangent_discontinuities": [],
+      "curvature_discontinuities": [],
+      "counter_count": 0,
+      "bridge_count": 0,
+      "bridge_checks": [],
+      "conceptual_counter_cycles": 0
+    }
+  },
+  "dxf": [
+    {
+      "file": "laserfont2-alphabet-bezier.dxf",
+      "faults": [],
+      "entities": 117,
+      "curve_samples": 5236,
+      "max_error_mm": 5.728578676879116e-14,
+      "text_entities": 0,
+      "sha256": "4fce1a4cf7a133abf0d646d09234ac0d31339426057961ca26487a66c655dab6"
+    },
+    {
+      "file": "laserfont2-alphabet-polyline.dxf",
+      "faults": [],
+      "entities": 117,
+      "arcs": 1049,
+      "lines": 144,
+      "max_vertex_error_mm": 0.0,
+      "max_bulge_error": 0.0,
+      "sha256": "369a75bdd776e1a7e222e96dea35899e73f13212d9f3dad9278278c365f70d6f"
+    },
+    {
+      "file": "PANEL-A01-H20-bezier.dxf",
+      "faults": [],
+      "entities": 16,
+      "curve_samples": 765,
+      "max_error_mm": 2.864289338439558e-14,
+      "text_entities": 0,
+      "sha256": "39a4cc05c5cf622bd4dd74e4da9cfa4ed84ad7b115536ee8a35ff9a6ca0875f4"
+    },
+    {
+      "file": "PANEL-A01-H20-polyline.dxf",
+      "faults": [],
+      "entities": 16,
+      "arcs": 117,
+      "lines": 27,
+      "max_vertex_error_mm": 0.0,
+      "max_bulge_error": 0.0,
+      "sha256": "88c54e4b8a621433aa65c458324229b643ef43b5c8be7f6bc1f54a8872fa3647"
+    }
+  ],
+  "limits": "Geometric checks only. Curves/topology are sampled with stated tolerances. No CAM interpretation, toolpath sequencing, timing, kerf, thermal behavior, machine motion or material-strength acceptance is implied.",
+  "font_set_faults": [],
+  "arc_fit": {
+    "source_sha256": "0e128ea1b4b53ff815e222bf6169b40fd5018b9cd769e65ff12e62f87dae2e3d",
+    "polyline_sha256": "021e728c145ea845a74c8f57c1b80b3aa250baeb423ddf918ec10227262499c4",
+    "method": "Independent bulge-to-circle reconstruction; adaptive Bezier and circular arc sampling with 0.00025mm chord-distance bounds; dense bidirectional nearest-distance checks.",
+    "limits": "Geometric validation only. Arc fitting is an approximation of the exact Bezier master; no CypCut or machine acceptance implied.",
+    "sampling_allowance_mm": 0.0005,
+    "max_deviation_mm": 0.011981291826629483,
+    "faults": [],
+    "glyphs": {
+      "A": {
+        "paths": 2,
+        "arcs": 21,
+        "lines": 5,
+        "max_dense_deviation_mm": 0.0028211837935646525,
+        "min_segment_length_mm": 0.2716647797736046,
+        "min_arc_radius_mm": 0.6870469286356796,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 132,
+            "arc_samples": 80,
+            "source_to_fit_mm": 0.0019582992940976904,
+            "fit_to_source_mm": 0.001706857017782803,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 137,
+            "arc_samples": 129,
+            "source_to_fit_mm": 0.0027149257334676885,
+            "fit_to_source_mm": 0.0028211837935646525,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 2.5852205926924657e-16,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 2.4621148501832483e-16,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 6,
+        "segments_below_1mm": 19
+      },
+      "B": {
+        "paths": 4,
+        "arcs": 26,
+        "lines": 4,
+        "max_dense_deviation_mm": 0.004938606523730686,
+        "min_segment_length_mm": 0.8191993705852975,
+        "min_arc_radius_mm": 1.5206533216307507,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 234,
+            "arc_samples": 174,
+            "source_to_fit_mm": 0.00363086489581216,
+            "fit_to_source_mm": 0.0037389342739682606,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 159,
+            "arc_samples": 83,
+            "source_to_fit_mm": 0.004938606523730686,
+            "fit_to_source_mm": 0.004665451376299101,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 2,
+            "source_samples": 159,
+            "arc_samples": 83,
+            "source_to_fit_mm": 0.004938606523730686,
+            "fit_to_source_mm": 0.004665451376299101,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 3,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 2,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 3,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              3
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 8
+      },
+      "C": {
+        "paths": 1,
+        "arcs": 22,
+        "lines": 1,
+        "max_dense_deviation_mm": 0.004075803650118139,
+        "min_segment_length_mm": 1.2015985359782093,
+        "min_arc_radius_mm": 5.085555298398752,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 386,
+            "arc_samples": 282,
+            "source_to_fit_mm": 0.004075803650118139,
+            "fit_to_source_mm": 0.0037610752673267805,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "D": {
+        "paths": 2,
+        "arcs": 22,
+        "lines": 4,
+        "max_dense_deviation_mm": 0.0036371978316751957,
+        "min_segment_length_mm": 0.8187218180686229,
+        "min_arc_radius_mm": 1.5251139622664338,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 195,
+            "arc_samples": 161,
+            "source_to_fit_mm": 0.003634204246261148,
+            "fit_to_source_mm": 0.0036371978316751957,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 195,
+            "arc_samples": 161,
+            "source_to_fit_mm": 0.00363420424626111,
+            "fit_to_source_mm": 0.0036371978316739263,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 4
+      },
+      "E": {
+        "paths": 2,
+        "arcs": 6,
+        "lines": 4,
+        "max_dense_deviation_mm": 0.0037503183125385284,
+        "min_segment_length_mm": 0.8192524859904986,
+        "min_arc_radius_mm": 1.5201598709035808,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 132,
+            "arc_samples": 108,
+            "source_to_fit_mm": 0.0036450281287919483,
+            "fit_to_source_mm": 0.0037503183125385284,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              1
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 4
+      },
+      "F": {
+        "paths": 2,
+        "arcs": 3,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.003750318312538019,
+        "min_segment_length_mm": 0.8192524859904986,
+        "min_arc_radius_mm": 1.5201598709035815,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 67,
+            "arc_samples": 55,
+            "source_to_fit_mm": 0.003645028128791674,
+            "fit_to_source_mm": 0.003750318312538019,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              1
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 2
+      },
+      "G": {
+        "paths": 1,
+        "arcs": 25,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.011191993153309926,
+        "min_segment_length_mm": 0.8187218180686276,
+        "min_arc_radius_mm": 1.5251139622664567,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 516,
+            "arc_samples": 376,
+            "source_to_fit_mm": 0.010847319515015769,
+            "fit_to_source_mm": 0.011191993153309926,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 2
+      },
+      "H": {
+        "paths": 3,
+        "arcs": 0,
+        "lines": 3,
+        "max_dense_deviation_mm": 0,
+        "min_segment_length_mm": 12.0,
+        "min_arc_radius_mm": 0,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 2,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              2
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          },
+          {
+            "paths": [
+              1,
+              2
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "I": {
+        "paths": 3,
+        "arcs": 0,
+        "lines": 3,
+        "max_dense_deviation_mm": 0,
+        "min_segment_length_mm": 7.999999999999998,
+        "min_arc_radius_mm": 0,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 2,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              1
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          },
+          {
+            "paths": [
+              1,
+              2
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "J": {
+        "paths": 1,
+        "arcs": 12,
+        "lines": 1,
+        "max_dense_deviation_mm": 0.0105628244875089,
+        "min_segment_length_mm": 1.039122793845941,
+        "min_arc_radius_mm": 4.198183932604937,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 258,
+            "arc_samples": 174,
+            "source_to_fit_mm": 0.0105628244875089,
+            "fit_to_source_mm": 0.010324182065101696,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "K": {
+        "paths": 2,
+        "arcs": 19,
+        "lines": 1,
+        "max_dense_deviation_mm": 0.011301962080079473,
+        "min_segment_length_mm": 0.7024214837654588,
+        "min_arc_radius_mm": 3.4027046467526354,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 291,
+            "arc_samples": 188,
+            "source_to_fit_mm": 0.011123546721666497,
+            "fit_to_source_mm": 0.011301962080079473,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 6
+      },
+      "L": {
+        "paths": 1,
+        "arcs": 3,
+        "lines": 2,
+        "max_dense_deviation_mm": 0.0037503183125378006,
+        "min_segment_length_mm": 0.819252485990499,
+        "min_arc_radius_mm": 1.5201598709035826,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 67,
+            "arc_samples": 55,
+            "source_to_fit_mm": 0.0036450281287912865,
+            "fit_to_source_mm": 0.0037503183125378006,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 2
+      },
+      "M": {
+        "paths": 1,
+        "arcs": 17,
+        "lines": 4,
+        "max_dense_deviation_mm": 0.008541233417287663,
+        "min_segment_length_mm": 0.12730715531347747,
+        "min_arc_radius_mm": 0.14770920185721018,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 193,
+            "arc_samples": 173,
+            "source_to_fit_mm": 0.008234315124840188,
+            "fit_to_source_mm": 0.008541233417287663,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 14,
+        "segments_below_0.5mm": 16,
+        "segments_below_1mm": 17
+      },
+      "N": {
+        "paths": 1,
+        "arcs": 14,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.0044024961225927065,
+        "min_segment_length_mm": 0.14093238549870774,
+        "min_arc_radius_mm": 0.15420368048473757,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 132,
+            "arc_samples": 132,
+            "source_to_fit_mm": 0.004103425445396159,
+            "fit_to_source_mm": 0.0044024961225927065,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 4,
+        "segments_below_0.5mm": 14,
+        "segments_below_1mm": 14
+      },
+      "O": {
+        "paths": 2,
+        "arcs": 22,
+        "lines": 0,
+        "max_dense_deviation_mm": 0.011981291826629483,
+        "min_segment_length_mm": 1.5045090443731888,
+        "min_arc_radius_mm": 3.8261403338409066,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 257,
+            "arc_samples": 184,
+            "source_to_fit_mm": 0.011981291826628309,
+            "fit_to_source_mm": 0.011722625384458741,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 257,
+            "arc_samples": 184,
+            "source_to_fit_mm": 0.011981291826629483,
+            "fit_to_source_mm": 0.01172262538445874,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "P": {
+        "paths": 2,
+        "arcs": 15,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.008216994220069378,
+        "min_segment_length_mm": 0.6144393644928742,
+        "min_arc_radius_mm": 1.1401199031776885,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 131,
+            "arc_samples": 79,
+            "source_to_fit_mm": 0.008012440474039645,
+            "fit_to_source_mm": 0.008216994220069378,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 162,
+            "arc_samples": 107,
+            "source_to_fit_mm": 0.0022041722868868046,
+            "fit_to_source_mm": 0.002393837793029106,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 6
+      },
+      "Q": {
+        "paths": 3,
+        "arcs": 22,
+        "lines": 1,
+        "max_dense_deviation_mm": 0.011981291826629483,
+        "min_segment_length_mm": 1.5045090443731888,
+        "min_arc_radius_mm": 3.8261403338409066,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 257,
+            "arc_samples": 184,
+            "source_to_fit_mm": 0.011981291826628309,
+            "fit_to_source_mm": 0.011722625384458741,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 257,
+            "arc_samples": 184,
+            "source_to_fit_mm": 0.011981291826629483,
+            "fit_to_source_mm": 0.01172262538445874,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 2,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [
+          {
+            "paths": [
+              1,
+              2
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "R": {
+        "paths": 3,
+        "arcs": 15,
+        "lines": 4,
+        "max_dense_deviation_mm": 0.008216994220069378,
+        "min_segment_length_mm": 0.6144393644928742,
+        "min_arc_radius_mm": 1.1401199031776885,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 131,
+            "arc_samples": 79,
+            "source_to_fit_mm": 0.008012440474039645,
+            "fit_to_source_mm": 0.008216994220069378,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 162,
+            "arc_samples": 107,
+            "source_to_fit_mm": 0.0022041722868868046,
+            "fit_to_source_mm": 0.002393837793029106,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 2,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              2
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 6
+      },
+      "S": {
+        "paths": 1,
+        "arcs": 36,
+        "lines": 0,
+        "max_dense_deviation_mm": 0.010999932432460146,
+        "min_segment_length_mm": 0.9782729103387309,
+        "min_arc_radius_mm": 3.473431323738949,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 611,
+            "arc_samples": 417,
+            "source_to_fit_mm": 0.010626003238056144,
+            "fit_to_source_mm": 0.010999932432460146,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 4
+      },
+      "T": {
+        "paths": 2,
+        "arcs": 0,
+        "lines": 2,
+        "max_dense_deviation_mm": 0,
+        "min_segment_length_mm": 13.999999999999996,
+        "min_arc_radius_mm": 0,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              1
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "U": {
+        "paths": 1,
+        "arcs": 5,
+        "lines": 2,
+        "max_dense_deviation_mm": 0.011191993153309926,
+        "min_segment_length_mm": 2.4577574579714963,
+        "min_arc_radius_mm": 4.560479612710746,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 259,
+            "arc_samples": 177,
+            "source_to_fit_mm": 0.010847319515015769,
+            "fit_to_source_mm": 0.011191993153309926,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "V": {
+        "paths": 1,
+        "arcs": 7,
+        "lines": 2,
+        "max_dense_deviation_mm": 0.006301969585131645,
+        "min_segment_length_mm": 0.21246636051343273,
+        "min_arc_radius_mm": 0.23511615898163682,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 83,
+            "arc_samples": 70,
+            "source_to_fit_mm": 0.006234080292816745,
+            "fit_to_source_mm": 0.006301969585131645,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 2,
+        "segments_below_0.5mm": 7,
+        "segments_below_1mm": 7
+      },
+      "W": {
+        "paths": 1,
+        "arcs": 21,
+        "lines": 4,
+        "max_dense_deviation_mm": 0.004473122650251224,
+        "min_segment_length_mm": 0.1718324415631591,
+        "min_arc_radius_mm": 0.19997780680308697,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 209,
+            "arc_samples": 198,
+            "source_to_fit_mm": 0.00412795003577124,
+            "fit_to_source_mm": 0.004473122650251224,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 6,
+        "segments_below_0.5mm": 21,
+        "segments_below_1mm": 21
+      },
+      "X": {
+        "paths": 3,
+        "arcs": 0,
+        "lines": 3,
+        "max_dense_deviation_mm": 0,
+        "min_segment_length_mm": 10.1619037896906,
+        "min_arc_radius_mm": 0,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 2,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      "Y": {
+        "paths": 2,
+        "arcs": 3,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.011189985195282914,
+        "min_segment_length_mm": 0.5193539925157152,
+        "min_arc_radius_mm": 0.6362294643242966,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 67,
+            "arc_samples": 47,
+            "source_to_fit_mm": 0.01090938617884024,
+            "fit_to_source_mm": 0.011189985195282914,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              1
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 3
+      },
+      "Z": {
+        "paths": 1,
+        "arcs": 14,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.0018049106555785436,
+        "min_segment_length_mm": 0.19400127719862134,
+        "min_arc_radius_mm": 0.4106466074997214,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 132,
+            "arc_samples": 128,
+            "source_to_fit_mm": 0.0016581539614288297,
+            "fit_to_source_mm": 0.0018049106555785436,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 4,
+        "segments_below_0.5mm": 14,
+        "segments_below_1mm": 14
+      },
+      "0": {
+        "paths": 3,
+        "arcs": 30,
+        "lines": 1,
+        "max_dense_deviation_mm": 0.004086849952475765,
+        "min_segment_length_mm": 0.9571526061551693,
+        "min_arc_radius_mm": 2.5533198965009163,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 257,
+            "arc_samples": 176,
+            "source_to_fit_mm": 0.0039911732180556055,
+            "fit_to_source_mm": 0.0040868499524747285,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 257,
+            "arc_samples": 176,
+            "source_to_fit_mm": 0.003991173218056315,
+            "fit_to_source_mm": 0.004086849952475765,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 2,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 4
+      },
+      "1": {
+        "paths": 2,
+        "arcs": 7,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.0015888463844501135,
+        "min_segment_length_mm": 0.11979525442123333,
+        "min_arc_radius_mm": 0.18264305661021468,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 65,
+            "arc_samples": 64,
+            "source_to_fit_mm": 0.0015774524880727567,
+            "fit_to_source_mm": 0.0015888463844501135,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [
+          {
+            "paths": [
+              0,
+              1
+            ],
+            "type": "Point",
+            "overlap_mm": 0.0
+          }
+        ],
+        "segments_below_0.25mm": 7,
+        "segments_below_0.5mm": 7,
+        "segments_below_1mm": 7
+      },
+      "2": {
+        "paths": 1,
+        "arcs": 34,
+        "lines": 1,
+        "max_dense_deviation_mm": 0.009668367906387042,
+        "min_segment_length_mm": 0.31962669697572,
+        "min_arc_radius_mm": 0.7878099667249138,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 502,
+            "arc_samples": 337,
+            "source_to_fit_mm": 0.009477010569830238,
+            "fit_to_source_mm": 0.009668367906387042,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 4,
+        "segments_below_1mm": 16
+      },
+      "3": {
+        "paths": 1,
+        "arcs": 39,
+        "lines": 0,
+        "max_dense_deviation_mm": 0.009748900256870476,
+        "min_segment_length_mm": 0.49396317064565587,
+        "min_arc_radius_mm": 1.5412923636916869,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 739,
+            "arc_samples": 489,
+            "source_to_fit_mm": 0.009748900256870476,
+            "fit_to_source_mm": 0.009704344545966402,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 6,
+        "segments_below_1mm": 15
+      },
+      "4": {
+        "paths": 2,
+        "arcs": 3,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.010961736370693583,
+        "min_segment_length_mm": 0.40103835527998394,
+        "min_arc_radius_mm": 0.45650010109486683,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 67,
+            "arc_samples": 45,
+            "source_to_fit_mm": 0.0106957764234389,
+            "fit_to_source_mm": 0.010961736370693583,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 2,
+        "segments_below_1mm": 3
+      },
+      "5": {
+        "paths": 1,
+        "arcs": 24,
+        "lines": 3,
+        "max_dense_deviation_mm": 0.007435930082314795,
+        "min_segment_length_mm": 0.6554019887923971,
+        "min_arc_radius_mm": 1.2161278967228673,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 452,
+            "arc_samples": 325,
+            "source_to_fit_mm": 0.007193136880215142,
+            "fit_to_source_mm": 0.007435930082314795,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 4
+      },
+      "6": {
+        "paths": 2,
+        "arcs": 26,
+        "lines": 1,
+        "max_dense_deviation_mm": 0.011191993153309114,
+        "min_segment_length_mm": 0.663199214229062,
+        "min_arc_radius_mm": 2.5522361644374225,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 377,
+            "arc_samples": 266,
+            "source_to_fit_mm": 0.010847319515015085,
+            "fit_to_source_mm": 0.011191993153309114,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 225,
+            "arc_samples": 148,
+            "source_to_fit_mm": 0.007036604194999084,
+            "fit_to_source_mm": 0.006767120010533656,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 4
+      },
+      "7": {
+        "paths": 1,
+        "arcs": 7,
+        "lines": 2,
+        "max_dense_deviation_mm": 0.0017683046648295428,
+        "min_segment_length_mm": 0.21796062739772823,
+        "min_arc_radius_mm": 0.5064545344752097,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 67,
+            "arc_samples": 65,
+            "source_to_fit_mm": 0.0015741931136628604,
+            "fit_to_source_mm": 0.0017683046648295428,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 2,
+        "segments_below_0.5mm": 7,
+        "segments_below_1mm": 7
+      },
+      "8": {
+        "paths": 3,
+        "arcs": 42,
+        "lines": 0,
+        "max_dense_deviation_mm": 0.01133969154836869,
+        "min_segment_length_mm": 0.7403241880267507,
+        "min_arc_radius_mm": 1.7681356508187545,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 290,
+            "arc_samples": 221,
+            "source_to_fit_mm": 0.01133969154836869,
+            "fit_to_source_mm": 0.010932576060302396,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 160,
+            "arc_samples": 121,
+            "source_to_fit_mm": 0.010617614436160081,
+            "fit_to_source_mm": 0.010709097670209704,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 2,
+            "source_samples": 244,
+            "arc_samples": 159,
+            "source_to_fit_mm": 0.009008352241905939,
+            "fit_to_source_mm": 0.008814220610669445,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 2,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 3,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 16
+      },
+      "9": {
+        "paths": 2,
+        "arcs": 26,
+        "lines": 1,
+        "max_dense_deviation_mm": 0.011191993153309564,
+        "min_segment_length_mm": 0.6631992142290615,
+        "min_arc_radius_mm": 2.552236164437438,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 377,
+            "arc_samples": 266,
+            "source_to_fit_mm": 0.0108473195150154,
+            "fit_to_source_mm": 0.011191993153309564,
+            "endpoint_error_mm": 0.0
+          },
+          {
+            "path": 1,
+            "source_samples": 225,
+            "arc_samples": 148,
+            "source_to_fit_mm": 0.007036604194999198,
+            "fit_to_source_mm": 0.006767120010533897,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [
+          {
+            "bridge": 0,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          },
+          {
+            "bridge": 1,
+            "endpoint_error_mm": 0.0,
+            "crossed_by_cut": false
+          }
+        ],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 4
+      },
+      "-": {
+        "paths": 1,
+        "arcs": 0,
+        "lines": 1,
+        "max_dense_deviation_mm": 0,
+        "min_segment_length_mm": 8.0,
+        "min_arc_radius_mm": 0,
+        "checks": [
+          {
+            "path": 0,
+            "source_samples": 2,
+            "arc_samples": 2,
+            "source_to_fit_mm": 0.0,
+            "fit_to_source_mm": 0.0,
+            "endpoint_error_mm": 0.0
+          }
+        ],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      },
+      " ": {
+        "paths": 0,
+        "arcs": 0,
+        "lines": 0,
+        "max_dense_deviation_mm": 0,
+        "min_segment_length_mm": 0,
+        "min_arc_radius_mm": 0,
+        "checks": [],
+        "closed_cut_cycles": 0,
+        "tangent_jumps": [],
+        "bridge_checks": [],
+        "contacts": [],
+        "segments_below_0.25mm": 0,
+        "segments_below_0.5mm": 0,
+        "segments_below_1mm": 0
+      }
+    }
+  },
+  "fault_count": 0,
+  "status": "PASS"
+}

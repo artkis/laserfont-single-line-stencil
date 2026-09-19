@@ -1,0 +1,279 @@
+{
+  "metadata": {
+    "name": "laserfont2",
+    "source_sha256": "0e128ea1b4b53ff815e222bf6169b40fd5018b9cd769e65ff12e62f87dae2e3d",
+    "height_mm": 20,
+    "target_validation_tolerance_mm": 0.02,
+    "fit_sample_budget_mm": 0.012,
+    "method": "Adaptive tangent biarc approximation of original cubic Bezier spans; exact LINE spans preserved",
+    "error_scope": "Sampled bidirectional deviation; independent dense readback validation required"
+  },
+  "glyphs": {
+    "A": {
+      "paths": 2,
+      "arcs": 21,
+      "lines": 5,
+      "max_sampled_error_mm": 0.0027190817703341636,
+      "min_segment_length_mm": 0.2716647797736047
+    },
+    "B": {
+      "paths": 4,
+      "arcs": 26,
+      "lines": 4,
+      "max_sampled_error_mm": 0.004729319553613998,
+      "min_segment_length_mm": 0.8191993705852976
+    },
+    "C": {
+      "paths": 1,
+      "arcs": 22,
+      "lines": 1,
+      "max_sampled_error_mm": 0.0038636588604337163,
+      "min_segment_length_mm": 1.2015985359782086
+    },
+    "D": {
+      "paths": 2,
+      "arcs": 22,
+      "lines": 4,
+      "max_sampled_error_mm": 0.003573523697446983,
+      "min_segment_length_mm": 0.8187218180686221
+    },
+    "E": {
+      "paths": 2,
+      "arcs": 6,
+      "lines": 4,
+      "max_sampled_error_mm": 0.0036988182390025595,
+      "min_segment_length_mm": 0.8192524859904978
+    },
+    "F": {
+      "paths": 2,
+      "arcs": 3,
+      "lines": 3,
+      "max_sampled_error_mm": 0.003698818239002534,
+      "min_segment_length_mm": 0.8192524859904984
+    },
+    "G": {
+      "paths": 1,
+      "arcs": 25,
+      "lines": 3,
+      "max_sampled_error_mm": 0.011096454717008594,
+      "min_segment_length_mm": 0.8187218180686281
+    },
+    "H": {
+      "paths": 3,
+      "arcs": 0,
+      "lines": 3,
+      "max_sampled_error_mm": 0,
+      "min_segment_length_mm": 12.0
+    },
+    "I": {
+      "paths": 3,
+      "arcs": 0,
+      "lines": 3,
+      "max_sampled_error_mm": 0,
+      "min_segment_length_mm": 7.999999999999998
+    },
+    "J": {
+      "paths": 1,
+      "arcs": 12,
+      "lines": 1,
+      "max_sampled_error_mm": 0.010344204015913405,
+      "min_segment_length_mm": 1.0391227938459409
+    },
+    "K": {
+      "paths": 2,
+      "arcs": 19,
+      "lines": 1,
+      "max_sampled_error_mm": 0.011233535178424037,
+      "min_segment_length_mm": 0.7024214837654597
+    },
+    "L": {
+      "paths": 1,
+      "arcs": 3,
+      "lines": 2,
+      "max_sampled_error_mm": 0.003698818239003227,
+      "min_segment_length_mm": 0.8192524859904988
+    },
+    "M": {
+      "paths": 1,
+      "arcs": 17,
+      "lines": 4,
+      "max_sampled_error_mm": 0.008447254774087476,
+      "min_segment_length_mm": 0.12730715531347764
+    },
+    "N": {
+      "paths": 1,
+      "arcs": 14,
+      "lines": 3,
+      "max_sampled_error_mm": 0.00432257176270099,
+      "min_segment_length_mm": 0.14093238549870757
+    },
+    "O": {
+      "paths": 2,
+      "arcs": 22,
+      "lines": 0,
+      "max_sampled_error_mm": 0.011835006472777465,
+      "min_segment_length_mm": 1.5045090443731874
+    },
+    "P": {
+      "paths": 2,
+      "arcs": 15,
+      "lines": 3,
+      "max_sampled_error_mm": 0.008171661996574897,
+      "min_segment_length_mm": 0.6144393644928745
+    },
+    "Q": {
+      "paths": 3,
+      "arcs": 22,
+      "lines": 1,
+      "max_sampled_error_mm": 0.011835006472777465,
+      "min_segment_length_mm": 1.5045090443731874
+    },
+    "R": {
+      "paths": 3,
+      "arcs": 15,
+      "lines": 4,
+      "max_sampled_error_mm": 0.008171661996574897,
+      "min_segment_length_mm": 0.6144393644928745
+    },
+    "S": {
+      "paths": 1,
+      "arcs": 36,
+      "lines": 0,
+      "max_sampled_error_mm": 0.010863689286807698,
+      "min_segment_length_mm": 0.9782729103387307
+    },
+    "T": {
+      "paths": 2,
+      "arcs": 0,
+      "lines": 2,
+      "max_sampled_error_mm": 0,
+      "min_segment_length_mm": 13.999999999999996
+    },
+    "U": {
+      "paths": 1,
+      "arcs": 5,
+      "lines": 2,
+      "max_sampled_error_mm": 0.011096454717008594,
+      "min_segment_length_mm": 2.4577574579714967
+    },
+    "V": {
+      "paths": 1,
+      "arcs": 7,
+      "lines": 2,
+      "max_sampled_error_mm": 0.006295080866776405,
+      "min_segment_length_mm": 0.21246636051343273
+    },
+    "W": {
+      "paths": 1,
+      "arcs": 21,
+      "lines": 4,
+      "max_sampled_error_mm": 0.0043494074084236296,
+      "min_segment_length_mm": 0.1718324415631588
+    },
+    "X": {
+      "paths": 3,
+      "arcs": 0,
+      "lines": 3,
+      "max_sampled_error_mm": 0,
+      "min_segment_length_mm": 10.1619037896906
+    },
+    "Y": {
+      "paths": 2,
+      "arcs": 3,
+      "lines": 3,
+      "max_sampled_error_mm": 0.011134429888378872,
+      "min_segment_length_mm": 0.5193539925157152
+    },
+    "Z": {
+      "paths": 1,
+      "arcs": 14,
+      "lines": 3,
+      "max_sampled_error_mm": 0.0017460225910372986,
+      "min_segment_length_mm": 0.1940012771986215
+    },
+    "0": {
+      "paths": 3,
+      "arcs": 30,
+      "lines": 1,
+      "max_sampled_error_mm": 0.00404917936610191,
+      "min_segment_length_mm": 0.9571526061551694
+    },
+    "1": {
+      "paths": 2,
+      "arcs": 7,
+      "lines": 3,
+      "max_sampled_error_mm": 0.0015846620011986752,
+      "min_segment_length_mm": 0.11979525442123357
+    },
+    "2": {
+      "paths": 1,
+      "arcs": 34,
+      "lines": 1,
+      "max_sampled_error_mm": 0.00964964824986364,
+      "min_segment_length_mm": 0.31962669697572027
+    },
+    "3": {
+      "paths": 1,
+      "arcs": 39,
+      "lines": 0,
+      "max_sampled_error_mm": 0.009648103374379092,
+      "min_segment_length_mm": 0.49396317064565587
+    },
+    "4": {
+      "paths": 2,
+      "arcs": 3,
+      "lines": 3,
+      "max_sampled_error_mm": 0.01088379314571225,
+      "min_segment_length_mm": 0.4010383552799836
+    },
+    "5": {
+      "paths": 1,
+      "arcs": 24,
+      "lines": 3,
+      "max_sampled_error_mm": 0.007364220327168059,
+      "min_segment_length_mm": 0.6554019887923966
+    },
+    "6": {
+      "paths": 2,
+      "arcs": 26,
+      "lines": 1,
+      "max_sampled_error_mm": 0.01109645471700806,
+      "min_segment_length_mm": 0.6631992142290624
+    },
+    "7": {
+      "paths": 1,
+      "arcs": 7,
+      "lines": 2,
+      "max_sampled_error_mm": 0.0016917627590526058,
+      "min_segment_length_mm": 0.2179606273977286
+    },
+    "8": {
+      "paths": 3,
+      "arcs": 42,
+      "lines": 0,
+      "max_sampled_error_mm": 0.011097328888060254,
+      "min_segment_length_mm": 0.7403241880267508
+    },
+    "9": {
+      "paths": 2,
+      "arcs": 26,
+      "lines": 1,
+      "max_sampled_error_mm": 0.011096454717007372,
+      "min_segment_length_mm": 0.6631992142290616
+    },
+    "-": {
+      "paths": 1,
+      "arcs": 0,
+      "lines": 1,
+      "max_sampled_error_mm": 0,
+      "min_segment_length_mm": 8.0
+    },
+    " ": {
+      "paths": 0,
+      "arcs": 0,
+      "lines": 0,
+      "max_sampled_error_mm": 0,
+      "min_segment_length_mm": null
+    }
+  }
+}

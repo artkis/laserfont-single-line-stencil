@@ -1,0 +1,34 @@
+{
+  "source_sha256": "0e128ea1b4b53ff815e222bf6169b40fd5018b9cd769e65ff12e62f87dae2e3d",
+  "scope": "One occurrence of A-Z, 0-9 and hyphen at cap height20mm; geometric measures only",
+  "baseline": "Earlier three-bridge design, measured before revision2",
+  "old_open_paths": 94,
+  "new_open_paths": 67,
+  "path_reduction_percent": 28.72,
+  "old_centerline_length_mm": 1653.964,
+  "new_centerline_length_mm_approx": 1687.01,
+  "rows": {
+    "ABCDEFGHIJKLM": {
+      "old_open_paths": 34,
+      "new_open_paths": 25,
+      "path_reduction_percent": 26.47,
+      "new_cut_length_mm_approx": 605.033,
+      "old_cut_length_mm": 615.413
+    },
+    "NOPQRSTUVWXYZ": {
+      "old_open_paths": 29,
+      "new_open_paths": 23,
+      "path_reduction_percent": 20.69,
+      "new_cut_length_mm_approx": 612.043,
+      "old_cut_length_mm": 574.76
+    },
+    "0123456789-": {
+      "old_open_paths": 31,
+      "new_open_paths": 19,
+      "path_reduction_percent": 38.71,
+      "new_cut_length_mm_approx": 469.934,
+      "old_cut_length_mm": 463.791
+    }
+  },
+  "machine_time_and_actual_pierces": "Not measured"
+}
