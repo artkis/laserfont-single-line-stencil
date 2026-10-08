@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "version": "3.0.0",
+  "status": "PARTIAL",
+  "engine": "AutoCAD Core Console 2023 (T.53.0.0)",
+  "checked_at_utc": "2026-10-08T13:54:27.452946+00:00",
+  "scope": "Isolated synthetic H3/I3 drawing; no existing drawing or foreground AutoCAD session opened",
+  "laser3_sha256": "912271e0c44c0b465abab5d25abfb536edd954ddfdde4173d2ce330fab98dd0c",
+  "native_loaded_laser3_sha256": "4f1be37d6b4c62b9d00c262800dfb484b4559a5cf6c6ba673189f054e4843f6d",
+  "changes_after_native_load": "Only printed Undo status messages were qualified. Geometry, conversion, validation, grouping and cleanup logic did not change.",
+  "source_sha256": {
+    "orientation-key.json": "04d990d6b52290d38bdb8d0075aad05ccc7de7924df01ee8c35f84043ae1ed7e",
+    "cad/runtime3.lsp": "1eba5e2695d7e490995d415eea60db449cd42e85a2279c25a004d0253854ea18",
+    "cad/build_cad3.py": "a8469cadde7e28c7df749eb1d970189a1fadad0b28e90e997fd1cad2fa06ca61"
+  },
+  "native_regression": {
+    "checks": 23,
+    "passed": 22,
+    "failed": 1,
+    "failures": [
+      {
+        "check": "One native U after LASER3 removes the label",
+        "result": "FAIL",
+        "observed": "Core Console reported: Start of Group encountered. Must enter UNDO END to go back further.",
+        "qualification": "One-step Undo is unresolved in the scripted test; no GUI Undo pass is claimed."
+      }
+    ]
+  },
+  "verified": [
+    "Mandatory five-vertex open zero-width key at height 5",
+    "Exact H3 key coordinates",
+    "I3 key rotated 90 degrees",
+    "Native group contains key and every glyph path",
+    "Exact TEXT conversion and source deletion only after success",
+    "Converted glyph origin retained; key extends 4.5 units left at height 5",
+    "Rotated fitted-polyline TEXT conversion",
+    "Injected group creation refusal removes new paths and retains source text",
+    "Injected glyph creation failure removes the already-created key and retains source",
+    "Manual group failure leaves no new geometry",
+    "Hyphen-only and raw non-ASCII IDs rejected",
+    "LASER3 command accepts default cap height 5",
+    "Saved scratch DWG reopens with 26 entities and 5 groups referencing all 25 key/glyph members"
+  ],
+  "save_reopen": {
+    "result": "PASS",
+    "entities": 26,
+    "groups": 5,
+    "group_members": 25,
+    "all_group_members_exist": true,
+    "fixture_dwg_sha256": "f4194a18cf8571b7ccec61e764b05c109c4f0c368aa3734f948ca2a95489a485"
+  },
+  "static_checks": {
+    "conversion_restrictions_unchanged_from_v2": true,
+    "character_guard_stricter_ascii_and_alphanumeric": true,
+    "line_ending_portability": "Final LF-only source copy rebuild is byte-identical to final Windows checkout LASER3.lsp; canonical LF source/key digests.",
+    "v2_files_modified": false
+  },
+  "limitations": [
+    "One-step Undo failed in the scripted native test and remains unresolved.",
+    "GUI APPLOAD, normal interactive selection, cancellation, non-WCS UCS and MTEXT were not tested for v3. Existing conversion guards were retained.",
+    "CAM import, kerf, piercing, physical cutting and human orientation recognition were not tested.",
+    "Key placement cannot establish the true outside of an assembled part; separate outside-face placement proof remains necessary."
+  ]
+}

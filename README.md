@@ -1,8 +1,53 @@
-# LaserFont — Single-Line Stencil Font for Laser Cutting & CNC
+# LaserFont 3 — Single-Line Stencil IDs with an Outside-Face Key
 
-LaserFont is an original single-line stencil font for small part IDs cut directly into sheet metal. Version 2 uses fewer separate cutting paths, two bridges per enclosed counter, and smooth cubic Bézier curves while keeping letters and numbers recognizable.
+LaserFont is an original single-line stencil font for small part IDs cut directly into sheet metal. Version 3 adds a mandatory asymmetric corner key to every ID. The key exposes a reversed viewing face even when the letters themselves, such as `H3` or `I3`, look unchanged after a flip. The existing character shapes, two bridges per enclosed counter and cubic Bézier masters are retained.
 
 Designed by **Artkis**. The font is open source under the **SIL Open Font License 1.1**; the supporting utility code uses the **MIT License**. See [Licensing](LICENSING.md).
+
+## Version 3.0.0 — 8 October 2026
+
+![Actual saved DXF front and back comparisons](examples/laserfont3-front-back.png)
+
+Read the complete **key + ID** from the final assembly's outside face: **long arm LEFT, base BELOW, short arm RIGHT**. This rule applies to both top and bottom sheets. The key is an orientation symbol, not another letter in the part code.
+
+At the default **5 mm cap height**, the key is 5 mm high and 3 mm wide, with a 1.5 mm gap before the code. It adds one continuous open path and 4.5 mm of label width. It creates no closed extra hole. The key and characters are grouped together in the DXF. Keep the complete group together when positioning or nesting.
+
+The revised exporter always includes the key; it cannot be disabled. The unchanged version 2 exporter remains available for historical reproduction, but it does **not** provide this orientation cue.
+
+### Generate a version 3 ID
+
+```console
+python -m pip install -r requirements.txt
+python generate_laserfont3.py --text H3 --height 5 --output H3-keyed.dxf
+python generate_laserfont3.py --text I3 --height 5 --mode polyline --output I3-keyed.dxf
+```
+
+`--x` and `--y` locate the key's left baseline. Rotation applies to the whole label. Exact mode retains the Bézier character paths; polyline mode uses the existing fitted arc characters. In both modes the new key is one open, zero-width polyline.
+
+For AutoCAD, load [cad/LASER3.lsp](cad/LASER3.lsp) and use `LASER3` (default height 5 drawing units). `LASEROUT3` and `LASERPOLY3` convert supported editable `laserfont2` text while retaining the character baseline and adding the key to its left. The key and glyphs form one native drawing group. See [the version 3 AutoCAD notes](cad/README-v3.md) for the checked command paths and remaining limits.
+
+**AutoCAD qualification is partial:** one-step Undo failed in the isolated scripted test and remains unresolved. Test these commands in a saved drawing copy; the Python/DXF route has separate passing tests.
+
+### Samples and checks
+
+- [Complete keyed character set](examples/laserfont3-alphabet.png)
+- [5 mm exact DXF samples](examples/laserfont3-H5-samples-bezier.dxf)
+- [5 mm arc/polyline DXF samples](examples/laserfont3-H5-samples-polyline.dxf)
+- [A4 specimen at actual size](examples/laserfont3-H5-print.pdf) — print at 100% and check the 50 mm scale line.
+
+```console
+python -m pip install -r requirements-validation.txt
+python -m unittest discover -s tests -v
+python render_orientation.py
+```
+
+The regression tests reproduce the old `H3`/`I3` ambiguity, check mirrored and rotated keyed labels, preserve the original glyph controls and verify saved DXF groups, dimensions and open paths. AutoCAD Core Console 2023 checks cover key placement, rotated insertion, TEXT conversions, grouping and rollback on injected failures. These checks establish geometric distinction and the tested software behavior, not a guarantee that a person can never misread a mark.
+
+The complete label must fit within the actual part, clear of outlines, holes and bends. The font cannot choose the final assembly's exterior face: that face must be traced from the formed model to the flat before placing the ID. A correctly readable label on the wrong face is still wrong. Verify the actual CAM import and a physical 5 mm sample before treating workshop readability and cutting quality as proven.
+
+## Version 2 reference
+
+The following describes the preserved version 2 character geometry and legacy commands. Its measured path counts exclude the new version 3 key.
 
 ![LaserFont alphabet and number specimen](examples/laserfont2-preview.png)
 

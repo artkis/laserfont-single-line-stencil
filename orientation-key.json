@@ -1,0 +1,12 @@
+{
+  "name": "LaserFont outside-face corner key",
+  "version": "3.0.0",
+  "copyright": "Copyright (c) 2026 Artkis",
+  "license": "OFL-1.1",
+  "height_mm": 20,
+  "vertices_mm": [[0, 20], [0, 3.2], [3.2, 0], [12, 0], [12, 6]],
+  "text_origin_x_mm": 18,
+  "front_convention": "Key before the ID; long arm left, base below, short arm right.",
+  "geometry": "One open zero-width polyline; no closed hole.",
+  "qualification": "Geometry cue only. Outside-face placement, actual CAM and physical readability need separate verification."
+}

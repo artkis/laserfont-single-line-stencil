@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-08T13:50:33.087416+00:00",
+  "status": "PASS",
+  "tests_run": 14,
+  "failure_count": 0,
+  "error_count": 0,
+  "failed_tests": [],
+  "dependencies": {
+    "python": "3.12.14",
+    "ezdxf": "1.4.2",
+    "shapely": "2.1.2"
+  },
+  "source_sha256": {
+    "generate_laserfont3.py": "44016d8c65f897f0221b840e5fb1aba8aa6109a32aced788581b70479753332a",
+    "orientation-key.json": "04d990d6b52290d38bdb8d0075aad05ccc7de7924df01ee8c35f84043ae1ed7e",
+    "glyphs-v2.json": "0e128ea1b4b53ff815e222bf6169b40fd5018b9cd769e65ff12e62f87dae2e3d",
+    "glyphs-v2-polyline.json": "021e728c145ea845a74c8f57c1b80b3aa250baeb423ddf918ec10227262499c4",
+    "tests/test_orientation.py": "ba1346c0e2095f4c5d32b5806597b0d03fae35d6307338ef875c80d081c5b666"
+  },
+  "source_content_sha256_lf_normalized": {
+    "generate_laserfont3.py": "44016d8c65f897f0221b840e5fb1aba8aa6109a32aced788581b70479753332a",
+    "orientation-key.json": "04d990d6b52290d38bdb8d0075aad05ccc7de7924df01ee8c35f84043ae1ed7e",
+    "glyphs-v2.json": "5c34fcfd44eb854c8108914d8c25647f8ec08015158886f83d3984fffc487ab2",
+    "glyphs-v2-polyline.json": "1288a0a7900d2d92c5939ba6515645126a09ea5386ce427b26ad08513266cc8e",
+    "tests/test_orientation.py": "ba1346c0e2095f4c5d32b5806597b0d03fae35d6307338ef875c80d081c5b666"
+  },
+  "source_hash_note": "Raw hashes record the tested checkout; LF-normalized hashes allow content comparison across Git line-ending conversions.",
+  "scope": {
+    "output_modes": [
+      "bezier",
+      "polyline"
+    ],
+    "cap_heights_mm": [
+      5,
+      10,
+      20
+    ],
+    "glyphs": "A-Z, 0-9, hyphen, space",
+    "round_trip": "DXF save/reopen with two separate label groups, millimetres and transformed geometry",
+    "reflection_checks": "Sampled complete-label D4 reflections plus exact structural chirality argument for the key",
+    "sample_flattening_distance_mm": 0.0001,
+    "numeric_geometry_tolerance_mm": 1e-08
+  },
+  "results": {
+    "legacy_reflected_D4_hausdorff_mm_at_height20": {
+      "H3": [
+        6.0,
+        6.727901637046379,
+        1.4217791915866692e-15,
+        6.727901637046379
+      ],
+      "I3": [
+        4.0,
+        3.0,
+        3.552713678800501e-15,
+        3.0
+      ]
+    },
+    "key_squared_segment_lengths_at_height20": [
+      282.24,
+      20.48,
+      77.44,
+      36
+    ],
+    "key_reflection_proof": "Unique ordered segment lengths and nonparallel vectors",
+    "oriented_reflected_D4_hausdorff_mm_at_height20": {
+      "bezier:H3": [
+        8.994140625,
+        13.92838827718412,
+        6.0,
+        13.341664064126334
+      ],
+      "bezier:I3": [
+        8.994140625,
+        13.0384048104053,
+        8.0,
+        11.49040509418915
+      ],
+      "bezier:A1": [
+        9.19033863034089,
+        17.506875145803797,
+        11.925377792232462,
+        17.506875822462874
+      ],
+      "bezier:H": [
+        6.0,
+        7.0710678118654755,
+        6.0,
+        7.0710678118654755
+      ],
+      "bezier:I": [
+        8.0,
+        5.0,
+        8.0,
+        4.242640687119285
+      ],
+      "bezier:0": [
+        9.208129430310656,
+        6.142621883302819,
+        7.9487692453671865,
+        11.050285315219206
+      ],
+      "bezier:8": [
+        9.926288604736328,
+        7.0710678118654755,
+        9.05203473874977,
+        11.991530086810227
+      ],
+      "bezier:HOH": [
+        6.0,
+        21.136479922627924,
+        6.0,
+        21.739032689425432
+      ],
+      "polyline:H3": [
+        8.983679092339656,
+        13.92838827718412,
+        6.0,
+        13.341664064126334
+      ],
+      "polyline:I3": [
+        8.98987875949209,
+        13.0384048104053,
+        8.0,
+        11.487499116950987
+      ],
+      "polyline:A1": [
+        9.19033863034089,
+        17.50696532202167,
+        11.925552276863987,
+        17.50767480433488
+      ],
+      "polyline:H": [
+        6.0,
+        7.0710678118654755,
+        6.0,
+        7.0710678118654755
+      ],
+      "polyline:I": [
+        8.0,
+        5.0,
+        8.0,
+        4.242640687119285
+      ],
+      "polyline:0": [
+        9.20254540974176,
+        6.140881972691474,
+        7.946474108923627,
+        11.046661007695972
+      ],
+      "polyline:8": [
+        9.906763942193987,
+        7.0710678118654755,
+        9.056062051925283,
+        11.987835894418028
+      ],
+      "polyline:HOH": [
+        6.0,
+        21.13647992262793,
+        6.0,
+        21.73903268942543
+      ]
+    }
+  },
+  "limitations": [
+    "D4 samples compare four rotations of a reflection; they are not a continuous-angle proof for the entire label.",
+    "The unique-edge structural argument excludes any reflected congruence of the isolated key.",
+    "Human recognition, actual CAM import, kerf, piercing and physical cut readability are not tested.",
+    "A label cannot prove correct placement on the exterior of a finished part or assembly; that requires a separate placement check.",
+    "DXF groups preserve membership, but downstream software may ignore or remove grouping."
+  ]
+}

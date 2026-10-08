@@ -10,6 +10,7 @@ The following original font components are licensed under [OFL.txt](OFL.txt):
 
 - The LaserFont and laserfont2 glyph designs, including Bézier controls, stroke geometry, bridge placements, advance widths and derived arc geometry.
 - `glyphs-v2.json`, `glyphs-v2-polyline.json`, compiled glyph tables, `laserfont2.shp` and `laserfont2.shx`.
+- The version 3 orientation-key design, `orientation-key.json`, and its embedded coordinates in `LASER3.lsp`.
 - `build_glyphs.py`, which is the original, executable glyph-design source.
 - The embedded glyph tables in generated AutoLISP files. The tables retain their OFL license when packaged together with the MIT runtime.
 - Font specimen masters and collections that distribute the glyph set as reusable font geometry.
@@ -24,7 +25,7 @@ The project README and general utility documentation are also MIT-licensed. This
 
 ## Combined files
 
-A generated `LASER2.lsp` contains both OFL font tables and MIT utility code. Distribute both license files with it. The presence of MIT runtime code does not grant permission to distribute the font tables under MIT; the presence of OFL font tables does not relicense unrelated utility code under OFL.
+A generated `LASER2.lsp` or `LASER3.lsp` contains both OFL font tables and MIT utility code. Distribute both license files with it. The presence of MIT runtime code does not grant permission to distribute the font tables under MIT; the presence of OFL font tables does not relicense unrelated utility code under OFL.
 
 ## Dependencies and references
 
