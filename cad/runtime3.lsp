@@ -14,11 +14,23 @@
     (if (member (car pair) '(3 1)) (setq out (strcat out (cdr pair)))))
   out)
 
-(defun lf3:font-p (data / style fname ext)
+(defun lf3:font-name (data / style fname ext)
   (setq style (tblsearch "STYLE" (lf3:get 7 data "Standard"))
         fname (lf3:get 3 style "") ext (vl-filename-extension fname))
-  (and (= (strcase (vl-filename-base fname)) "LASERFONT2")
-       (or (not ext) (= (strcase ext) ".SHX"))))
+  (if (or (not ext) (= (strcase ext) ".SHX"))
+    (strcase (vl-filename-base fname)) nil))
+
+(defun lf3:font-p (data)
+  (member (lf3:font-name data) '("LASERFONT" "LASERFONT2" "LASERFONT3")))
+
+(defun lf3:keyed-text-p (data)
+  (and (= (lf3:font-name data) "LASERFONT3")
+       (= (substr (lf3:content data) 1 1) "~")))
+
+(defun lf3:label-content (data)
+  ;; Only the reserved first character of a v3 display label is metadata.
+  ;; Other tildes remain in the content so character validation rejects them.
+  (if (lf3:keyed-text-p data) (substr (lf3:content data) 2) (lf3:content data)))
 
 (defun lf3:chars-reason (txt / i raw code ch reason ink)
   (setq i 1 reason nil ink nil)
@@ -44,12 +56,15 @@
         layer (tblsearch "LAYER" (lf3:get 8 data "0")))
   (cond
     ((not (member kind '("TEXT" "MTEXT"))) "select TEXT or plain one-line MTEXT")
-    ((not (lf3:font-p data)) "the text style does not use laserfont2.shx")
+    ((not (lf3:font-p data)) "the text style does not use laserfont.shx, laserfont2.shx or laserfont3.shx")
     ((/= (lf3:get 4 style "") "") "a bigfont is assigned to the text style")
     ((/= (logand (lf3:get 70 style 0) 4) 0) "vertical text styles are unsupported")
+    ((and (= (lf3:font-name data) "LASERFONT3") (not (lf3:keyed-text-p data)))
+      "laserfont3 text must begin with exactly one orientation-key marker (~)")
     ((and (= kind "MTEXT")
-          (not (or (findfile (lf3:get 3 style "laserfont2.shx")) (findfile "laserfont2.shx"))))
-      "laserfont2.shx must be available for native MTEXT baseline resolution")
+          (not (or (findfile (lf3:get 3 style ""))
+                   (findfile (strcat (vl-filename-base (lf3:get 3 style "")) ".shx")))))
+      "the source style's SHX font must be available for native MTEXT baseline resolution")
     ((/= (logand (lf3:get 70 layer 0) 4) 0) "the source layer is locked")
     ((<= (lf3:get 40 data 0.0) 0.0) "text height must be positive")
     ((not (equal (lf3:get 41 style 1.0) 1.0 1e-10)) "text-style width factor must be 1")
@@ -66,7 +81,7 @@
     ((and (= kind "MTEXT") (/= (lf3:get 75 data 0) 0)) "MTEXT columns are unsupported")
     ((and (= kind "MTEXT") (/= (lf3:get 90 data 0) 0)) "MTEXT background masking is unsupported")
     ((and (= kind "MTEXT") (not (member (lf3:get 71 data 1) '(1 2 3 4 5 6 7 8 9)))) "unsupported MTEXT attachment point")
-    (T (lf3:chars-reason (lf3:content data)))))
+    (T (lf3:chars-reason (lf3:label-content data)))))
 
 (defun lf3:after (marker / out next)
   (setq next (entnext marker) out nil)
@@ -200,12 +215,15 @@
   (if reason
     (progn (princ (strcat "\nSkipped " (lf3:get 5 data "") ": " reason ".")) nil)
     (progn
-      (setq txt (strcase (lf3:content normalized)) i 1 offset 0.0
+      (setq txt (strcase (lf3:label-content normalized)) i 1
+            offset (if (lf3:keyed-text-p normalized) *lf3:text-origin* 0.0)
             insert (cdr (assoc 10 normalized)) scale (/ (cdr (assoc 40 normalized)) 20.0)
             angle (lf3:get 50 normalized 0.0) made nil
             *lf3:pending-created* nil *lf3:pending-group* nil ok T)
-      ;; Keep the original glyph origin. Add the required key to its left.
-      (if (setq next (lf3:bulged *lf3:key-points* (- *lf3:text-origin*) insert scale angle data))
+      ;; V3 display text already reserves the key advance; legacy text does not.
+      (if (setq next (lf3:bulged *lf3:key-points*
+                        (if (lf3:keyed-text-p normalized) 0.0 (- *lf3:text-origin*))
+                        insert scale angle data))
         (setq made (list next) *lf3:pending-created* made)
         (setq ok nil))
       (while (and ok (<= i (strlen txt)))
@@ -232,10 +250,10 @@
     (lf3:cleanup-temp)
     (lf3:rollback)
     (if undo-open (command-s "_.UNDO" "_End"))
-    (if msg (princ (strcat "\nLASEROUT3 stopped: " msg ". Undo needs verification in the target AutoCAD session.")))
+    (if msg (princ (strcat "\nLASEROUT3 stopped: " msg ". One UNDO reverses this batch.")))
     (princ))
   (setq *lf3:pending-created* nil *lf3:pending-group* nil *lf3:temp-marker* nil)
-  (prompt "\nSelect laserfont2 TEXT or plain one-line MTEXT to turn into exact cut paths: ")
+  (prompt "\nSelect laserfont/laserfont2/laserfont3 TEXT or plain one-line MTEXT to turn into exact cut paths: ")
   (setq sel (ssget '((0 . "TEXT,MTEXT"))))
   (if sel
     (progn
@@ -246,7 +264,7 @@
       (command-s "_.UNDO" "_End") (setq undo-open nil)
       (princ (strcat "\nLASEROUT3: " (itoa count) " labels converted; " (itoa skipped)
                      " skipped. Grouped key plus exact Bezier/line glyphs created; stencil bridges retained."
-                     " Undo needs verification in the target AutoCAD session."))))
+                     " One UNDO reverses this batch."))))
   (princ))
 
 (defun c:LASER3 (/ *error* txt reason height ins angle vec normal undo-open made)
@@ -308,12 +326,15 @@
   (if reason
     (progn (princ (strcat "\nSkipped " (lf3:get 5 data "") ": " reason ".")) nil)
     (progn
-      (setq txt (strcase (lf3:content normalized)) i 1 offset 0.0
+      (setq txt (strcase (lf3:label-content normalized)) i 1
+            offset (if (lf3:keyed-text-p normalized) *lf3:text-origin* 0.0)
             insert (cdr (assoc 10 normalized)) scale (/ (cdr (assoc 40 normalized)) 20.0)
             angle (lf3:get 50 normalized 0.0) made nil
             *lf3:pending-created* nil *lf3:pending-group* nil ok T)
-      ;; Keep the original glyph origin. Add the required key to its left.
-      (if (setq next (lf3:bulged *lf3:key-points* (- *lf3:text-origin*) insert scale angle data))
+      ;; V3 display text already reserves the key advance; legacy text does not.
+      (if (setq next (lf3:bulged *lf3:key-points*
+                        (if (lf3:keyed-text-p normalized) 0.0 (- *lf3:text-origin*))
+                        insert scale angle data))
         (setq made (list next) *lf3:pending-created* made)
         (setq ok nil))
       (while (and ok (<= i (strlen txt)))
@@ -340,10 +361,10 @@
     (lf3:cleanup-temp)
     (lf3:rollback)
     (if undo-open (command-s "_.UNDO" "_End"))
-    (if msg (princ (strcat "\nLASERPOLY3 stopped: " msg ". Undo needs verification in the target AutoCAD session.")))
+    (if msg (princ (strcat "\nLASERPOLY3 stopped: " msg ". One UNDO reverses this batch.")))
     (princ))
   (setq *lf3:pending-created* nil *lf3:pending-group* nil *lf3:temp-marker* nil)
-  (prompt "\nSelect laserfont2 TEXT or plain one-line MTEXT to turn into fitted arc/line polylines: ")
+  (prompt "\nSelect laserfont/laserfont2/laserfont3 TEXT or plain one-line MTEXT to turn into fitted arc/line polylines: ")
   (setq sel (ssget '((0 . "TEXT,MTEXT"))))
   (if sel
     (progn
@@ -354,8 +375,8 @@
       (command-s "_.UNDO" "_End") (setq undo-open nil)
       (princ (strcat "\nLASERPOLY3: " (itoa count) " labels converted; " (itoa skipped)
                      " skipped. Grouped key plus fitted arc glyph polylines created; stencil gaps retained."
-                     " Undo needs verification in the target AutoCAD session."))))
+                     " One UNDO reverses this batch."))))
   (princ))
 
-(princ "\nLASER3 loaded: LASER3 inserts keyed IDs at height 5 by default; LASEROUT3/LASERPOLY3 convert laserfont2 text with a required grouped key.")
+(princ "\nLASER3 loaded: LASER3 inserts keyed IDs at height 5 by default; LASEROUT3/LASERPOLY3 convert legacy or keyed v3 text with exactly one grouped key.")
 (princ)

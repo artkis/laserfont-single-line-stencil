@@ -11,6 +11,7 @@ The following original font components are licensed under [OFL.txt](OFL.txt):
 - The LaserFont and laserfont2 glyph designs, including Bézier controls, stroke geometry, bridge placements, advance widths and derived arc geometry.
 - `glyphs-v2.json`, `glyphs-v2-polyline.json`, compiled glyph tables, `laserfont2.shp` and `laserfont2.shx`.
 - The version 3 orientation-key design, `orientation-key.json`, and its embedded coordinates in `LASER3.lsp`.
+- The version 3 display font source `cad/laserfont3.shp` and compiled `cad/laserfont3.shx`, including the reserved orientation-key prefix glyph.
 - `build_glyphs.py`, which is the original, executable glyph-design source.
 - The embedded glyph tables in generated AutoLISP files. The tables retain their OFL license when packaged together with the MIT runtime.
 - Font specimen masters and collections that distribute the glyph set as reusable font geometry.
@@ -20,6 +21,8 @@ Converting a font to another representation does not change the license of that 
 ## Utility code and documentation (MIT)
 
 General rendering, transformation, DXF export, approximation, validation and AutoLISP command/runtime code is licensed under [LICENSE-MIT.txt](LICENSE-MIT.txt), except for the font components specifically listed above. This includes the utility portions of generated files containing both runtime code and glyph tables.
+
+The version 3 installer `cad/Install-LaserFont3.ps1`, its generated loader, `cad/integration3.lsp`, and the utility code in `cad/build_display3.py` also use the MIT License. Generated SHP/SHX font data remain under the OFL.
 
 The project README and general utility documentation are also MIT-licensed. This does not relicense the font data described in those documents, the OFL text, or any linked third-party material.
 

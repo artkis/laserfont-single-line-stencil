@@ -7,3 +7,4 @@ render_orientation.py text eol=lf
 tests/test_orientation.py text eol=lf
 validation/*orientation* text eol=lf
 examples/laserfont3-*.dxf text eol=lf
+*.shx -text

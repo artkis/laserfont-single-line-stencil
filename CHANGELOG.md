@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.0.1 — 2026-10-08
+
+- Add the compiled `laserfont3.shx` display font and its SHP source. A reserved leading `~` displays the orientation key once per ID.
+- Add `LASERFONT` to select the editable style at height 5 and `LASERTEXT3` to create an editable keyed ID. New geometry still defaults to height 5; conversion retains the source text's height.
+- Accept eligible `laserfont`, `laserfont2` and `laserfont3` text. Preserve legacy character baselines and version 3 key baselines. Reject missing, duplicated or embedded version 3 key prefixes.
+- Route familiar commands to keyed version 3 output. `LASEROUT` keeps polyline output, matching the original installed converter's output type; `LASEROUT2` and `LASEROUT3` produce exact Bézier/line geometry. `LASER2`, `LASERPOLY2` and `LASERPOLY` also use the keyed commands. Preserve the historical version 2 files.
+- Add a Windows AutoCAD 2023 installer with verified backups, existing ProductCode retention and installed-file hash checks. Preserve legacy SHX files and leave drawing files, registry security settings and the Startup Suite unchanged.
+- Pass 41 of 41 isolated AutoCAD Core Console checks, including the compiled font, editable text, compatibility aliases, cancellation and one-step Undo. Reopen the saved DWG with all 20 entities and four groups intact.
+- Resolve the earlier partial Undo test result by correcting automatic script-level grouping in the test harness. The delivered routines do not change the user's Undo settings; their runtime Begin/End logic did not require a repair.
+
+The native report records the tested scope. GUI installation and foreground use, actual CAM import, physical cutting and human recognition remain outside that isolated test suite.
+
 ## 3.0.0 — 2026-10-08
 
 - Add a mandatory full-height asymmetric key before every version 3 ID. The key provides a viewing-face cue for symmetric codes such as H3 and I3.

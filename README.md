@@ -4,7 +4,7 @@ LaserFont is an original single-line stencil font for small part IDs cut directl
 
 Designed by **Artkis**. The font is open source under the **SIL Open Font License 1.1**; the supporting utility code uses the **MIT License**. See [Licensing](LICENSING.md).
 
-## Version 3.0.0 — 8 October 2026
+## Version 3.0.1 — 8 October 2026
 
 ![Actual saved DXF front and back comparisons](examples/laserfont3-front-back.png)
 
@@ -24,9 +24,36 @@ python generate_laserfont3.py --text I3 --height 5 --mode polyline --output I3-k
 
 `--x` and `--y` locate the key's left baseline. Rotation applies to the whole label. Exact mode retains the Bézier character paths; polyline mode uses the existing fitted arc characters. In both modes the new key is one open, zero-width polyline.
 
-For AutoCAD, load [cad/LASER3.lsp](cad/LASER3.lsp) and use `LASER3` (default height 5 drawing units). `LASEROUT3` and `LASERPOLY3` convert supported editable `laserfont2` text while retaining the character baseline and adding the key to its left. The key and glyphs form one native drawing group. See [the version 3 AutoCAD notes](cad/README-v3.md) for the checked command paths and remaining limits.
+### Install for AutoCAD 2023
 
-**AutoCAD qualification is partial:** one-step Undo failed in the isolated scripted test and remains unresolved. Test these commands in a saved drawing copy; the Python/DXF route has separate passing tests.
+The release includes a compiled [laserfont3.shx](cad/laserfont3.shx) display font, [LASER3.lsp](cad/LASER3.lsp) and a [Windows installer](cad/Install-LaserFont3.ps1). Extract the complete release, then run these commands in PowerShell from its root folder:
+
+```powershell
+.\cad\Install-LaserFont3.ps1 -WhatIf
+.\cad\Install-LaserFont3.ps1
+```
+
+The installer copies the font and command files to the current user's AutoCAD 2023 Support folder and updates the LASEROUT application bundle. It backs up replaced files under `%LOCALAPPDATA%\LaserFont\backups`, retains the bundle's existing ProductCode and verifies the installed file hashes. Existing `laserfont.shx` and `laserfont2.shx` files are preserved. It does not change drawings, registry security settings or the Startup Suite.
+
+Restart AutoCAD to use the updated bundle. To refresh commands in an already open drawing, use `APPLOAD` on the installed `LASEROUT.lsp` in the AutoCAD Support folder. The installer does not load commands into a running drawing.
+
+| Command | Result |
+|---|---|
+| `LASERFONT` | Selects the LaserFont3 editable text style and sets the default text height to 5 |
+| `LASERTEXT3` | Creates an editable ID with one orientation-key prefix; default height 5 |
+| `LASER3`, `LASER2` | Creates permanent key plus exact Bézier/line geometry; default height 5 |
+| `LASEROUT2`, `LASEROUT3` | Converts supported editable text to key plus exact Bézier/line geometry |
+| `LASEROUT`, `LASERPOLY`, `LASERPOLY2`, `LASERPOLY3` | Converts supported editable text to key plus fitted arc/line polylines |
+
+These heights are **drawing units**: 5 means 5 mm in a millimetre drawing. The commands do not rescale the drawing. Conversion preserves the selected text's existing height.
+
+`LASEROUT` retains the polyline output type of the original installed converter and now includes the version 3 key. Use `LASEROUT2` or `LASEROUT3` when exact Bézier/line output is required.
+
+`LASERTEXT3` adds the reserved `~` prefix automatically; enter only the part ID. The display font draws that prefix as the corner key. When entering ordinary TEXT or MTEXT manually with the LaserFont3 style, use exactly one leading `~`, such as `~H3`. The prefix is not part of the ID. Missing, doubled or embedded prefixes are rejected during conversion.
+
+The converters accept eligible text using `laserfont.shx`, `laserfont2.shx` or `laserfont3.shx`. Legacy text retains its character baseline; the new key extends 4.5 mm to its left at height 5. Version 3 text retains its key baseline and converts to exactly one key. The key and glyphs form one native drawing group. See [the AutoCAD notes](cad/README-v3.md) for supported text properties and restrictions.
+
+SHX is a display approximation. Use `LASEROUT` for fitted polylines or `LASEROUT3` for exact Bézier/line cutting geometry; do not use `TXTEXP`.
 
 ### Samples and checks
 
@@ -41,17 +68,25 @@ python -m unittest discover -s tests -v
 python render_orientation.py
 ```
 
-The regression tests reproduce the old `H3`/`I3` ambiguity, check mirrored and rotated keyed labels, preserve the original glyph controls and verify saved DXF groups, dimensions and open paths. AutoCAD Core Console 2023 checks cover key placement, rotated insertion, TEXT conversions, grouping and rollback on injected failures. These checks establish geometric distinction and the tested software behavior, not a guarantee that a person can never misread a mark.
+The Python regression tests reproduce the old `H3`/`I3` ambiguity, check mirrored and rotated keyed labels, preserve the original glyph controls and verify saved DXF groups, dimensions and open paths.
+
+**AutoCAD Core Console 2023 passed 41 of 41 native checks.** These cover default 5-unit insertion, the compiled SHX display, editable text, legacy and version 3 conversions, aliases, grouping, cancellation, malformed prefixes and one-step Undo. A saved DWG reopened with all 20 entities in its four groups intact. See [the native test report](cad/native-test-report-v3.json).
+
+One `U` reverses a completed insertion or converted batch and restores the original converted text. The native test harness disables automatic script-level Undo grouping to check this boundary; the delivered routines do not change the user's Undo settings. The earlier partial Undo result came from the script's grouping, not a demonstrated failure of the routine's Begin/End logic.
+
+These results cover the recorded geometry and isolated native commands. GUI installation, foreground interactive use, physical Escape-key input, new MTEXT/UCS cases, CAM import and physical cutting were not tested by that suite. The checks do not establish how reliably a person will recognize the mark on a cut part.
 
 The complete label must fit within the actual part, clear of outlines, holes and bends. The font cannot choose the final assembly's exterior face: that face must be traced from the formed model to the flat before placing the ID. A correctly readable label on the wrong face is still wrong. Verify the actual CAM import and a physical 5 mm sample before treating workshop readability and cutting quality as proven.
 
-## Version 2 reference
+## Version 2 reference: historical 20-unit defaults
 
-The following describes the preserved version 2 character geometry and legacy commands. Its measured path counts exclude the new version 3 key.
+The following describes the preserved version 2 files and their original commands. Their 20-unit defaults do not apply to the installed version 3 commands above. The measured path counts exclude the version 3 key.
+
+The original `LASER2.lsp` remains available for historical reproduction. Loading it after version 3 redefines overlapping commands such as `LASER2`, `LASEROUT2` and `LASERPOLY2` with the old unkeyed behavior. Load the installed `LASEROUT.lsp` again to restore the version 3 aliases.
 
 ![LaserFont alphabet and number specimen](examples/laserfont2-preview.png)
 
-## What it provides
+### What version 2 provides
 
 - Uppercase **A-Z**, **0-9**, hyphen and space. Lowercase input maps to uppercase shapes.
 - **20 mm actual cap height** in the master geometry. The tools scale uniformly to other heights.
@@ -63,7 +98,7 @@ The following describes the preserved version 2 character geometry and legacy co
 
 The drawing is intended for **single-line through-cutting**, rather than filled text, engraving, or marking. Other CNC uses require a suitable on-path operation and a tool that can reproduce the details.
 
-## Why fewer paths and smoother curves?
+### Why fewer paths and smoother curves?
 
 A separate cut path can require another stop, repositioning move and pierce. LaserFont prioritizes fewer disconnected paths while preserving the bridges and readable character shapes. Rounded transitions also avoid many abrupt changes in direction.
 
@@ -71,7 +106,7 @@ Friendess identifies excessive nodes and micro-segments as one possible cause of
 
 The master uses tangent-continuous **G1 joins** within connected paths. It is **not universally G2 curvature-continuous**: curvature can still change at joins, and tight radii can still require deceleration. Rounded returns in `M`, `N`, `V`, `W` and `1` remain tight and warrant particular attention in a motion test. Bézier geometry alone does not guarantee smooth machine motion if CAM turns it into short line segments.
 
-## Measured design comparison
+### Measured design comparison
 
 For one occurrence of every character in `ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-`, compared with the earlier three-bridge design:
 
@@ -84,7 +119,7 @@ This is **28.72% fewer geometric paths**, with approximately **2.00% more center
 
 The comparison is recorded in [comparison-metrics.json](comparison-metrics.json); the glyph source identifies its individual path counts and bridge locations. The [geometry report](validation/geometry-report.json) records the release checks and their limits.
 
-## AutoCAD quick start
+### Original version 2 AutoCAD commands
 
 Download [LASER2.lsp](cad/LASER2.lsp). Save a copy of your drawing, then use `APPLOAD` to load the LISP file.
 
@@ -102,7 +137,7 @@ For editable text, place [laserfont2.shx](cad/laserfont2.shx) in an AutoCAD font
 
 Conversion supports left-baseline TEXT and plain, single-line MTEXT. Unsupported formatting, wrapped text, mirrored text, non-unit width factors, oblique or elevated text, and locked-layer labels are skipped and retained. Position, rotation, height, layer and applicable appearance values are preserved for accepted labels.
 
-## Choose the output geometry
+### Version 2 output geometry
 
 **Exact master:** `LASER2` and `LASEROUT2` produce one open cubic DXF `SPLINE` for each curved or mixed path, or a `LINE` for a single straight path. The master control points are preserved.
 
@@ -112,7 +147,7 @@ The fitted output can contain many circular arcs within one path. The reduction 
 
 **Display font:** SHX does not store native cubic Bézier curves. `laserfont2.shx` is a display approximation, not the cutting master. Use the supplied conversion commands to recover the master or fitted arc geometry. **Do not use `TXTEXP` to derive the cutting paths from the SHX preview.**
 
-## CAM and machine check
+### CAM and machine check
 
 The font geometry and AutoCAD behavior have been checked separately from the machine process. **Import in the actual CypCut version, actual pierce count, cycle time, cut quality, bridge strength and optical effects remain unverified.** No laser power, speed, lead-in, pierce delay or controller parameter is configured by this project.
 
@@ -124,7 +159,7 @@ Before production, use a small sample in the intended material:
 4. Check readability, actual starts/pierces, motion and the remaining metal at the bridges. A 3 mm centerline gap is not a guaranteed 3 mm finished ligament after kerf and piercing.
 5. Compare elapsed time against a baseline using the same material and process settings.
 
-## Generate an ID without AutoCAD
+### Generate a historical version 2 ID without AutoCAD
 
 Install Python 3, then install the DXF generator dependencies:
 

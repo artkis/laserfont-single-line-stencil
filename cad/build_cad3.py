@@ -62,7 +62,10 @@ def build():
         "(setq *lf3:poly-glyphs* '" + lisp(polylines) + ')\n'
         "(setq *lf3:key-points* '" + lisp(points) + ')\n'
         '(setq *lf3:text-origin* ' + lisp(key['text_origin_x_mm']) + ')\n')
-    program = header + data + ';;; END FONT DATA\n\n' + (OUT / 'runtime3.lsp').read_text(encoding='utf-8')
+    program = (header + data + ';;; END FONT DATA\n\n'
+               + (OUT / 'runtime3.lsp').read_text(encoding='utf-8')
+               + '\n;;; DISPLAY SETUP AND COMPATIBILITY COMMANDS\n'
+               + (OUT / 'integration3.lsp').read_text(encoding='utf-8'))
     return program, source_hash
 
 

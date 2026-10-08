@@ -14,7 +14,7 @@ import math
 import generate_laserfont2 as legacy
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "3.0.0"
+VERSION = "3.0.1"
 KEY = json.loads((ROOT / "orientation-key.json").read_text(encoding="utf-8"))
 new_drawing = legacy.new_drawing
 

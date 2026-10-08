@@ -1,64 +1,125 @@
 {
-  "schema": 1,
-  "version": "3.0.0",
-  "status": "PARTIAL",
+  "schema": 2,
+  "version": "3.0.1",
+  "status": "PASS",
   "engine": "AutoCAD Core Console 2023 (T.53.0.0)",
-  "checked_at_utc": "2026-10-08T13:54:27.452946+00:00",
-  "scope": "Isolated synthetic H3/I3 drawing; no existing drawing or foreground AutoCAD session opened",
-  "laser3_sha256": "912271e0c44c0b465abab5d25abfb536edd954ddfdde4173d2ce330fab98dd0c",
-  "native_loaded_laser3_sha256": "4f1be37d6b4c62b9d00c262800dfb484b4559a5cf6c6ba673189f054e4843f6d",
-  "changes_after_native_load": "Only printed Undo status messages were qualified. Geometry, conversion, validation, grouping and cleanup logic did not change.",
+  "checked_at_utc": "2026-10-08T17:09:28.046879+00:00",
+  "scope": "Isolated synthetic drawing and actual command invocations; no existing drawing or foreground AutoCAD session opened",
+  "laser3_sha256": "863e5f3166edb38c4b9dfb59d00caeeefcbc552ebe3e7c22992959a47f5f02dd",
+  "native_loaded_laser3_sha256": "863e5f3166edb38c4b9dfb59d00caeeefcbc552ebe3e7c22992959a47f5f02dd",
   "source_sha256": {
     "orientation-key.json": "04d990d6b52290d38bdb8d0075aad05ccc7de7924df01ee8c35f84043ae1ed7e",
-    "cad/runtime3.lsp": "1eba5e2695d7e490995d415eea60db449cd42e85a2279c25a004d0253854ea18",
-    "cad/build_cad3.py": "a8469cadde7e28c7df749eb1d970189a1fadad0b28e90e997fd1cad2fa06ca61"
+    "cad/runtime3.lsp": "2d08e108b5bf91007b9a421d3b634b81ce53c0dd24c411f82fc862cafbf46143",
+    "cad/integration3.lsp": "4cfa78406b7f17e9aae263f3330d33e2f3a145aa2ef786f09f4a1359bcb846d6",
+    "cad/build_cad3.py": "badf4943a2e7b6a5e0c80c12217595915544f39b049fe7e016e27409b3eb9e18",
+    "cad/laserfont3.shx": "7f7e96150ce879b940ee920d771bfba2d12d4d4cdb770259ffdffcb16361ee9d"
   },
   "native_regression": {
-    "checks": 23,
-    "passed": 22,
-    "failed": 1,
-    "failures": [
-      {
-        "check": "One native U after LASER3 removes the label",
-        "result": "FAIL",
-        "observed": "Core Console reported: Start of Group encountered. Must enter UNDO END to go back further.",
-        "qualification": "One-step Undo is unresolved in the scripted test; no GUI Undo pass is claimed."
-      }
+    "checks": 41,
+    "passed": 41,
+    "failed": 0,
+    "failures": [],
+    "checks_passed": [
+      "LASER3 default height creates key and four glyph paths",
+      "default cap height is 5 with exact key coordinates",
+      "manual key and glyphs have one group",
+      "one U reverses manual geometry and group",
+      "LF_TEST_1 LASEROUT3 source replaced",
+      "LF_TEST_1 LASEROUT3 exactly one key and complete group",
+      "LF_TEST_1 key baseline and rotation preserved",
+      "one U restores LF_TEST_1 source and removes conversion group",
+      "LF_TEST_2 LASERPOLY3 source replaced",
+      "LF_TEST_2 LASERPOLY3 exactly one key and complete group",
+      "LF_TEST_2 key baseline and rotation preserved",
+      "one U restores LF_TEST_2 source and removes conversion group",
+      "LF_TEST_3 LASEROUT3 source replaced",
+      "LF_TEST_3 LASEROUT3 exactly one key and complete group",
+      "LF_TEST_3 key baseline and rotation preserved",
+      "one U restores LF_TEST_3 source and removes conversion group",
+      "LF_TEST_3 LASERPOLY3 source replaced",
+      "LF_TEST_3 LASERPOLY3 exactly one key and complete group",
+      "LF_TEST_3 key baseline and rotation preserved",
+      "one U restores LF_TEST_3 source and removes conversion group",
+      "reject malformed LF_TEST_3 H3 without orphan key",
+      "reject malformed LF_TEST_3 ~~H3 without orphan key",
+      "reject malformed LF_TEST_3 ~H~3 without orphan key",
+      "reject malformed LF_TEST_2 ~H3 without orphan key",
+      "reject malformed LF_TEST_1 ~I3 without orphan key",
+      "manual cancellation removes partial key and closes own Undo group",
+      "conversion cancellation retains original and removes partial key",
+      "three final manual exact fitted labels ready for save",
+      "LASERFONT selects native v3 style and height 5",
+      "LASERTEXT3 creates exactly one reserved key prefix at default height 5",
+      "compiled SHX displays native key plus H3 at 5 mm height",
+      "LASEROUT legacy alias converts editable v3 once with original key baseline",
+      "LASEROUT preserves production polyline-only output including the key",
+      "LASEROUT polyline conversion Undo restores keyed editable text",
+      "LASEROUT2 exact alias creates one key plus exact glyph paths",
+      "LASEROUT2 exact conversion Undo restores keyed editable text",
+      "LASERPOLY2 alias emits v3 keyed fitted paths",
+      "alias fitted conversion Undo restores keyed editable text",
+      "LASERPOLY alias emits v3 keyed fitted paths",
+      "LASER2 alias creates a v3 keyed label",
+      "one U reverses aliased manual label"
     ]
   },
-  "verified": [
-    "Mandatory five-vertex open zero-width key at height 5",
-    "Exact H3 key coordinates",
-    "I3 key rotated 90 degrees",
-    "Native group contains key and every glyph path",
-    "Exact TEXT conversion and source deletion only after success",
-    "Converted glyph origin retained; key extends 4.5 units left at height 5",
-    "Rotated fitted-polyline TEXT conversion",
-    "Injected group creation refusal removes new paths and retains source text",
-    "Injected glyph creation failure removes the already-created key and retains source",
-    "Manual group failure leaves no new geometry",
-    "Hyphen-only and raw non-ASCII IDs rejected",
-    "LASER3 command accepts default cap height 5",
-    "Saved scratch DWG reopens with 26 entities and 5 groups referencing all 25 key/glyph members"
-  ],
+  "undo_diagnosis": {
+    "prior_result": "PARTIAL: 22 of 23 checks; U stopped at a script-level open Undo group.",
+    "cause": "The original harness retained automatic command/script Undo grouping. The revised isolated harness disables automatic grouping before invoking commands and issuing U.",
+    "runtime_undo_logic_changed": false,
+    "runtime_changes_user_undo_settings": false,
+    "current_result": "PASS: manual, both conversion modes, legacy styles, keyed v3 styles and compatibility aliases reverse in one U; conversions restore their original TEXT.",
+    "source": "https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-Customization/files/GUID-95BB6824-0700-4019-9672-E6B502659E9E.htm"
+  },
   "save_reopen": {
     "result": "PASS",
-    "entities": 26,
-    "groups": 5,
-    "group_members": 25,
+    "entities": 20,
+    "groups": 4,
+    "group_members": 20,
     "all_group_members_exist": true,
-    "fixture_dwg_sha256": "f4194a18cf8571b7ccec61e764b05c109c4f0c368aa3734f948ca2a95489a485"
+    "fixture_dwg_sha256": "1dc6e5275b574c41531398d79d07abf9575335c8a1a7ff2f04640a8ee4261cf1"
+  },
+  "display_font": {
+    "result": "PASS",
+    "actual_compiled_shx_used": true,
+    "editable_text": "~H3",
+    "height_mm": 5,
+    "native_textbox_mm": [
+      11.5,
+      5.0
+    ],
+    "key_marker_is_reserved_prefix": true
+  },
+  "conversion_contract": {
+    "legacy_fonts": [
+      "LASERFONT",
+      "LASERFONT2"
+    ],
+    "legacy_glyph_baseline_preserved": true,
+    "legacy_key_offset_at_height_5": -4.5,
+    "v3_font": "LASERFONT3",
+    "v3_exactly_one_leading_key_required": true,
+    "v3_key_baseline_preserved": true,
+    "v3_glyph_offset_at_height_5": 4.5,
+    "duplicate_or_embedded_key_rejected": true
   },
   "static_checks": {
-    "conversion_restrictions_unchanged_from_v2": true,
-    "character_guard_stricter_ascii_and_alphanumeric": true,
-    "line_ending_portability": "Final LF-only source copy rebuild is byte-identical to final Windows checkout LASER3.lsp; canonical LF source/key digests.",
+    "character_guard": "Raw ASCII validated before uppercase; at least one letter or digit required",
+    "line_ending_portability": "Final LF-only source copy rebuild is byte-identical to final Windows checkout LASER3.lsp",
     "v2_files_modified": false
   },
   "limitations": [
-    "One-step Undo failed in the scripted native test and remains unresolved.",
-    "GUI APPLOAD, normal interactive selection, cancellation, non-WCS UCS and MTEXT were not tested for v3. Existing conversion guards were retained.",
-    "CAM import, kerf, piercing, physical cutting and human orientation recognition were not tested.",
-    "Key placement cannot establish the true outside of an assembled part; separate outside-face placement proof remains necessary."
-  ]
+    "GUI APPLOAD and foreground interactive use were not tested by this isolated Core Console suite.",
+    "Cancellation was exercised by native quit/exit injection after key creation; physical keyboard Escape was not simulated.",
+    "MTEXT, arbitrary UCS transforms and CAM import were not newly tested; existing conversion restrictions remain.",
+    "Physical cutting, kerf, piercing and human orientation recognition were not tested.",
+    "Label geometry does not establish the true outside face of a fabricated assembly."
+  ],
+  "command_aliases": {
+    "LASEROUT": "LASERPOLY3 - preserves original production polyline output format",
+    "LASEROUT2": "LASEROUT3 - adds mandatory key to exact glyph output",
+    "LASERPOLY": "LASERPOLY3",
+    "LASERPOLY2": "LASERPOLY3",
+    "LASER2": "LASER3"
+  }
 }
