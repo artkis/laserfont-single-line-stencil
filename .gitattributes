@@ -1,0 +1,9 @@
+# Generated v3 checksums and reproducible builds use LF on every platform.
+# Preserve the historical v2 checkout conventions.
+cad/*3* text eol=lf
+generate_laserfont3.py text eol=lf
+orientation-key.json text eol=lf
+render_orientation.py text eol=lf
+tests/test_orientation.py text eol=lf
+validation/*orientation* text eol=lf
+examples/laserfont3-*.dxf text eol=lf
