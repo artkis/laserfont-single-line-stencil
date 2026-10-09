@@ -84,5 +84,5 @@
       c:LASERPOLY2 nil c:LASERPOLY3 nil c:LASER2 nil c:LASER3 nil
       c:LASERTEXT3 nil)
 (defun c:LASEROUT () (lf3:command-poly))
-(princ "\nLASEROUT loaded: convert plain TEXT/MTEXT to grouped cut paths with one orientation key. LASERFONT selects the 5 mm default.")
+(princ "\nLASEROUT loaded: convert plain TEXT/MTEXT to separate polylines with one orientation arrow. No GROUP created. LASERFONT selects the 5 mm default.")
 (princ)

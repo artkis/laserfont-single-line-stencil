@@ -1,4 +1,4 @@
-# LaserFont for AutoCAD — 3.0.3, 9 October 2026
+# LaserFont for AutoCAD — 3.0.4, 9 October 2026
 
 Use **LASEROUT** to convert ordinary editable IDs into open cutting polylines
 with one simple orientation arrow. **LASERFONT** sets up the text style and default
@@ -28,8 +28,15 @@ settings or the Startup Suite.
 
 The result contains fitted circular-arc/line `LWPOLYLINE` glyphs and one arrow.
 Its stem and chevron are two open, zero-width paths, with no closed hole.
-Both arrow paths and the glyphs belong to one drawing group.
+All paths are separate entities; `LASEROUT` creates no AutoCAD group.
+No `UNGROUP` step is needed after conversion.
 The cutting geometry needs no installed font on the receiving machine.
+
+**Confirm conversion:** read the final command-line summary for the number of
+text objects converted and skipped. Skipped labels remain editable text; the
+command prints each reason above the summary. For a successful label, select
+one path: it selects independently, and the Properties palette shows
+**Polyline**, not Text or MText. Appearance alone is not the conversion check.
 
 The default is **5 drawing units**, or 5 mm in a millimetre drawing. Conversion
 preserves the selected label's existing height: a **2.5 mm label remains
@@ -67,10 +74,9 @@ The tool cannot determine which face of a part is outside. Place the label
 from a verified outside-face view of the finished assembly. A readable label
 on the wrong face still indicates a placement error.
 
-Each completed label is an AutoCAD `GROUP`. Enable group selection
-(`PICKSTYLE` 1 or 3) when moving labels; the routine does not change that
-setting. Grouping is a selection aid, not a lock. Move, rotate and copy the
-complete arrow and ID together.
+Select the individual paths directly. When moving or rotating a complete
+label, include its arrow and all character paths. This ungrouped output applies
+to AutoCAD `LASEROUT`; the separate Python DXF exporter still creates groups.
 
 ## Supported input and Undo
 
@@ -82,10 +88,10 @@ background masks and unsupported attachments are rejected.
 For supported MTEXT, a temporary ordinary `EXPLODE` resolves the native TEXT
 baseline. The original remains if that step fails. `TXTEXP` is never used.
 
-Both arrow paths, the glyphs and the group must succeed before conversion commits. A
+Both arrow paths and all glyph paths must succeed before conversion commits. A
 failure removes the current label's new geometry and retains its original
 text. Cancellation follows the same rule. One `U`/`UNDO` reverses a completed
-conversion batch, including its groups, and restores the original text.
+conversion batch and restores the original text.
 
 The isolated native test harness disables automatic script-level Undo
 grouping before checking routine-level Undo. The delivered routine does not
@@ -100,7 +106,7 @@ glyph preservation, the arrow-and-ID arrangement, reflections and DXF reopening.
 
 CAM import, physical cutting, kerf, piercing and human recognition require
 separate checks. The mark does not establish assembly handedness or physical
-readability. Use a saved drawing copy when checking conversion, grouping,
+readability. Use a saved drawing copy when checking conversion, individual path selection,
 skipped input, cancellation and Undo with the intended text and UCS.
 
 ## Source and license
@@ -116,7 +122,5 @@ fonts remain [OFL-1.1](../OFL.txt). The installer, runtime, builders and this
 documentation use [MIT](../LICENSE-MIT.txt). Distribute both licenses with
 the combined runtime.
 
-Grouping uses Autodesk's documented
-[GROUP DXF data](https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-DXF/files/GUID-5F1372C4-37C8-4056-9303-EE1715F58E67.htm).
 Autodesk documents that [scripts form their own Undo group](https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-Customization/files/GUID-95BB6824-0700-4019-9672-E6B502659E9E.htm)
 and recommends [Begin/End for routine-level Undo](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-4481039B-77DA-4500-AE8B-3D2AD6951115.htm).

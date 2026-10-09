@@ -1,24 +1,24 @@
 {
   "schema": 3,
-  "version": "3.0.3",
+  "version": "3.0.4",
   "status": "PASS_WITH_STATED_SCOPE",
   "engine": "AutoCAD Core Console 2023 (T.53.0.0)",
-  "checked_at_utc": "2026-10-09T04:05:37.375145+00:00",
-  "scope": "Isolated copies of two plain single-line MTEXT entities and four synthetic rotated TEXT cases; actual LASEROUT command invocations. No active drawing, foreground AutoCAD window or production source was changed.",
-  "laser3_sha256": "0b69c7b80919846c612b8e60419e2261539a3e8dcfef9d3b9352c8eb91bb2f9d",
-  "native_loaded_laser3_sha256": "0b69c7b80919846c612b8e60419e2261539a3e8dcfef9d3b9352c8eb91bb2f9d",
+  "checked_at_utc": "2026-10-09T04:34:49.479118+00:00",
+  "scope": "Isolated copies of two plain single-line MTEXT entities and four synthetic 5 mm rotated TEXT cases; actual LASEROUT command invocations with independent polyline output. No active drawing, foreground AutoCAD window or production source was changed.",
+  "laser3_sha256": "4bc4dd4d779398f21e59665605813f31395b9a9fbdae25ca9cb9eb4b1ca14c98",
+  "native_loaded_laser3_sha256": "4bc4dd4d779398f21e59665605813f31395b9a9fbdae25ca9cb9eb4b1ca14c98",
   "source_sha256": {
     "orientation-key.json": "91c0df9167bbf979076a21232935812c899aaea6de684af65af591457e32efbd",
-    "cad/runtime3.lsp": "ee5910a4c625dbb16060e320f10dcc5b07b4e474bea771749f34cb8a54472bca",
-    "cad/integration3.lsp": "b38c434e5877f3a87a4a313f2b48f697ae42d6ab56110692eb9ef39692d6a679",
+    "cad/runtime3.lsp": "fc3ae83d642bac1d822ce384184c49e62d9998d19c5cf390daf9982f7884f53d",
+    "cad/integration3.lsp": "0d137a00808c4b1914b84ad7017e080f60ad0fe97915f7cd3d7995b93c2b0a1f",
     "cad/build_cad3.py": "876e5faa624da65078a5c97a0d443c05065731bbfefef3530238af28a16b1ece",
     "cad/build_display3.py": "e7e5fda36bc8d10c579e9b1e138f24dd937fb7c6224a66f68214d7c2d0afc777",
     "cad/laserfont3.shp": "90f98423f25d2ca547a689de27030d080db3ce97f5f25d70e9256ae745d9afc2",
     "cad/laserfont3.shx": "326a2258f914457dc58e575f4378d27b14c5206dfa9ff124cf6c440aeb80079a"
   },
   "native_regression": {
-    "checks": 68,
-    "passed": 68,
+    "checks": 69,
+    "passed": 69,
     "failed": 0,
     "failures": [],
     "suites": [
@@ -43,8 +43,8 @@
           "exactly one arrow symbol consisting of one shaft and one head",
           "both arrow strokes have exact source-height coordinates before original glyph baseline",
           "first glyph starts at exact native-source position",
-          "one arrow-and-ID group added",
-          "one group contains precisely every arrow-and-glyph path",
+          "LASEROUT creates no new GROUP",
+          "every created arrow and glyph polyline is independent of all GROUPs",
           "one U restores original MTEXT entity",
           "Undo restores exact original content, height, insertion, width, attachment and normal",
           "Undo removes every converted polyline without extra live entities",
@@ -73,8 +73,8 @@
           "exactly one arrow symbol consisting of one shaft and one head",
           "both arrow strokes have exact source-height coordinates before original glyph baseline",
           "first glyph starts at exact native-source position",
-          "one arrow-and-ID group added",
-          "one group contains precisely every arrow-and-glyph path",
+          "LASEROUT creates no new GROUP",
+          "every created arrow and glyph polyline is independent of all GROUPs",
           "one U restores original MTEXT entity",
           "Undo restores exact original content, height, insertion, width, attachment and normal",
           "Undo removes every converted polyline without extra live entities",
@@ -83,35 +83,36 @@
         "failures": []
       },
       {
-        "name": "single_command_rotated_bare_and_prefixed_text",
-        "checks": 26,
-        "passed": 26,
+        "name": "single_command_rotated_text_and_rejection_guards",
+        "checks": 27,
+        "passed": 27,
         "failed": 0,
         "checks_passed": [
           "SC_V1 H3 passes source guard",
           "SC_V1 H3 replaced only by complete open zero-width polylines",
           "SC_V1 H3 has exactly placed 5 mm rotated arrow shaft and head",
-          "SC_V1 H3 adds one arrow-and-ID group",
+          "SC_V1 H3 creates no new GROUP",
           "one U restores SC_V1 H3 and removes all output/group",
           "SC_V2 I3 passes source guard",
           "SC_V2 I3 replaced only by complete open zero-width polylines",
           "SC_V2 I3 has exactly placed 5 mm rotated arrow shaft and head",
-          "SC_V2 I3 adds one arrow-and-ID group",
+          "SC_V2 I3 creates no new GROUP",
           "one U restores SC_V2 I3 and removes all output/group",
           "SC_V3 H3 passes source guard",
           "SC_V3 H3 replaced only by complete open zero-width polylines",
           "SC_V3 H3 has exactly placed 5 mm rotated arrow shaft and head",
-          "SC_V3 H3 adds one arrow-and-ID group",
+          "SC_V3 H3 creates no new GROUP",
           "one U restores SC_V3 H3 and removes all output/group",
           "SC_V3 ~I3 passes source guard",
           "SC_V3 ~I3 replaced only by complete open zero-width polylines",
           "SC_V3 ~I3 has exactly placed 5 mm rotated arrow shaft and head",
-          "SC_V3 ~I3 adds one arrow-and-ID group",
+          "SC_V3 ~I3 creates no new GROUP",
           "one U restores SC_V3 ~I3 and removes all output/group",
           "reject SC_V3 ~~H3 without deleting source or creating orphan key",
           "reject SC_V3 ~H~3 without deleting source or creating orphan key",
           "reject SC_V2 ~H3 without deleting source or creating orphan key",
           "reject SC_V3 --- without deleting source or creating orphan key",
+          "reject SC_UNSUPPORTED H3 without deleting source or creating orphan key",
           "all eight retired public versioned/insertion/poly aliases are cleared",
           "LASERFONT selects v3 style and 5 mm default"
         ],
@@ -120,7 +121,7 @@
     ]
   },
   "public_commands": {
-    "LASEROUT": "The sole conversion command. Creates grouped open zero-width LWPOLYLINE glyphs and one two-stroke upward arrow.",
+    "LASEROUT": "The sole conversion command. Creates separate open zero-width LWPOLYLINE glyphs and a two-stroke upward arrow, without creating a GROUP.",
     "LASERFONT": "Selects the LaserFont3 display style and sets the default text height to 5.",
     "retired_commands_verified_cleared_on_reload": [
       "LASEROUT2",
@@ -139,16 +140,16 @@
       {
         "source_height": 2.5,
         "output_entities": 39,
-        "output_groups": 1,
-        "group_members": 39,
+        "new_groups": 0,
+        "output_entities_with_group_membership": 0,
         "arrow_symbols": 1,
         "arrow_paths": 2
       },
       {
         "source_height": 20.0,
         "output_entities": 20,
-        "output_groups": 1,
-        "group_members": 20,
+        "new_groups": 0,
+        "output_entities_with_group_membership": 0,
         "arrow_symbols": 1,
         "arrow_paths": 2
       }
@@ -156,7 +157,9 @@
     "source_height_native_glyph_positions_and_layer_preserved": true,
     "one_U_restores_exact_source_and_removes_all_output": true,
     "fixture_dependency_note": "The first ObjectDBX copy retained the destination Standard font and was restored in the private unsaved copy to its independently verified source LaserFont3 style. The second copied style already matched. Both fixtures resolved the freshly compiled arrow font from the test search path.",
-    "narrow_width_case": "The second actual MTEXT has a narrow reference width but its uninterrupted string resolves natively to one TEXT line. No multiline or wrap patch was required."
+    "narrow_width_case": "The second actual MTEXT has a narrow reference width but its uninterrupted string resolves natively to one TEXT line. No multiline or wrap patch was required.",
+    "output_entities_are_independent_open_zero_width_polylines": true,
+    "unsupported_font_and_malformed_text_retained_without_orphan_paths": true
   },
   "conversion_contract": {
     "supported_style_fonts": [
@@ -171,24 +174,26 @@
     "prefixed_v3_glyph_offset_at_height_5": 4.5,
     "duplicate_or_embedded_key_rejected": true,
     "existing_text_height_preserved": true,
-    "new_text_default_height": 5
+    "new_text_default_height": 5,
+    "public_laserout_creates_group": false
   },
   "undo_verification": {
     "result": "PASS",
-    "tested": "LASEROUT followed by one U restores both actual MTEXT copies and all four rotated v1/v2/v3 TEXT cases, removing every output path and the conversion group.",
+    "tested": "LASEROUT followed by one U restores both actual MTEXT copies and all four rotated v1/v2/v3 TEXT cases, removes every output polyline and leaves the original GROUP count unchanged.",
     "harness_configuration": "Automatic command/script Undo grouping disabled only in each isolated test profile.",
     "runtime_changes_user_undo_settings": false
   },
   "prior_release_evidence_not_rerun": {
-    "version": "3.0.2",
-    "laser3_sha256": "080c2ee9e77c4ca55b12f2974179c3ce8b7e5b426af48580f9cb7968dd528725",
-    "native_checks_passed": 47,
-    "scope_note": "Historical corner-key release evidence only; the current arrow geometry is covered by the new 68-check suite and compiled-font decoding."
+    "version": "3.0.3",
+    "laser3_sha256": "0b69c7b80919846c612b8e60419e2261539a3e8dcfef9d3b9352c8eb91bb2f9d",
+    "native_checks_passed": 68,
+    "scope_note": "Historical grouped-arrow release evidence. Public LASEROUT now omits GROUP creation; the current independent-path behavior is covered by the new 69-check suite."
   },
   "limitations": [
-    "This suite does not verify GUI APPLOAD, the active drawing or the installed arrow candidate; those require separate installation/live proof.",
+    "This suite does not verify GUI APPLOAD, the active drawing or the installed 3.0.4 candidate; those require separate installation/live proof.",
     "Native MTEXT proof covers the two reproduced plain single-line top-left cases. Inline formatting, wrapping, columns and unsupported style overrides remain guarded.",
-    "Cancellation, save/reopen, internal exact-curve helpers and arbitrary UCS transforms were not rerun for this arrow candidate.",
+    "The independent-path change applies to public LASEROUT. Internal exact-curve helpers retain their existing grouping behavior and were not rerun.",
+    "Cancellation, save/reopen and arbitrary UCS transforms were not rerun for this candidate.",
     "CAM import, physical cutting, kerf, piercing and human orientation recognition were not tested.",
     "Label geometry does not establish the true outside face of a fabricated assembly."
   ],
@@ -226,8 +231,9 @@
     "height_at_default_text_size": 5,
     "width_at_default_text_size": 3,
     "text_origin_advance_at_default_size": 4.5,
-    "same_group_as_glyphs": true,
-    "qualification": "The arrow is symmetric by itself. Its before-ID position and up direction are read with the complete ID. It is a text-reading cue, not an installation UP instruction."
+    "same_group_as_glyphs": false,
+    "qualification": "The arrow is symmetric by itself. Its before-ID position and up direction are read with the complete ID. It is a text-reading cue, not an installation UP instruction.",
+    "output_polylines_independent": true
   },
   "compiled_display_verification": {
     "result": "PASS",
@@ -257,6 +263,7 @@
         5
       ]
     },
-    "details": "display-build-report-v3.json"
+    "details": "display-build-report-v3.json",
+    "proof_continuity": "The SHP/SHX arrow geometry and compiled bytes are unchanged from 3.0.3; their native compile and decoded-stroke proof still match the current file hashes."
   }
 }

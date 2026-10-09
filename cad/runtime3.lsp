@@ -359,7 +359,9 @@
                   (setq ok nil))))
             (setq offset (+ offset (cadr glyph)))))
         (setq i (1+ i)))
-      (if (and ok made (lf3:group-id (reverse made)) (entdel ent))
+      ;; Public LASEROUT leaves each cut path independently selectable.
+      ;; Commit only after every path exists; keep the source on failure.
+      (if (and ok made (entdel ent))
         (progn (setq *lf3:pending-created* nil *lf3:pending-group* nil) T)
         (progn
           (lf3:rollback)
@@ -382,8 +384,8 @@
         (if (lf3:convert-poly (ssname sel index)) (setq count (1+ count)) (setq skipped (1+ skipped)))
         (setq index (1+ index)))
       (command-s "_.UNDO" "_End") (setq undo-open nil)
-      (princ (strcat "\nLASEROUT: " (itoa count) " labels converted; " (itoa skipped)
-                     " skipped. Arrow plus ID converted to grouped cutting polylines; stencil gaps retained."
+      (princ (strcat "\nLASEROUT: " (itoa count) " text converted to separate POLYLINE cut paths; " (itoa skipped)
+                     " skipped (text kept). No GROUP created; stencil gaps retained."
                      " One UNDO reverses this batch."))))
   (princ))
 

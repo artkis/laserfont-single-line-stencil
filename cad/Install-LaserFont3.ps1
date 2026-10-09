@@ -19,7 +19,7 @@ param(
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
-$version = '3.0.3'
+$version = '3.0.4'
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 
 function Get-FullDirectory([string] $Path) {
@@ -136,7 +136,7 @@ finally { $xmlWriter.Dispose(); $xmlStream.Dispose() }
 
 $corePath = ConvertTo-LispPath (Join-Path $support 'LASER3.lsp')
 $loader = @"
-;;; LaserFont 3.0.3 demand loader. Utility code: MIT.
+;;; LaserFont 3.0.4 demand loader. Utility code: MIT.
 ;;; Absolute installation paths avoid loading a different copy from a drawing folder.
 ;;; LASER3.lsp already embeds its integration commands.
 (load "$corePath")
@@ -166,7 +166,7 @@ foreach ($folder in @($support, $contents)) {
     }
 }
 
-if (-not $PSCmdlet.ShouldProcess(($support + ' and ' + $bundle), 'Back up existing files and install LaserFont 3.0.3 with LASEROUT and LASERFONT')) {
+if (-not $PSCmdlet.ShouldProcess(($support + ' and ' + $bundle), 'Back up existing files and install LaserFont 3.0.4 with LASEROUT and LASERFONT')) {
     [pscustomobject]@{Status='NotApplied'; Version=$version; SourceDirectory=$source; SupportDirectory=$support; BundleDirectory=$bundle; FileCount=$targets.Count; Commands=$commands}
     return
 }

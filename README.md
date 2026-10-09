@@ -1,16 +1,16 @@
 # LaserFont 3 — Single-Line Stencil IDs with an Orientation Arrow
 
-LaserFont is an original single-line stencil font for small part IDs cut directly into sheet metal. Version 3.0.3 places a simple **↑ arrow before each ID**. Read the arrow's position and direction together with the letters to check viewing orientation, including codes such as `H3` or `I3` whose characters alone can look unchanged after a flip. The original character shapes, two bridges per enclosed counter and cubic Bézier masters are retained.
+LaserFont is an original single-line stencil font for small part IDs cut directly into sheet metal. Version 3.0.4 places a simple **↑ arrow before each ID**. Read the arrow's position and direction together with the letters to check viewing orientation, including codes such as `H3` or `I3` whose characters alone can look unchanged after a flip. The original character shapes, two bridges per enclosed counter and cubic Bézier masters are retained.
 
 Designed by **Artkis**. The font is open source under the **SIL Open Font License 1.1**; the supporting utility code uses the **MIT License**. See [Licensing](LICENSING.md).
 
-## Version 3.0.3 — 9 October 2026
+## Version 3.0.4 — 9 October 2026
 
 ![Actual saved DXF front and back comparisons](examples/laserfont3-front-back.png)
 
 From the intended outside face, the **arrow is before the ID and points toward the top of the readable lettering**. This rule applies to both top and bottom sheets. The arrow follows the label's rotation; it does not specify the assembly's global up direction. It is a symbol, not another character in the part code.
 
-At the default **5 mm cap height**, the arrow is 5 mm high and 3 mm wide, with a 1.5 mm gap before the code. A stem and chevron form **two open paths representing one arrow**, with no closed hole. The arrow adds 4.5 mm of label width. Its two paths and the characters are grouped together in the DXF; keep the complete group together when positioning or nesting.
+At the default **5 mm cap height**, the arrow is 5 mm high and 3 mm wide, with a 1.5 mm gap before the code. A stem and chevron form **two open paths representing one arrow**, with no closed hole. The arrow adds 4.5 mm of label width. AutoCAD `LASEROUT` produces separate open polylines without creating a group. The Python DXF exporter still groups the arrow and characters together.
 
 The plain arrow alone has mirror symmetry. The viewing-face cue is the complete arrangement: **arrow before ID, pointing toward the top of the lettering**. The exporter always includes the arrow; it cannot be disabled. The unchanged version 2 exporter remains available for historical reproduction without this cue.
 
@@ -41,9 +41,11 @@ Restart AutoCAD to use the updated bundle. To refresh commands in an already ope
 
 1. Run `LASERFONT` once to select the LaserFont3 text style and set the default text height to **5**.
 2. Use ordinary AutoCAD `TEXT` or plain one-line `MTEXT`. Type the ID normally, for example `H3` or `I3`.
-3. Run **`LASEROUT`** and select the text. It creates the open arc/line cutting polylines and one orientation arrow, grouped with the ID.
+3. Run **`LASEROUT`** and select the text. It creates the open arc/line cutting polylines and one orientation arrow as separate, ungrouped entities. No `UNGROUP` step is needed.
 
 `LASEROUT` is the only conversion command. `LASERFONT` is a setup command; no numbered conversion or insertion commands are needed.
+
+To confirm conversion, read the final command-line **converted** and **skipped** counts. Skipped labels remain editable text, with a reason printed above the summary. Select a successfully converted path: it selects independently and the Properties palette shows **Polyline**, not Text or MText.
 
 Heights are **drawing units**: 5 means 5 mm in a millimetre drawing. The setup default does not resize existing text. Conversion preserves the selected text's height, so an existing **2.5 mm** label stays **2.5 mm**.
 
@@ -68,7 +70,7 @@ python render_orientation.py
 
 The Python regression suite covers the old `H3`/`I3` ambiguity, mirrored and rotated label arrangements, original glyph controls, and saved DXF groups, dimensions and open paths. Check the recorded build version and source hashes when using its results.
 
-Native AutoCAD checks record text conversion, the compiled display font, grouping, cancellation, Undo and saved-drawing reopening in [the native test report](cad/native-test-report-v3.json). The report's version and source hashes identify the build tested; results from an earlier version do not verify a later command change.
+Native AutoCAD checks record text conversion, the compiled display font, entity structure, cancellation, Undo and saved-drawing reopening in [the native test report](cad/native-test-report-v3.json). The report's version and source hashes identify the build tested; results from an earlier version do not verify a later command change.
 
 One `U` reverses a converted batch and restores its original text. The native test harness disables automatic script-level Undo grouping to check this boundary; the delivered routine does not change the user's Undo settings. The earlier partial Undo result came from the script's grouping, not a demonstrated failure of the routine's Begin/End logic.
 

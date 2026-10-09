@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.4 — 2026-10-09
+
+- Make AutoCAD `LASEROUT` output separate open polylines without creating a drawing group. No manual `UNGROUP` step is needed.
+- Preserve the arrow geometry, glyphs, default height 5, existing text heights and conversion Undo. The Python DXF exporter retains its grouped output.
+
 ## 3.0.3 — 2026-10-09
 
 - Replace the corner symbol with a simple upward arrow before the ID. It points toward the top of the readable lettering and follows the label's rotation; it does not indicate global assembly up.
