@@ -59,8 +59,6 @@
     ((not (lf3:font-p data)) "the text style does not use laserfont.shx, laserfont2.shx or laserfont3.shx")
     ((/= (lf3:get 4 style "") "") "a bigfont is assigned to the text style")
     ((/= (logand (lf3:get 70 style 0) 4) 0) "vertical text styles are unsupported")
-    ((and (= (lf3:font-name data) "LASERFONT3") (not (lf3:keyed-text-p data)))
-      "laserfont3 text must begin with exactly one orientation-key marker (~)")
     ((and (= kind "MTEXT")
           (not (or (findfile (lf3:get 3 style ""))
                    (findfile (strcat (vl-filename-base (lf3:get 3 style "")) ".shx")))))
@@ -220,7 +218,7 @@
             insert (cdr (assoc 10 normalized)) scale (/ (cdr (assoc 40 normalized)) 20.0)
             angle (lf3:get 50 normalized 0.0) made nil
             *lf3:pending-created* nil *lf3:pending-group* nil ok T)
-      ;; V3 display text already reserves the key advance; legacy text does not.
+      ;; A leading display key already reserves the key advance; bare text does not.
       (if (setq next (lf3:bulged *lf3:key-points*
                         (if (lf3:keyed-text-p normalized) 0.0 (- *lf3:text-origin*))
                         insert scale angle data))
@@ -245,12 +243,12 @@
           (lf3:rollback)
           (princ (strcat "\nLabel " (lf3:get 5 data "") " kept: no cut paths were committed.")) nil)))))
 
-(defun c:LASEROUT3 (/ *error* sel index count skipped undo-open)
+(defun lf3:command-exact (/ *error* sel index count skipped undo-open)
   (defun *error* (msg)
     (lf3:cleanup-temp)
     (lf3:rollback)
     (if undo-open (command-s "_.UNDO" "_End"))
-    (if msg (princ (strcat "\nLASEROUT3 stopped: " msg ". One UNDO reverses this batch.")))
+    (if msg (princ (strcat "\nLASEROUT stopped: " msg ". One UNDO reverses this batch.")))
     (princ))
   (setq *lf3:pending-created* nil *lf3:pending-group* nil *lf3:temp-marker* nil)
   (prompt "\nSelect laserfont/laserfont2/laserfont3 TEXT or plain one-line MTEXT to turn into exact cut paths: ")
@@ -262,22 +260,22 @@
         (if (lf3:convert (ssname sel index)) (setq count (1+ count)) (setq skipped (1+ skipped)))
         (setq index (1+ index)))
       (command-s "_.UNDO" "_End") (setq undo-open nil)
-      (princ (strcat "\nLASEROUT3: " (itoa count) " labels converted; " (itoa skipped)
+      (princ (strcat "\nLASEROUT: " (itoa count) " labels converted; " (itoa skipped)
                      " skipped. Grouped key plus exact Bezier/line glyphs created; stencil bridges retained."
                      " One UNDO reverses this batch."))))
   (princ))
 
-(defun c:LASER3 (/ *error* txt reason height ins angle vec normal undo-open made)
+(defun lf3:insert-id (/ *error* txt reason height ins angle vec normal undo-open made)
   (defun *error* (msg)
     (lf3:rollback)
     (if undo-open (command-s "_.UNDO" "_End"))
-    (if msg (princ (strcat "\nLASER3 stopped: " msg))) (princ))
+    (if msg (princ (strcat "\nLASEROUT stopped: " msg))) (princ))
   (setq *lf3:pending-created* nil *lf3:pending-group* nil)
   (setq txt (getstring T "\nPanel ID (A-Z, 0-9, hyphen and spaces): "))
   (if (= txt "") (setq reason "no ID entered") (setq reason (lf3:chars-reason txt)))
   (if (/= (logand (lf3:get 70 (tblsearch "LAYER" (getvar "CLAYER")) 0) 4) 0)
     (setq reason "the current layer is locked"))
-  (if reason (princ (strcat "\nLASER3: " reason ". Nothing created."))
+  (if reason (princ (strcat "\nLASEROUT: " reason ". Nothing created."))
     (progn
       (initget 6) (setq height (getreal "\nCap height in drawing units <5>: "))
       (if (not height) (setq height 5.0))
@@ -287,7 +285,7 @@
           (setq ins (trans ins 1 0) normal (trans '(0.0 0.0 1.0) 1 0 T))
           (if (or (not (equal (caddr ins) 0.0 1e-8))
                   (not (equal normal '(0.0 0.0 1.0) 1e-8)))
-            (princ "\nLASER3: use a WCS XY plane insertion at elevation zero. Nothing created.")
+            (princ "\nLASEROUT: use a WCS XY plane insertion at elevation zero. Nothing created.")
             (progn
               (setq angle (getangle "\nRotation <0>: "))
               (if (not angle) (setq angle 0.0))
@@ -297,9 +295,9 @@
               (setq made (lf3:make-id txt ins height angle (list (cons 8 (getvar "CLAYER")))))
               (command-s "_.UNDO" "_End") (setq undo-open nil)
               (if made
-                (princ (strcat "\nLASER3: " (itoa (length made))
+                (princ (strcat "\nLASEROUT: " (itoa (length made))
                   " open paths created as one key-and-ID group. Permanent geometry; no font needed."))
-                (princ "\nLASER3: no cut paths were committed."))))))))
+                (princ "\nLASEROUT: no cut paths were committed."))))))))
   (princ))
 
 (defun lf3:bulged (path advance insert scale angle appearance / items p x y ca sa)
@@ -331,7 +329,7 @@
             insert (cdr (assoc 10 normalized)) scale (/ (cdr (assoc 40 normalized)) 20.0)
             angle (lf3:get 50 normalized 0.0) made nil
             *lf3:pending-created* nil *lf3:pending-group* nil ok T)
-      ;; V3 display text already reserves the key advance; legacy text does not.
+      ;; A leading display key already reserves the key advance; bare text does not.
       (if (setq next (lf3:bulged *lf3:key-points*
                         (if (lf3:keyed-text-p normalized) 0.0 (- *lf3:text-origin*))
                         insert scale angle data))
@@ -356,12 +354,12 @@
           (lf3:rollback)
           (princ (strcat "\nLabel " (lf3:get 5 data "") " kept: no cut paths were committed.")) nil)))))
 
-(defun c:LASERPOLY3 (/ *error* sel index count skipped undo-open)
+(defun lf3:command-poly (/ *error* sel index count skipped undo-open)
   (defun *error* (msg)
     (lf3:cleanup-temp)
     (lf3:rollback)
     (if undo-open (command-s "_.UNDO" "_End"))
-    (if msg (princ (strcat "\nLASERPOLY3 stopped: " msg ". One UNDO reverses this batch.")))
+    (if msg (princ (strcat "\nLASEROUT stopped: " msg ". One UNDO reverses this batch.")))
     (princ))
   (setq *lf3:pending-created* nil *lf3:pending-group* nil *lf3:temp-marker* nil)
   (prompt "\nSelect laserfont/laserfont2/laserfont3 TEXT or plain one-line MTEXT to turn into fitted arc/line polylines: ")
@@ -373,10 +371,9 @@
         (if (lf3:convert-poly (ssname sel index)) (setq count (1+ count)) (setq skipped (1+ skipped)))
         (setq index (1+ index)))
       (command-s "_.UNDO" "_End") (setq undo-open nil)
-      (princ (strcat "\nLASERPOLY3: " (itoa count) " labels converted; " (itoa skipped)
+      (princ (strcat "\nLASEROUT: " (itoa count) " labels converted; " (itoa skipped)
                      " skipped. Grouped key plus fitted arc glyph polylines created; stencil gaps retained."
                      " One UNDO reverses this batch."))))
   (princ))
 
-(princ "\nLASER3 loaded: LASER3 inserts keyed IDs at height 5 by default; LASEROUT3/LASERPOLY3 convert legacy or keyed v3 text with exactly one grouped key.")
 (princ)

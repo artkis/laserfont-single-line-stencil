@@ -4,7 +4,7 @@ LaserFont is an original single-line stencil font for small part IDs cut directl
 
 Designed by **Artkis**. The font is open source under the **SIL Open Font License 1.1**; the supporting utility code uses the **MIT License**. See [Licensing](LICENSING.md).
 
-## Version 3.0.1 — 8 October 2026
+## Version 3.0.2 — 9 October 2026
 
 ![Actual saved DXF front and back comparisons](examples/laserfont3-front-back.png)
 
@@ -37,23 +37,21 @@ The installer copies the font and command files to the current user's AutoCAD 20
 
 Restart AutoCAD to use the updated bundle. To refresh commands in an already open drawing, use `APPLOAD` on the installed `LASEROUT.lsp` in the AutoCAD Support folder. The installer does not load commands into a running drawing.
 
-| Command | Result |
-|---|---|
-| `LASERFONT` | Selects the LaserFont3 editable text style and sets the default text height to 5 |
-| `LASERTEXT3` | Creates an editable ID with one orientation-key prefix; default height 5 |
-| `LASER3`, `LASER2` | Creates permanent key plus exact Bézier/line geometry; default height 5 |
-| `LASEROUT2`, `LASEROUT3` | Converts supported editable text to key plus exact Bézier/line geometry |
-| `LASEROUT`, `LASERPOLY`, `LASERPOLY2`, `LASERPOLY3` | Converts supported editable text to key plus fitted arc/line polylines |
+### Type the ID, then run LASEROUT
 
-These heights are **drawing units**: 5 means 5 mm in a millimetre drawing. The commands do not rescale the drawing. Conversion preserves the selected text's existing height.
+1. Run `LASERFONT` once to select the LaserFont3 text style and set the default text height to **5**.
+2. Use ordinary AutoCAD `TEXT` or plain one-line `MTEXT`. Type the ID normally, for example `H3` or `I3`.
+3. Run **`LASEROUT`** and select the text. It creates the open arc/line cutting polylines and exactly one orientation key, grouped with the ID.
 
-`LASEROUT` retains the polyline output type of the original installed converter and now includes the version 3 key. Use `LASEROUT2` or `LASEROUT3` when exact Bézier/line output is required.
+`LASEROUT` is the only conversion command. `LASERFONT` is a setup command; no numbered conversion or insertion commands are needed.
 
-`LASERTEXT3` adds the reserved `~` prefix automatically; enter only the part ID. The display font draws that prefix as the corner key. When entering ordinary TEXT or MTEXT manually with the LaserFont3 style, use exactly one leading `~`, such as `~H3`. The prefix is not part of the ID. Missing, doubled or embedded prefixes are rejected during conversion.
+Heights are **drawing units**: 5 means 5 mm in a millimetre drawing. The setup default does not resize existing text. Conversion preserves the selected text's height, so an existing **2.5 mm** label stays **2.5 mm**.
 
-The converters accept eligible text using `laserfont.shx`, `laserfont2.shx` or `laserfont3.shx`. Legacy text retains its character baseline; the new key extends 4.5 mm to its left at height 5. Version 3 text retains its key baseline and converts to exactly one key. The key and glyphs form one native drawing group. See [the AutoCAD notes](cad/README-v3.md) for supported text properties and restrictions.
+Bare IDs are accepted. If LaserFont3 text already has one leading `~`, such as `~H3`, it is also accepted and becomes exactly one key. The display font draws `~` as the corner key; it is not part of the ID. Doubled or embedded prefixes are rejected.
 
-SHX is a display approximation. Use `LASEROUT` for fitted polylines or `LASEROUT3` for exact Bézier/line cutting geometry; do not use `TXTEXP`.
+`LASEROUT` accepts eligible text using `laserfont.shx`, `laserfont2.shx` or `laserfont3.shx`. Bare text retains its character baseline; the key extends 4.5 mm to its left at height 5, or 2.25 mm at height 2.5. Prefixed LaserFont3 text retains its existing key baseline. See [the AutoCAD notes](cad/README-v3.md) for supported text properties and restrictions.
+
+SHX is a display approximation. Use `LASEROUT` to create cutting geometry; do not use `TXTEXP`.
 
 ### Samples and checks
 
@@ -70,9 +68,9 @@ python render_orientation.py
 
 The Python regression tests reproduce the old `H3`/`I3` ambiguity, check mirrored and rotated keyed labels, preserve the original glyph controls and verify saved DXF groups, dimensions and open paths.
 
-**AutoCAD Core Console 2023 passed 41 of 41 native checks.** These cover default 5-unit insertion, the compiled SHX display, editable text, legacy and version 3 conversions, aliases, grouping, cancellation, malformed prefixes and one-step Undo. A saved DWG reopened with all 20 entities in its four groups intact. See [the native test report](cad/native-test-report-v3.json).
+Native AutoCAD checks record text conversion, the compiled display font, grouping, cancellation, Undo and saved-drawing reopening in [the native test report](cad/native-test-report-v3.json). The report's version and source hashes identify the build tested; results from an earlier version do not verify a later command change.
 
-One `U` reverses a completed insertion or converted batch and restores the original converted text. The native test harness disables automatic script-level Undo grouping to check this boundary; the delivered routines do not change the user's Undo settings. The earlier partial Undo result came from the script's grouping, not a demonstrated failure of the routine's Begin/End logic.
+One `U` reverses a converted batch and restores its original text. The native test harness disables automatic script-level Undo grouping to check this boundary; the delivered routine does not change the user's Undo settings. The earlier partial Undo result came from the script's grouping, not a demonstrated failure of the routine's Begin/End logic.
 
 These results cover the recorded geometry and isolated native commands. GUI installation, foreground interactive use, physical Escape-key input, new MTEXT/UCS cases, CAM import and physical cutting were not tested by that suite. The checks do not establish how reliably a person will recognize the mark on a cut part.
 
@@ -80,9 +78,7 @@ The complete label must fit within the actual part, clear of outlines, holes and
 
 ## Version 2 reference: historical 20-unit defaults
 
-The following describes the preserved version 2 files and their original commands. Their 20-unit defaults do not apply to the installed version 3 commands above. The measured path counts exclude the version 3 key.
-
-The original `LASER2.lsp` remains available for historical reproduction. Loading it after version 3 redefines overlapping commands such as `LASER2`, `LASEROUT2` and `LASERPOLY2` with the old unkeyed behavior. Load the installed `LASEROUT.lsp` again to restore the version 3 aliases.
+The preserved version 2 source files are archival. Their 20-unit defaults do not apply to the current AutoCAD workflow above. The measured path counts exclude the version 3 key. Use the installed current loader for active work; loading an archived LISP file can restore obsolete command definitions.
 
 ![LaserFont alphabet and number specimen](examples/laserfont2-preview.png)
 
@@ -119,29 +115,11 @@ This is **28.72% fewer geometric paths**, with approximately **2.00% more center
 
 The comparison is recorded in [comparison-metrics.json](comparison-metrics.json); the glyph source identifies its individual path counts and bridge locations. The [geometry report](validation/geometry-report.json) records the release checks and their limits.
 
-### Original version 2 AutoCAD commands
-
-Download [LASER2.lsp](cad/LASER2.lsp). Save a copy of your drawing, then use `APPLOAD` to load the LISP file.
-
-| Command | Input | Result |
-|---|---|---|
-| `LASER2` | Type an ID, height, insertion point and rotation | New exact Bézier/line geometry |
-| `LASEROUT2` | Select existing `laserfont2` TEXT or plain single-line MTEXT | Replaces accepted labels with exact Bézier/line geometry |
-| `LASERPOLY2` | Select existing `laserfont2` TEXT or plain single-line MTEXT | Replaces accepted labels with fitted circular-arc/line LWPOLYLINE paths |
-
-`LASERPOLY2` is an alternative text conversion command. It does not convert arbitrary existing splines or a previous `LASEROUT2` result.
-
-The default height is **20 drawing units**. In a millimetre drawing that is 20 mm; these commands do not change the drawing's units or scale other objects. One `UNDO` reverses a completed command batch.
-
-For editable text, place [laserfont2.shx](cad/laserfont2.shx) in an AutoCAD font or support search folder, then create a text style that uses it. Reload AutoCAD if its font list has not refreshed. Convert the final IDs to geometry before sending the drawing to another machine.
-
-Conversion supports left-baseline TEXT and plain, single-line MTEXT. Unsupported formatting, wrapped text, mirrored text, non-unit width factors, oblique or elevated text, and locked-layer labels are skipped and retained. Position, rotation, height, layer and applicable appearance values are preserved for accepted labels.
-
 ### Version 2 output geometry
 
-**Exact master:** `LASER2` and `LASEROUT2` produce one open cubic DXF `SPLINE` for each curved or mixed path, or a `LINE` for a single straight path. The master control points are preserved.
+**Exact master:** The source represents each curved or mixed path as an open cubic DXF `SPLINE`, or a `LINE` for a single straight path. The master control points are preserved.
 
-**Arc/line alternative:** `LASERPOLY2` produces open zero-width `LWPOLYLINE` paths containing real circular arcs through their bulge values. The arcs approximate the Bézier master; they are not the exact original curves. The fitting target is **0.02 mm at 20 mm cap height**. Error scales with lettering height. The [geometry report](validation/geometry-report.json) gives the checked deviation and the method's limits for this release.
+**Arc/line alternative:** The fitted data use open zero-width `LWPOLYLINE` paths containing real circular arcs through their bulge values. The arcs approximate the Bézier master; they are not the exact original curves. The fitting target is **0.02 mm at 20 mm cap height**. Error scales with lettering height. The [geometry report](validation/geometry-report.json) gives the checked deviation and the method's limits for this release.
 
 The fitted output can contain many circular arcs within one path. The reduction in disconnected paths does not establish a reduction in every CAM interpolation block.
 

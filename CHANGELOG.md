@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.2 — 2026-10-09
+
+- Use one AutoCAD conversion command, `LASEROUT`, with `LASERFONT` for style setup. Remove the numbered conversion, insertion and polyline aliases from the current command interface and installer registration.
+- Accept ordinary bare IDs in LaserFont3 TEXT and plain one-line MTEXT. `LASEROUT` adds exactly one orientation key automatically. Existing text with one leading `~` is also accepted; doubled or embedded prefixes remain invalid.
+- Keep the new-text default at 5 drawing units and preserve each selected label's existing height during conversion, including 2.5-unit labels.
+- Retain fitted open arc/line polyline output, original text positioning and grouped key-plus-ID geometry. Keep the previous source files as historical references.
+
 ## 3.0.1 — 2026-10-08
 
 - Add the compiled `laserfont3.shx` display font and its SHP source. A reserved leading `~` displays the orientation key once per ID.

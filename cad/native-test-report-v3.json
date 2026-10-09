@@ -1,125 +1,164 @@
 {
-  "schema": 2,
-  "version": "3.0.1",
-  "status": "PASS",
+  "schema": 3,
+  "version": "3.0.2",
+  "status": "PASS_WITH_STATED_SCOPE",
   "engine": "AutoCAD Core Console 2023 (T.53.0.0)",
-  "checked_at_utc": "2026-10-08T17:09:28.046879+00:00",
-  "scope": "Isolated synthetic drawing and actual command invocations; no existing drawing or foreground AutoCAD session opened",
-  "laser3_sha256": "863e5f3166edb38c4b9dfb59d00caeeefcbc552ebe3e7c22992959a47f5f02dd",
-  "native_loaded_laser3_sha256": "863e5f3166edb38c4b9dfb59d00caeeefcbc552ebe3e7c22992959a47f5f02dd",
+  "checked_at_utc": "2026-10-09T03:29:47.101016+00:00",
+  "scope": "Isolated copied one-line MTEXT and synthetic rotated TEXT; actual LASEROUT command invocations. No active drawing, foreground AutoCAD window or production source was changed.",
+  "laser3_sha256": "080c2ee9e77c4ca55b12f2974179c3ce8b7e5b426af48580f9cb7968dd528725",
+  "native_loaded_laser3_sha256": "080c2ee9e77c4ca55b12f2974179c3ce8b7e5b426af48580f9cb7968dd528725",
   "source_sha256": {
     "orientation-key.json": "04d990d6b52290d38bdb8d0075aad05ccc7de7924df01ee8c35f84043ae1ed7e",
-    "cad/runtime3.lsp": "2d08e108b5bf91007b9a421d3b634b81ce53c0dd24c411f82fc862cafbf46143",
-    "cad/integration3.lsp": "4cfa78406b7f17e9aae263f3330d33e2f3a145aa2ef786f09f4a1359bcb846d6",
-    "cad/build_cad3.py": "badf4943a2e7b6a5e0c80c12217595915544f39b049fe7e016e27409b3eb9e18",
+    "cad/runtime3.lsp": "c669c9543f608de9cea9bea252793e29f7b8b06a2be93f21e79c8575eed0aa44",
+    "cad/integration3.lsp": "b38c434e5877f3a87a4a313f2b48f697ae42d6ab56110692eb9ef39692d6a679",
+    "cad/build_cad3.py": "d2409f0d709123adb0f10a171e03b491f9173b78a9d94dd564e50de01a496d07",
     "cad/laserfont3.shx": "7f7e96150ce879b940ee920d771bfba2d12d4d4cdb770259ffdffcb16361ee9d"
   },
   "native_regression": {
-    "checks": 41,
-    "passed": 41,
+    "checks": 47,
+    "passed": 47,
     "failed": 0,
     "failures": [],
-    "checks_passed": [
-      "LASER3 default height creates key and four glyph paths",
-      "default cap height is 5 with exact key coordinates",
-      "manual key and glyphs have one group",
-      "one U reverses manual geometry and group",
-      "LF_TEST_1 LASEROUT3 source replaced",
-      "LF_TEST_1 LASEROUT3 exactly one key and complete group",
-      "LF_TEST_1 key baseline and rotation preserved",
-      "one U restores LF_TEST_1 source and removes conversion group",
-      "LF_TEST_2 LASERPOLY3 source replaced",
-      "LF_TEST_2 LASERPOLY3 exactly one key and complete group",
-      "LF_TEST_2 key baseline and rotation preserved",
-      "one U restores LF_TEST_2 source and removes conversion group",
-      "LF_TEST_3 LASEROUT3 source replaced",
-      "LF_TEST_3 LASEROUT3 exactly one key and complete group",
-      "LF_TEST_3 key baseline and rotation preserved",
-      "one U restores LF_TEST_3 source and removes conversion group",
-      "LF_TEST_3 LASERPOLY3 source replaced",
-      "LF_TEST_3 LASERPOLY3 exactly one key and complete group",
-      "LF_TEST_3 key baseline and rotation preserved",
-      "one U restores LF_TEST_3 source and removes conversion group",
-      "reject malformed LF_TEST_3 H3 without orphan key",
-      "reject malformed LF_TEST_3 ~~H3 without orphan key",
-      "reject malformed LF_TEST_3 ~H~3 without orphan key",
-      "reject malformed LF_TEST_2 ~H3 without orphan key",
-      "reject malformed LF_TEST_1 ~I3 without orphan key",
-      "manual cancellation removes partial key and closes own Undo group",
-      "conversion cancellation retains original and removes partial key",
-      "three final manual exact fitted labels ready for save",
-      "LASERFONT selects native v3 style and height 5",
-      "LASERTEXT3 creates exactly one reserved key prefix at default height 5",
-      "compiled SHX displays native key plus H3 at 5 mm height",
-      "LASEROUT legacy alias converts editable v3 once with original key baseline",
-      "LASEROUT preserves production polyline-only output including the key",
-      "LASEROUT polyline conversion Undo restores keyed editable text",
-      "LASEROUT2 exact alias creates one key plus exact glyph paths",
-      "LASEROUT2 exact conversion Undo restores keyed editable text",
-      "LASERPOLY2 alias emits v3 keyed fitted paths",
-      "alias fitted conversion Undo restores keyed editable text",
-      "LASERPOLY alias emits v3 keyed fitted paths",
-      "LASER2 alias creates a v3 keyed label",
-      "one U reverses aliased manual label"
+    "suites": [
+      {
+        "name": "copied_plain_mtext",
+        "checks": 21,
+        "passed": 21,
+        "failed": 0,
+        "checks_passed": [
+          "private actual copy contains exactly one MTEXT",
+          "copied literal content, Standard style and original 2.5 mm height match live readback",
+          "private Standard font restored to independently verified actual laserfont3.shx",
+          "LASEROUT conversion command is defined",
+          "old LASEROUT2 command cleared after reload",
+          "old LASEROUT3 command cleared after reload",
+          "actual bare v3 MTEXT passes candidate guard",
+          "native baseline resolves original one-line MTEXT with unchanged content and height",
+          "native glyph baseline agrees with original insertion minus 2.5 mm cap height",
+          "actual source MTEXT removed after successful LASEROUT",
+          "LASEROUT creates expected 38 key-and-glyph paths",
+          "all output is open zero-width LWPOLYLINE on original source layer",
+          "exactly one expected 2.5 mm orientation key, no duplicate",
+          "key baseline is 2.25 mm left of original glyph baseline, preserving bare-text location",
+          "first A glyph starts at exact original native baseline",
+          "one key-and-ID group added",
+          "one group contains precisely all 38 created paths",
+          "one U restores original MTEXT entity",
+          "Undo restores exact original content, height, insertion, width, attachment and normal",
+          "Undo removes every converted polyline without extra live entities",
+          "Undo restores original group count"
+        ],
+        "failures": []
+      },
+      {
+        "name": "single_public_command_and_rotated_text",
+        "checks": 26,
+        "passed": 26,
+        "failed": 0,
+        "checks_passed": [
+          "SC_V1 H3 passes source guard",
+          "SC_V1 H3 replaced only by complete open zero-width polylines",
+          "SC_V1 H3 has exactly placed 5 mm rotated key",
+          "SC_V1 H3 adds one key-and-ID group",
+          "one U restores SC_V1 H3 and removes all output/group",
+          "SC_V2 I3 passes source guard",
+          "SC_V2 I3 replaced only by complete open zero-width polylines",
+          "SC_V2 I3 has exactly placed 5 mm rotated key",
+          "SC_V2 I3 adds one key-and-ID group",
+          "one U restores SC_V2 I3 and removes all output/group",
+          "SC_V3 H3 passes source guard",
+          "SC_V3 H3 replaced only by complete open zero-width polylines",
+          "SC_V3 H3 has exactly placed 5 mm rotated key",
+          "SC_V3 H3 adds one key-and-ID group",
+          "one U restores SC_V3 H3 and removes all output/group",
+          "SC_V3 ~I3 passes source guard",
+          "SC_V3 ~I3 replaced only by complete open zero-width polylines",
+          "SC_V3 ~I3 has exactly placed 5 mm rotated key",
+          "SC_V3 ~I3 adds one key-and-ID group",
+          "one U restores SC_V3 ~I3 and removes all output/group",
+          "reject SC_V3 ~~H3 without deleting source or creating orphan key",
+          "reject SC_V3 ~H~3 without deleting source or creating orphan key",
+          "reject SC_V2 ~H3 without deleting source or creating orphan key",
+          "reject SC_V3 --- without deleting source or creating orphan key",
+          "all eight retired public versioned/insertion/poly aliases are cleared",
+          "LASERFONT selects v3 style and 5 mm default"
+        ],
+        "failures": []
+      }
     ]
   },
-  "undo_diagnosis": {
-    "prior_result": "PARTIAL: 22 of 23 checks; U stopped at a script-level open Undo group.",
-    "cause": "The original harness retained automatic command/script Undo grouping. The revised isolated harness disables automatic grouping before invoking commands and issuing U.",
-    "runtime_undo_logic_changed": false,
-    "runtime_changes_user_undo_settings": false,
-    "current_result": "PASS: manual, both conversion modes, legacy styles, keyed v3 styles and compatibility aliases reverse in one U; conversions restore their original TEXT.",
-    "source": "https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-Customization/files/GUID-95BB6824-0700-4019-9672-E6B502659E9E.htm"
+  "public_commands": {
+    "LASEROUT": "The sole conversion command. Creates grouped open zero-width LWPOLYLINE glyphs and one orientation key.",
+    "LASERFONT": "Selects the LaserFont3 display style and sets the default text height to 5.",
+    "retired_commands_verified_cleared_on_reload": [
+      "LASEROUT2",
+      "LASEROUT3",
+      "LASERPOLY",
+      "LASERPOLY2",
+      "LASERPOLY3",
+      "LASER2",
+      "LASER3",
+      "LASERTEXT3"
+    ]
   },
-  "save_reopen": {
+  "mtext_reproduction": {
     "result": "PASS",
-    "entities": 20,
-    "groups": 4,
-    "group_members": 20,
-    "all_group_members_exist": true,
-    "fixture_dwg_sha256": "1dc6e5275b574c41531398d79d07abf9575335c8a1a7ff2f04640a8ee4261cf1"
-  },
-  "display_font": {
-    "result": "PASS",
-    "actual_compiled_shx_used": true,
-    "editable_text": "~H3",
-    "height_mm": 5,
-    "native_textbox_mm": [
-      11.5,
-      5.0
-    ],
-    "key_marker_is_reserved_prefix": true
+    "input": "Plain lowercase ASCII alphanumeric, single-line, top-left attached MTEXT using a Standard style whose verified font is laserfont3.shx, with no key prefix.",
+    "source_height": 2.5,
+    "source_height_preserved": true,
+    "source_native_glyph_baseline_preserved": true,
+    "source_layer_preserved": true,
+    "output_entity_type": "LWPOLYLINE",
+    "output_entities": 38,
+    "output_groups": 1,
+    "group_members": 38,
+    "orientation_key_count": 1,
+    "orientation_key_height": 2.5,
+    "orientation_key_left_offset_from_glyph_baseline": -2.25,
+    "one_U_restores_exact_source_and_removes_all_output": true,
+    "fixture_dependency_note": "ObjectDBX copying into a new database retained its pre-existing Standard style font. Only the private unsaved test copy was restored to the independently verified source SHX font before testing; all original MTEXT content, placement, width, attachment and height were retained.",
+    "previous_installed_behavior_reproduced": "The previous runtime rejected the same restored-font MTEXT solely because its text had no leading key marker."
   },
   "conversion_contract": {
-    "legacy_fonts": [
+    "supported_style_fonts": [
       "LASERFONT",
-      "LASERFONT2"
+      "LASERFONT2",
+      "LASERFONT3"
     ],
-    "legacy_glyph_baseline_preserved": true,
-    "legacy_key_offset_at_height_5": -4.5,
-    "v3_font": "LASERFONT3",
-    "v3_exactly_one_leading_key_required": true,
-    "v3_key_baseline_preserved": true,
-    "v3_glyph_offset_at_height_5": 4.5,
-    "duplicate_or_embedded_key_rejected": true
+    "ordinary_text_requires_no_prefix": true,
+    "bare_text_glyph_baseline_preserved": true,
+    "bare_text_key_offset_at_height_5": -4.5,
+    "prefixed_v3_key_baseline_preserved": true,
+    "prefixed_v3_glyph_offset_at_height_5": 4.5,
+    "duplicate_or_embedded_key_rejected": true,
+    "existing_text_height_preserved": true,
+    "new_text_default_height": 5
   },
-  "static_checks": {
-    "character_guard": "Raw ASCII validated before uppercase; at least one letter or digit required",
-    "line_ending_portability": "Final LF-only source copy rebuild is byte-identical to final Windows checkout LASER3.lsp",
-    "v2_files_modified": false
+  "undo_verification": {
+    "result": "PASS",
+    "tested": "The real LASEROUT command followed by one U restores the copied MTEXT and all four rotated legacy/v3 TEXT cases, removing their paths and conversion group.",
+    "harness_configuration": "Automatic command/script Undo grouping disabled in the isolated test profile before each suite.",
+    "runtime_changes_user_undo_settings": false
+  },
+  "prior_release_evidence_not_rerun": {
+    "version": "3.0.1",
+    "laser3_sha256": "863e5f3166edb38c4b9dfb59d00caeeefcbc552ebe3e7c22992959a47f5f02dd",
+    "native_checks_passed": 41,
+    "save_reopen": {
+      "result": "PASS",
+      "entities": 20,
+      "groups": 4,
+      "group_members": 20,
+      "all_group_members_exist": true,
+      "fixture_dwg_sha256": "1dc6e5275b574c41531398d79d07abf9575335c8a1a7ff2f04640a8ee4261cf1"
+    },
+    "scope_note": "Historical regression evidence for the previous hash only; retired aliases and the former missing-prefix rejection are superseded and are not current acceptance criteria."
   },
   "limitations": [
-    "GUI APPLOAD and foreground interactive use were not tested by this isolated Core Console suite.",
-    "Cancellation was exercised by native quit/exit injection after key creation; physical keyboard Escape was not simulated.",
-    "MTEXT, arbitrary UCS transforms and CAM import were not newly tested; existing conversion restrictions remain.",
-    "Physical cutting, kerf, piercing and human orientation recognition were not tested.",
+    "This suite does not verify GUI APPLOAD, the active drawing or the installed candidate; those require separate installation/live proof.",
+    "Native MTEXT proof covers the reproduced plain single-line top-left case. Wrapping, columns, inline formatting and unsupported style overrides remain guarded; this suite is not general MTEXT acceptance.",
+    "Cancellation, save/reopen, internal exact-curve helpers and arbitrary UCS transforms were not rerun for this candidate. Previous-release proof is recorded separately.",
+    "CAM import, physical cutting, kerf, piercing and human orientation recognition were not tested.",
     "Label geometry does not establish the true outside face of a fabricated assembly."
-  ],
-  "command_aliases": {
-    "LASEROUT": "LASERPOLY3 - preserves original production polyline output format",
-    "LASEROUT2": "LASEROUT3 - adds mandatory key to exact glyph output",
-    "LASERPOLY": "LASERPOLY3",
-    "LASERPOLY2": "LASERPOLY3",
-    "LASER2": "LASER3"
-  }
+  ]
 }

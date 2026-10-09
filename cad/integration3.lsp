@@ -1,6 +1,6 @@
 ;;; SPDX-License-Identifier: MIT
 ;;; Copyright (c) 2026 Artkis.
-;;; AutoCAD display-font setup, keyed editable labels, and legacy command aliases.
+;;; AutoCAD display-font setup and one public conversion command: LASEROUT.
 ;;; The reserved leading ~ displays the key; it is not part of the panel code.
 
 (defun lf3:display-style (/ file data made)
@@ -30,20 +30,20 @@
     (progn
       (setvar "TEXTSTYLE" style)
       (setvar "TEXTSIZE" 5.0)
-      (princ "\nLaserFont3 selected, default height 5. Use LASERTEXT3 for editable keyed IDs or LASER3 for cut paths.")))
+      (princ "\nLaserFont3 selected, default height 5. Create TEXT/MTEXT normally, then use LASEROUT for keyed cut paths.")))
   (princ))
 
-(defun c:LASERTEXT3 (/ *error* txt reason height ins normal angle vec style undo-open made)
+(defun lf3:insert-editable-id (/ *error* txt reason height ins normal angle vec style undo-open made)
   (defun *error* (msg)
     (if undo-open (command-s "_.UNDO" "_End"))
-    (if msg (princ (strcat "\nLASERTEXT3 stopped: " msg)))
+    (if msg (princ (strcat "\nLASEROUT stopped: " msg)))
     (princ))
   (setq txt (getstring T "\nPanel ID (the orientation key is added automatically): ")
         reason (lf3:chars-reason txt))
   (if (/= (logand (lf3:get 70 (tblsearch "LAYER" (getvar "CLAYER")) 0) 4) 0)
     (setq reason "the current layer is locked"))
   (if reason
-    (princ (strcat "\nLASERTEXT3: " reason ". Nothing created."))
+    (princ (strcat "\nLASEROUT: " reason ". Nothing created."))
     (progn
       (initget 6)
       (setq height (getreal "\nCap height in drawing units <5>: "))
@@ -54,7 +54,7 @@
           (setq ins (trans ins 1 0) normal (trans '(0.0 0.0 1.0) 1 0 T))
           (if (or (not (equal (caddr ins) 0.0 1e-8))
                   (not (equal normal '(0.0 0.0 1.0) 1e-8)))
-            (princ "\nLASERTEXT3: use a WCS XY plane insertion at elevation zero. Nothing created.")
+            (princ "\nLASEROUT: use a WCS XY plane insertion at elevation zero. Nothing created.")
             (progn
               (setq angle (getangle "\nRotation <0>: "))
               (if (not angle) (setq angle 0.0))
@@ -73,15 +73,16 @@
               (command-s "_.UNDO" "_End")
               (setq undo-open nil)
               (if made
-                (princ "\nEditable keyed ID created. Convert with LASEROUT or LASERPOLY before cutting; do not use TXTEXP.")
-                (princ "\nLASERTEXT3: no text was created."))))))))
+                (princ "\nEditable keyed ID created. Convert with LASEROUT before cutting; do not use TXTEXP.")
+                (princ "\nLASEROUT: no text was created."))))))))
   (princ))
 
-;;; Preserve familiar command names while routing every new conversion to v3.
-(defun c:LASEROUT () (c:LASERPOLY3))
-(defun c:LASEROUT2 () (c:LASEROUT3))
-(defun c:LASERPOLY () (c:LASERPOLY3))
-(defun c:LASER2 () (c:LASER3))
-(defun c:LASERPOLY2 () (c:LASERPOLY3))
-(princ "\nLaserFont3: LASERFONT selects 5 mm; LASERTEXT3 makes editable keyed IDs; LASEROUT/LASERPOLY create permanent keyed paths.")
+
+;;; Clear old public commands when this file reloads into an existing drawing.
+;;; Internal exact/insertion helpers remain available to validation code only.
+(setq c:LASEROUT2 nil c:LASEROUT3 nil c:LASERPOLY nil
+      c:LASERPOLY2 nil c:LASERPOLY3 nil c:LASER2 nil c:LASER3 nil
+      c:LASERTEXT3 nil)
+(defun c:LASEROUT () (lf3:command-poly))
+(princ "\nLASEROUT loaded: convert plain TEXT/MTEXT to grouped cut paths with one orientation key. LASERFONT selects the 5 mm default.")
 (princ)

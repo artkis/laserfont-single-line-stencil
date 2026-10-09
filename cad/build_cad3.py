@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 Artkis
-"""Build standalone LASER3 commands without rewriting any v2 artifact.
+"""Build the standalone LASEROUT command without rewriting any v2 artifact.
 
 The original glyph designs and the mandatory orientation key remain OFL-1.1.
 Only LASER3.lsp is written. Use --check for a read-only reproducibility check.
@@ -51,7 +51,7 @@ def build():
         ';;; Copyright (c) 2026 Artkis.\n'
         ';;; Mixed-license file: embedded glyph/key designs are OFL-1.1 (OFL.txt);\n'
         ';;; the AutoLISP utility program is MIT (LICENSE-MIT.txt).\n'
-        ';;; Self-contained: no Python, font or external JSON needed for LASER3.\n'
+        ';;; Self-contained: no Python, font or external JSON needed for LASEROUT.\n'
         ';;; Native validation scope is recorded separately; see native-test-report-v3.json.\n'
         f';;; Glyph source SHA-256: {source_hash}\n'
         f';;; Key source SHA-256: {hashlib.sha256(key_raw.replace(bytes([13, 10]), bytes([10]))).hexdigest()}\n'
@@ -64,7 +64,7 @@ def build():
         '(setq *lf3:text-origin* ' + lisp(key['text_origin_x_mm']) + ')\n')
     program = (header + data + ';;; END FONT DATA\n\n'
                + (OUT / 'runtime3.lsp').read_text(encoding='utf-8')
-               + '\n;;; DISPLAY SETUP AND COMPATIBILITY COMMANDS\n'
+               + '\n;;; DISPLAY SETUP AND CANONICAL COMMAND\n'
                + (OUT / 'integration3.lsp').read_text(encoding='utf-8'))
     return program, source_hash
 

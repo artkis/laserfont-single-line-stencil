@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "checked_at_utc": "2026-10-08T17:03:32.580181+00:00",
+  "checked_at_utc": "2026-10-09T03:26:05.508307+00:00",
   "status": "PASS",
   "tests_run": 14,
   "failure_count": 0,
@@ -12,14 +12,14 @@
     "shapely": "2.1.2"
   },
   "source_sha256": {
-    "generate_laserfont3.py": "cbab93f8f80de84b38bbb3d8d7e35455766b090be60e61920d32e2db11d5f883",
+    "generate_laserfont3.py": "e36e1d3805dd504a1da438272ab2f8a2b324744e50f783bf5a320f3b08e4f6f4",
     "orientation-key.json": "04d990d6b52290d38bdb8d0075aad05ccc7de7924df01ee8c35f84043ae1ed7e",
     "glyphs-v2.json": "0e128ea1b4b53ff815e222bf6169b40fd5018b9cd769e65ff12e62f87dae2e3d",
     "glyphs-v2-polyline.json": "021e728c145ea845a74c8f57c1b80b3aa250baeb423ddf918ec10227262499c4",
     "tests/test_orientation.py": "ba1346c0e2095f4c5d32b5806597b0d03fae35d6307338ef875c80d081c5b666"
   },
   "source_content_sha256_lf_normalized": {
-    "generate_laserfont3.py": "cbab93f8f80de84b38bbb3d8d7e35455766b090be60e61920d32e2db11d5f883",
+    "generate_laserfont3.py": "e36e1d3805dd504a1da438272ab2f8a2b324744e50f783bf5a320f3b08e4f6f4",
     "orientation-key.json": "04d990d6b52290d38bdb8d0075aad05ccc7de7924df01ee8c35f84043ae1ed7e",
     "glyphs-v2.json": "5c34fcfd44eb854c8108914d8c25647f8ec08015158886f83d3984fffc487ab2",
     "glyphs-v2-polyline.json": "1288a0a7900d2d92c5939ba6515645126a09ea5386ce427b26ad08513266cc8e",

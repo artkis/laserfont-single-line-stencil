@@ -1,124 +1,117 @@
-# LaserFont3 orientation labels for AutoCAD
+# LaserFont for AutoCAD — 3.0.2, 9 October 2026
 
-`LASER3.lsp` adds a required orientation key before each ID while retaining the
-original laserfont2 glyphs. It defines `LASER3`, `LASEROUT3` and `LASERPOLY3`
-commands. Existing v2 files are preserved. Familiar command aliases route
-new work to the keyed v3 commands: `LASER2` to `LASER3`, `LASEROUT2` to
-`LASEROUT3`, and `LASEROUT`/`LASERPOLY`/`LASERPOLY2` to `LASERPOLY3`.
-`LASEROUT` keeps the installed production command's polyline output format;
-use `LASEROUT2` or `LASEROUT3` when exact Bezier/line output is wanted.
+Use **LASEROUT** to convert ordinary editable IDs into open cutting polylines
+with one orientation key. **LASERFONT** sets up the text style and default
+height. These are the two commands registered by the installer; LASEROUT is
+the only conversion command.
+
+## Install
+
+Extract the complete release and run `cad/Install-LaserFont3.ps1` in PowerShell.
+Use `-WhatIf` first to inspect its destinations. The installer adds the compiled
+`laserfont3.shx`, LISP runtime and loader to the current user's AutoCAD 2023
+Support folder and LASEROUT application bundle. It verifies backups and
+installed file hashes, preserves the bundle's ProductCode and leaves older
+SHX fonts intact.
+
+Restart AutoCAD to use the updated bundle, or `APPLOAD` the installed
+`LASEROUT.lsp` to refresh commands in an open drawing. The installer itself
+does not send commands to AutoCAD, alter drawings or change registry security
+settings or the Startup Suite.
+
+## Type and convert an ID
+
+1. Run `LASERFONT` to select the LaserFont3 text style and default height **5**.
+2. Use normal AutoCAD `TEXT` or plain one-line `MTEXT` and type an ID such as
+   `H3` or `I3`. No special insertion command or prefix is required.
+3. Run `LASEROUT` and select the text.
+
+The result contains fitted circular-arc/line `LWPOLYLINE` glyphs and one open,
+zero-width orientation key. The key and glyphs belong to one drawing group.
+The cutting geometry needs no installed font on the receiving machine.
+
+The default is **5 drawing units**, or 5 mm in a millimetre drawing. Conversion
+preserves the selected label's existing height: a **2.5 mm label remains
+2.5 mm**. Selecting the setup default does not resize existing text or the
+drawing.
+
+The converter accepts eligible text using `laserfont.shx`, `laserfont2.shx` or
+`laserfont3.shx`. Bare text keeps its character baseline, height, rotation,
+layer and applicable appearance properties. The key extends 0.9 times the
+cap height to the left along the local baseline: 4.5 mm at height 5 or 2.25 mm
+at height 2.5. Check that this space is inside the part and clear of cuts and
+bends.
+
+LaserFont3 text that already begins with one `~`, such as `~H3`, is also
+accepted. The font displays this prefix as the key. Conversion preserves that
+key baseline and creates exactly one key, without shifting the characters
+again. Doubled or embedded prefixes are rejected. The prefix is not part of
+the ID.
+
+SHX is a display approximation. Use `LASEROUT` for the cutting paths; do not
+use `TXTEXP` or close the open stencil gaps.
+
+## Read and move the complete label
 
 On the intended outside face, the key comes before the ID: **long arm left,
-base below, short arm right**. The small bevel belongs at the lower left. This
-cue also works with IDs whose letters and digits alone can look plausible
-from the back. The tool cannot determine which face of a part is outside;
-the label must be placed in a verified outside-face view.
+base below, short arm right**. The small bevel belongs at the lower left.
+At height 5, the key is 5 mm tall and 3 mm wide, with a 1.5 mm gap before the
+character origin. All dimensions scale with the label height.
 
-## Create a new label
+The tool cannot determine which face of a part is outside. Place the label
+from a verified outside-face view of the finished assembly. A readable label
+on the wrong face still indicates a placement error.
 
-1. Save a copy of the drawing and `APPLOAD` the supplied `LASER3.lsp`.
-2. Run `LASER3` and enter the ID (A-Z, 0-9, hyphen and spaces).
-3. Choose the cap height, default **5 drawing units**.
-4. Pick the **left baseline of the key**, then choose a rotation.
+Each completed label is an AutoCAD `GROUP`. Enable group selection
+(`PICKSTYLE` 1 or 3) when moving labels; the routine does not change that
+setting. Grouping is a selection aid, not a lock. Move, rotate and copy the
+complete key and ID together.
 
-In a millimetre drawing at height 5, the key is 5 mm tall and 3 mm wide. The
-text origin is 4.5 mm to the right of the insertion point, leaving a 1.5 mm
-gap from the key's rightmost point to the text origin. Drawing units are not
-changed. Initial spaces in an ID add their normal spacing after that origin.
+## Supported input and Undo
 
-The key is exactly one open, zero-width `LWPOLYLINE`, with five vertices and
-straight spans. Glyphs are permanent open `LINE` or exact cubic `SPLINE`
-geometry. The command does not require a font installed on the cutting PC.
-There is no option to omit the key.
+Unsupported characters or formatting, wrapped or multiple-line MTEXT,
+mirrored, oblique, width-scaled, elevated, non-WCS-XY, thick or locked-layer
+text is skipped and retained. Bigfonts, vertical styles, MTEXT columns,
+background masks and unsupported attachments are rejected.
 
-## Editable display text
+For supported MTEXT, a temporary ordinary `EXPLODE` resolves the native TEXT
+baseline. The original remains if that step fails. `TXTEXP` is never used.
 
-With `laserfont3.shx` installed, `LASERFONT` selects the LaserFont3 text style
-and sets the default text height to **5**. `LASERTEXT3` creates an editable
-keyed ID with the same key-baseline insertion point and default height 5.
-The stored text begins with one reserved `~` character, displayed as the key.
-Enter only the panel ID when prompted; the command adds that prefix.
+The key, glyphs and group must all succeed before conversion commits. A
+failure removes the current label's new geometry and retains its original
+text. Cancellation follows the same rule. One `U`/`UNDO` reverses a completed
+conversion batch, including its groups, and restores the original text.
 
-The SHX font is a display approximation. Convert editable labels with
-`LASEROUT` or `LASERPOLY` for fitted polylines, or `LASEROUT2`/`LASEROUT3`
-for exact Bezier/line geometry, before cutting; do not use `TXTEXP`.
+The isolated native test harness disables automatic script-level Undo
+grouping before checking routine-level Undo. The delivered routine does not
+change the user's Undo settings.
 
-## Convert existing editable text
+## Verification
 
-Use `LASEROUT3` for original Bezier/line glyph geometry or `LASERPOLY3` for the
-existing fitted circular-arc/line glyph geometry. Select eligible TEXT or plain
-single-line MTEXT using **laserfont.shx**, **laserfont2.shx**, or
-**laserfont3.shx**.
+See [the native report](native-test-report-v3.json) for the tested version,
+source hashes, command cases and saved-drawing checks. Results for an earlier
+build do not verify a later command change. The Python geometry tests cover
+glyph preservation, the orientation key, reflections and DXF reopening.
 
-Legacy unkeyed text keeps its glyph baseline, height, rotation, layer and
-applicable appearance values. The new key extends **4.5 mm left of the old
-text origin at height 5** (0.9 times cap height at other sizes), measured along
-the local baseline. Check that space before conversion.
+CAM import, physical cutting, kerf, piercing and human recognition require
+separate checks. The mark does not establish assembly handedness or physical
+readability. Use a saved drawing copy when checking conversion, grouping,
+skipped input, cancellation and Undo with the intended text and UCS.
 
-LaserFont3 display text already includes the key advance. Conversion retains
-its key baseline and emits glyphs 4.5 mm to its right at height 5; it does not
-add a second key. Exactly one leading `~` is required for this style. Missing,
-doubled or embedded prefixes are rejected; legacy styles cannot use `~`.
+## Source and license
 
-All v2 conversion restrictions remain: unsupported characters/formatting,
-wrapped or multiple-line MTEXT, mirrored, oblique, width-scaled, elevated,
-non-WCS-XY, thick or locked-layer text is skipped. Bigfonts, vertical styles,
-MTEXT columns, background masks and unsupported attachments are rejected.
-MTEXT uses a temporary ordinary `EXPLODE` to resolve its native baseline; the
-source is retained if that resolution fails. `TXTEXP` is never used.
+Run `python cad/build_cad3.py` from the repository root to rebuild
+`cad/LASER3.lsp`. Run it with `--check` for byte-for-byte reproducibility.
+The versioned filename identifies the implementation; it is not an insertion
+command. The runtime includes its glyph and key data and needs no Python or
+JSON files at runtime. Previous-version source files remain archival.
 
-## Keep the key and ID together
+Copyright (c) 2026 Artkis. Glyph and orientation-key designs, data and SHP/SHX
+fonts remain [OFL-1.1](../OFL.txt). The installer, runtime, builders and this
+documentation use [MIT](../LICENSE-MIT.txt). Distribute both licenses with
+the combined runtime.
 
-Each completed label is an AutoCAD `GROUP` named from its key entity handle.
-Group selection must be enabled (`PICKSTYLE` 1 or 3) when moving labels; the
-routine does not change this setting. Grouping is a selection aid, not a lock:
-ungrouping or editing a member can separate the cue from the ID. Move, rotate
-and copy the complete label. Do not mirror it independently of its part.
-
-The key, glyphs and group must all succeed before a label commits. A failure
-removes that label's newly created geometry and retains its original text.
-One `U`/`UNDO` reverses a manual insertion or converted batch, including its
-groups. Native command tests verify original text is restored after conversion.
-Cancellation removes the current label's partial geometry and retains its
-source text. Grouping uses the native
-`ACAD_GROUP` dictionary and does not require an ActiveX application object.
-
-## Verification limits
-
-The v3 build has deterministic source checks and unchanged v2 glyph tables.
-Isolated **AutoCAD Core Console 2023** tests cover native H3/I3 geometry,
-5-unit keys, rotation, exact and fitted TEXT conversions, group membership,
-and rollback after injected group/glyph failures. Further command tests cover
-legacy/v3 conversions, one-step Undo, cancellation, malformed key prefixes,
-editable text and compatibility aliases. The manual `LASER3` command also
-accepts its default height of 5. See
-[the v3 native report](native-test-report-v3.json) for the recorded results and
-limits. The former Undo failure came from the test script's automatic Undo
-grouping; the controlled harness disables that setting in its isolated
-profile. The delivered routines do not change the user's Undo settings.
-
-Verify a saved drawing copy before production: insertion and conversion at
-height 5 and a rotated angle; key/ID grouping; skipped input retention;
-cancel/UNDO behavior; WCS/MTEXT handling; and actual CAM import of the open
-key and glyph paths. Inspect the outside-face view and its back-face mirror.
-The key is a visual orientation cue, not proof of assembly handedness or
-machine readability. Do not close the key or join across stencil gaps.
-
-## Rebuild and license
-
-Run `python cad/build_cad3.py` from the repository root. Only `cad/LASER3.lsp`
-is written. Run `python cad/build_cad3.py --check` for a read-only byte-for-byte
-reproducibility check. The generated file contains both exact and fitted v2
-glyph tables and the geometry from `orientation-key.json`; it needs no JSON
-or Python installation at runtime. The builder appends `runtime3.lsp` and
-`integration3.lsp`; LF and CRLF source checkouts produce the same output.
-
-Copyright (c) 2026 Artkis. Embedded glyph and orientation-key designs/data
-remain [OFL-1.1](../OFL.txt); the builder, runtime and this documentation use
-[MIT](../LICENSE-MIT.txt). Distribute both license files with `LASER3.lsp`.
-
-The grouping implementation uses Autodesk's documented
-[GROUP DXF data](https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-DXF/files/GUID-5F1372C4-37C8-4056-9303-EE1715F58E67.htm)
-in the named `ACAD_GROUP` dictionary.
+Grouping uses Autodesk's documented
+[GROUP DXF data](https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-DXF/files/GUID-5F1372C4-37C8-4056-9303-EE1715F58E67.htm).
 Autodesk documents that [scripts form their own Undo group](https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-Customization/files/GUID-95BB6824-0700-4019-9672-E6B502659E9E.htm)
 and recommends [Begin/End for routine-level Undo](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-4481039B-77DA-4500-AE8B-3D2AD6951115.htm).
