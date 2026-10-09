@@ -1,4 +1,4 @@
-"""Independent geometry checks for the mandatory label orientation key.
+"""Independent geometry checks for the complete arrow-plus-ID label.
 
 Run: python -m unittest discover -s tests -v
 Dependencies: requirements.txt and validation/requirements-validation.txt.
@@ -23,7 +23,7 @@ sys.path.insert(0, str(ROOT))
 import generate_laserfont2 as legacy
 import generate_laserfont3 as oriented
 
-KEY = [(0, 20), (0, 3.2), (3.2, 0), (12, 0), (12, 6)]
+ARROW_PATHS = [[(6, 0), (6, 20)], [(0, 14), (6, 20), (12, 14)]]
 TEXT_OFFSET = 18.0
 TOLERANCE = 1e-8
 DIAGNOSTICS = {}
@@ -91,52 +91,64 @@ class OrientationTests(unittest.TestCase):
 
     def test_oriented_labels_differ_from_all_four_rotated_reflections(self):
         results = {}
+        upside_down = {}
+        fixtures = list(dict.fromkeys(
+            ["H3", "I3", "H1", "J1", "M17", "B8-S5-O0", "A1", "N6", "HOH", "A-1"]
+            + list("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")))
         for mode in ("bezier", "polyline"):
-            for text in ("H3", "I3", "A1", "H", "I", "0", "8", "HOH"):
-                with self.subTest(mode=mode, text=text):
-                    _, entities = self.make_label(text, mode, height=20)
-                    distances = reflected_distances(geometry(entities))
-                    self.assertGreater(min(distances), 0.5)
-                    results[mode + ":" + text] = distances
-        DIAGNOSTICS["oriented_reflected_D4_hausdorff_mm_at_height20"] = results
+            with tempfile.TemporaryDirectory() as temporary:
+                document = oriented.new_drawing()
+                for index, text in enumerate(fixtures):
+                    oriented.add_text(document.modelspace(), oriented.load_glyphs(mode),
+                                      text, y=-10*index, height=5, mode=mode)
+                filename = Path(temporary) / "complete-labels.dxf"
+                document.saveas(filename)
+                reopened = ezdxf.readfile(filename)
+                self.assertEqual(len(reopened.groups), len(fixtures))
+                for text, (_, group) in zip(fixtures, reopened.groups):
+                    with self.subTest(mode=mode, text=text):
+                        shape = centered(geometry(group))
+                        distances = reflected_distances(shape)
+                        self.assertGreater(min(distances), 0.125)
+                        front180 = shape.hausdorff_distance(affinity.rotate(shape, 180, origin=(0, 0)))
+                        self.assertGreater(front180, 0.125)
+                        results[mode + ":" + text] = distances
+                        upside_down[mode + ":" + text] = front180
+        DIAGNOSTICS["complete_label_reflected_D4_hausdorff_mm_at_height5_saved_DXF"] = results
+        DIAGNOSTICS["complete_label_front180_hausdorff_mm_at_height5_saved_DXF"] = upside_down
 
-    def test_marker_is_one_open_zero_width_unbulged_path(self):
+    def test_arrow_is_two_open_zero_width_unbulged_paths(self):
         for mode in ("bezier", "polyline"):
             with self.subTest(mode=mode):
                 _, entities = self.make_label("H3", mode, height=20)
-                marker = entities[0]
-                self.assertEqual(marker.dxftype(), "LWPOLYLINE")
-                self.assertFalse(marker.closed)
-                self.assertEqual(marker.dxf.const_width, 0)
-                self.assertEqual(len(marker), len(KEY))
-                for actual, expected in zip(marker.get_points("xyseb"), KEY):
-                    self.assertPoint(actual[:2], expected)
-                    self.assertPoint(actual[2:], (0, 0, 0))
-                self.assertPoint(tuple(marker.dxf.extrusion), (0, 0, 1))
-                self.assertEqual(marker.dxf.layer, "ID_CUT_SINGLELINE")
+                for marker, expected_path in zip(entities[:2], ARROW_PATHS):
+                    self.assertEqual(marker.dxftype(), "LWPOLYLINE")
+                    self.assertFalse(marker.closed)
+                    self.assertEqual(marker.dxf.const_width, 0)
+                    self.assertEqual(len(marker), len(expected_path))
+                    for actual, expected in zip(marker.get_points("xyseb"), expected_path):
+                        self.assertPoint(actual[:2], expected)
+                        self.assertPoint(actual[2:], (0, 0, 0))
+                    self.assertPoint(tuple(marker.dxf.extrusion), (0, 0, 1))
+                    self.assertEqual(marker.dxf.layer, "ID_CUT_SINGLELINE")
 
     def test_marker_has_no_duplicate_or_zero_length_segments(self):
-        edges = list(zip(KEY, KEY[1:]))
+        edges = [edge for path in ARROW_PATHS for edge in zip(path, path[1:])]
         unique = {tuple(sorted(edge)) for edge in edges}
         self.assertEqual(len(unique), len(edges))
         self.assertTrue(all(math.dist(a, b) > 0 for a, b in edges))
-        line = LineString(KEY)
-        self.assertTrue(line.is_simple)
-        self.assertFalse(line.is_ring)
+        for path in ARROW_PATHS:
+            line = LineString(path)
+            self.assertTrue(line.is_simple)
+            self.assertFalse(line.is_ring)
 
-    def test_marker_structure_excludes_any_reflection_isometry(self):
-        # Every straight segment has a distinct length. Therefore an isometry
-        # preserving this connected open path must preserve its length order;
-        # it cannot exchange the endpoints. Two nonparallel vectors then fix
-        # both axes, excluding every orientation-reversing plane isometry.
-        vectors = [(b[0] - a[0], b[1] - a[1]) for a, b in zip(KEY, KEY[1:])]
-        squared = [round(dx * dx + dy * dy, 8) for dx, dy in vectors]
-        self.assertEqual(len(set(squared)), len(squared))
-        self.assertNotEqual(squared, squared[::-1])
-        cross = vectors[0][0] * vectors[1][1] - vectors[0][1] * vectors[1][0]
-        self.assertNotEqual(cross, 0)
-        DIAGNOSTICS["key_squared_segment_lengths_at_height20"] = squared
-        DIAGNOSTICS["key_reflection_proof"] = "Unique ordered segment lengths and nonparallel vectors"
+    def test_arrow_alone_is_symmetric_and_is_not_a_face_proof(self):
+        _, entities = self.make_label("H3", height=20)
+        arrow = centered(geometry(entities[:2]))
+        distance = arrow.hausdorff_distance(affinity.scale(arrow, xfact=-1, yfact=1, origin=(0, 0)))
+        self.assertLess(distance, TOLERANCE)
+        DIAGNOSTICS["isolated_arrow_horizontal_reflection_hausdorff_mm_at_height20"] = distance
+        DIAGNOSTICS["arrow_reading_rule"] = "Read the complete label: arrow before ID, pointing toward the top of readable lettering. The arrow alone is symmetric."
 
     def test_exact_glyph_geometry_preserved_after_key_for_every_character(self):
         text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789- "
@@ -150,8 +162,8 @@ class OrientationTests(unittest.TestCase):
                     entities = oriented.add_text(document.modelspace(), loaded, text, mode=mode,
                                                  height=height, x=x, y=y, rotation=rotation)
                     offset = TEXT_OFFSET
-                    expected_count = 1
-                    entity_index = 1
+                    expected_count = 2
+                    entity_index = 2
                     for char in text:
                         glyph = data[char]
                         paths = glyph["paths"] if mode == "bezier" else glyph["paths_xyb"]
@@ -203,10 +215,12 @@ class OrientationTests(unittest.TestCase):
                 for angle in (0, 37, 90, 180, 270):
                     with self.subTest(mode=mode, height=height, angle=angle):
                         _, entities = self.make_label("H3", mode, x=31, y=-17, height=height, rotation=angle)
-                        vertices = list(entities[0].vertices_in_wcs())
-                        for actual, expected in zip(vertices, KEY):
-                            self.assertPoint(tuple(actual), transform(expected, 31, -17, height, angle))
-                        self.assertAlmostEqual(math.dist(vertices[0], vertices[1]), height * 0.84)
+                        for entity, expected_path in zip(entities[:2], ARROW_PATHS):
+                            vertices = list(entity.vertices_in_wcs())
+                            for actual, expected in zip(vertices, expected_path):
+                                self.assertPoint(tuple(actual), transform(expected, 31, -17, height, angle))
+                        shaft = list(entities[0].vertices_in_wcs())
+                        self.assertAlmostEqual(math.dist(shaft[0], shaft[1]), height)
 
     def test_groups_units_and_geometry_survive_save_reopen(self):
         for mode in ("bezier", "polyline"):
@@ -269,7 +283,7 @@ class OrientationTests(unittest.TestCase):
                 broken = oriented.load_glyphs(mode)
                 del broken["B"]["paths" if mode == "bezier" else "paths_xyb"]
                 with self.assertRaises(KeyError):
-                    # The second character fails after the key and A are made.
+                    # The second character fails after the arrow and A are made.
                     oriented.add_text(document.modelspace(), broken, "AB", mode=mode)
                 self.assertEqual([e.dxf.handle for e in document.modelspace()], before_handles)
                 self.assertEqual({name: [e.dxf.handle for e in group] for name, group in document.groups}, before_groups)
@@ -309,10 +323,10 @@ class OrientationTests(unittest.TestCase):
                 self.assertEqual(reopened.units, 4)
                 self.assertEqual(len(reopened.groups), 1)
                 self.assertEqual(len(reopened.modelspace()), metadata["cut_paths"])
-                key = list(reopened.modelspace())[0]
-                self.assertEqual(key.dxftype(), "LWPOLYLINE")
-                for point, expected in zip(key.vertices_in_wcs(), KEY):
-                    self.assertPoint(tuple(point), transform(expected, 0, 0, 5, 0))
+                for marker, expected_path in zip(list(reopened.modelspace())[:2], ARROW_PATHS):
+                    self.assertEqual(marker.dxftype(), "LWPOLYLINE")
+                    for point, expected in zip(marker.vertices_in_wcs(), expected_path):
+                        self.assertPoint(tuple(point), transform(expected, 0, 0, 5, 0))
                 existing = target.read_bytes()
                 refused = subprocess.run(command, capture_output=True, text=True, timeout=30)
                 self.assertNotEqual(refused.returncode, 0)

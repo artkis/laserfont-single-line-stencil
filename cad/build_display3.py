@@ -3,7 +3,7 @@
 """Build LaserFont 3 SHP without changing any legacy character encoding.
 
 Font data is OFL-1.1. This utility is MIT. The reserved ASCII tilde displays
-the full-height orientation key. It must occur once before each complete ID;
+the full-height orientation arrow. It may occur once before each complete ID;
 ordinary SHX per-character rendering cannot infer label boundaries.
 
 Run this builder, then COMPILE laserfont3.shp in AutoCAD. This module does not
@@ -13,10 +13,12 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import math
 
 import build_cad as legacy
 
 ROOT = Path(__file__).resolve().parent
+VERSION = "3.0.3"
 
 
 def sha(path):
@@ -53,12 +55,21 @@ def main():
     key = json.loads(key_path.read_text(encoding="utf-8"))
     if key["height_mm"] != 20:
         raise ValueError("Display font requires the existing 20-unit design height")
+    paths = key["paths_mm"]
+    if not paths or any(len(path) < 2 for path in paths):
+        raise ValueError("The orientation arrow requires nonempty open paths")
+    if any(len(point) != 2 or not all(math.isfinite(value) for value in point)
+           for path in paths for point in path):
+        raise ValueError("Arrow coordinates must be finite XY pairs")
     shape = legacy.Shape()
-    shape.start(key["vertices_mm"][0])
-    for point in key["vertices_mm"][1:]:
-        shape.move(point, True)
+    for path in paths:
+        # start() lifts the pen and returns to the glyph origin. This preserves
+        # the shaft and arrowhead as separate strokes without a connecting cut.
+        shape.start(path[0])
+        for point in path[1:]:
+            shape.move(point, True)
     codes = shape.finish(key["text_origin_x_mm"])
-    new_record = "\n".join(legacy.record(ord("~"), codes, "orientation_key")) + "\n"
+    new_record = "\n".join(legacy.record(ord("~"), codes, "orientation_arrow")) + "\n"
     old_records = records(text)
     if "0007E" not in old_records or "UNIFONT" not in old_records:
         raise ValueError("Unexpected legacy SHP record layout")
@@ -66,7 +77,7 @@ def main():
     result = result.replace("*UNIFONT,6,laserfont2", "*UNIFONT,6,laserfont3", 1)
     result = result.replace(
         "; laserfont2 display only. Exact Bezier cutting geometry: LASER2 / LASEROUT2.",
-        "; laserfont3 display only. Prefix each ID with ~. Exact cutting geometry: LASER3 / LASEROUT3.", 1)
+        "; laserfont3 display only. Optional ~ displays the arrow. Convert to cut paths with LASEROUT.", 1)
     new_records = records(result)
     preserved = [name for name in old_records if name not in ("UNIFONT", "0007E")]
     assert all(old_records[name] == new_records[name] for name in preserved)
@@ -87,13 +98,13 @@ def main():
         and sha(compiled) == previous_report.get("compiled_output_sha256"))
     if args.check:
         assert previous_bytes == output_bytes, "Generated SHP differs or contains non-LF newlines"
-        assert previous_report.get("version") == "3.0.1", "Build report version differs"
+        assert previous_report.get("version") == VERSION, "Build report version differs"
         assert previous_report.get("output_sha256") == digest(output_bytes), "SHP hash differs from report"
         assert previous_report.get("source_lf_canonical_sha256") == digest(lf_bytes(original)), "Legacy source canonical hash differs"
         if previous_report.get("compile_status") == "AUTOCAD_2023_COMPILE_SUCCESS":
             assert native_proof_reusable, "Compiled proof does not match delivered source or SHX"
             assert previous_report.get("native_compiled_input_shp_lf_canonical_sha256") == digest(output_bytes)
-        print(json.dumps({"check": "PASS", "version": "3.0.1", "output_sha256": digest(output_bytes), "source_newlines": "LF", "native_proof_retained": native_proof_reusable}))
+        print(json.dumps({"check": "PASS", "version": VERSION, "output_sha256": digest(output_bytes), "source_newlines": "LF", "native_proof_retained": native_proof_reusable}))
         return
     destination.write_bytes(output_bytes)
     decoded = shape.decoded
@@ -104,7 +115,7 @@ def main():
     assert abs(ymax - ymin - 20) < 1e-9
     assert abs(xmax - xmin - 12) < 1e-9
     report = {
-        "font_name": "laserfont3", "version": "3.0.1",
+        "font_name": "laserfont3", "version": VERSION,
         "font_license": "OFL-1.1", "utility_license": "MIT",
         "source": "laserfont2.shp", "source_sha256": sha(source),
         "source_lf_canonical_sha256": digest(lf_bytes(original)),
@@ -113,6 +124,8 @@ def main():
         "output_lf_canonical_sha256": digest(output_bytes), "output_newlines": "LF",
         "cap_height_design_units": 20,
         "reserved_character": "~", "reserved_codepoint": 126,
+        "orientation_symbol": "up arrow", "key_open_paths": len(paths),
+        "key_paths_design_units": paths,
         "key_advance_design_units": key["text_origin_x_mm"],
         "key_width_at_height5_mm": (xmax - xmin) / 4,
         "key_height_at_height5_mm": (ymax - ymin) / 4,
@@ -125,7 +138,7 @@ def main():
         "display_bound_from_legacy_at_height5_mm": (legacy.CHORD_TOL + 2 ** 0.5 / legacy.GRID / 2) / 4,
         "compile_status": "NOT_RUN_BY_SOURCE_BUILDER",
         "limits": ["SHX is an editable display approximation, not a cutting path.",
-                   "The complete ID must include exactly one leading tilde key.",
+                   "A leading tilde displays one arrow; LASEROUT adds the arrow automatically to bare labels.",
                    "Final outside-face placement and physical readability require separate checks."]}
     if native_proof_reusable:
         for name, value in previous_report.items():

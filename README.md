@@ -1,28 +1,28 @@
-# LaserFont 3 — Single-Line Stencil IDs with an Outside-Face Key
+# LaserFont 3 — Single-Line Stencil IDs with an Orientation Arrow
 
-LaserFont is an original single-line stencil font for small part IDs cut directly into sheet metal. Version 3 adds a mandatory asymmetric corner key to every ID. The key exposes a reversed viewing face even when the letters themselves, such as `H3` or `I3`, look unchanged after a flip. The existing character shapes, two bridges per enclosed counter and cubic Bézier masters are retained.
+LaserFont is an original single-line stencil font for small part IDs cut directly into sheet metal. Version 3.0.3 places a simple **↑ arrow before each ID**. Read the arrow's position and direction together with the letters to check viewing orientation, including codes such as `H3` or `I3` whose characters alone can look unchanged after a flip. The original character shapes, two bridges per enclosed counter and cubic Bézier masters are retained.
 
 Designed by **Artkis**. The font is open source under the **SIL Open Font License 1.1**; the supporting utility code uses the **MIT License**. See [Licensing](LICENSING.md).
 
-## Version 3.0.2 — 9 October 2026
+## Version 3.0.3 — 9 October 2026
 
 ![Actual saved DXF front and back comparisons](examples/laserfont3-front-back.png)
 
-Read the complete **key + ID** from the final assembly's outside face: **long arm LEFT, base BELOW, short arm RIGHT**. This rule applies to both top and bottom sheets. The key is an orientation symbol, not another letter in the part code.
+From the intended outside face, the **arrow is before the ID and points toward the top of the readable lettering**. This rule applies to both top and bottom sheets. The arrow follows the label's rotation; it does not specify the assembly's global up direction. It is a symbol, not another character in the part code.
 
-At the default **5 mm cap height**, the key is 5 mm high and 3 mm wide, with a 1.5 mm gap before the code. It adds one continuous open path and 4.5 mm of label width. It creates no closed extra hole. The key and characters are grouped together in the DXF. Keep the complete group together when positioning or nesting.
+At the default **5 mm cap height**, the arrow is 5 mm high and 3 mm wide, with a 1.5 mm gap before the code. A stem and chevron form **two open paths representing one arrow**, with no closed hole. The arrow adds 4.5 mm of label width. Its two paths and the characters are grouped together in the DXF; keep the complete group together when positioning or nesting.
 
-The revised exporter always includes the key; it cannot be disabled. The unchanged version 2 exporter remains available for historical reproduction, but it does **not** provide this orientation cue.
+The plain arrow alone has mirror symmetry. The viewing-face cue is the complete arrangement: **arrow before ID, pointing toward the top of the lettering**. The exporter always includes the arrow; it cannot be disabled. The unchanged version 2 exporter remains available for historical reproduction without this cue.
 
 ### Generate a version 3 ID
 
 ```console
 python -m pip install -r requirements.txt
-python generate_laserfont3.py --text H3 --height 5 --output H3-keyed.dxf
-python generate_laserfont3.py --text I3 --height 5 --mode polyline --output I3-keyed.dxf
+python generate_laserfont3.py --text H3 --height 5 --output H3-arrow.dxf
+python generate_laserfont3.py --text I3 --height 5 --mode polyline --output I3-arrow.dxf
 ```
 
-`--x` and `--y` locate the key's left baseline. Rotation applies to the whole label. Exact mode retains the Bézier character paths; polyline mode uses the existing fitted arc characters. In both modes the new key is one open, zero-width polyline.
+`--x` and `--y` locate the left baseline of the arrow's bounding box. Rotation applies to the whole label. Exact mode retains the Bézier character paths; polyline mode uses the existing fitted arc characters. In both modes the arrow uses two open, zero-width polylines.
 
 ### Install for AutoCAD 2023
 
@@ -41,21 +41,21 @@ Restart AutoCAD to use the updated bundle. To refresh commands in an already ope
 
 1. Run `LASERFONT` once to select the LaserFont3 text style and set the default text height to **5**.
 2. Use ordinary AutoCAD `TEXT` or plain one-line `MTEXT`. Type the ID normally, for example `H3` or `I3`.
-3. Run **`LASEROUT`** and select the text. It creates the open arc/line cutting polylines and exactly one orientation key, grouped with the ID.
+3. Run **`LASEROUT`** and select the text. It creates the open arc/line cutting polylines and one orientation arrow, grouped with the ID.
 
 `LASEROUT` is the only conversion command. `LASERFONT` is a setup command; no numbered conversion or insertion commands are needed.
 
 Heights are **drawing units**: 5 means 5 mm in a millimetre drawing. The setup default does not resize existing text. Conversion preserves the selected text's height, so an existing **2.5 mm** label stays **2.5 mm**.
 
-Bare IDs are accepted. If LaserFont3 text already has one leading `~`, such as `~H3`, it is also accepted and becomes exactly one key. The display font draws `~` as the corner key; it is not part of the ID. Doubled or embedded prefixes are rejected.
+Bare IDs are accepted. If LaserFont3 text already has one leading `~`, such as `~H3`, it is also accepted and becomes one arrow. The display font draws `~` as the arrow; it is not part of the ID. Doubled or embedded prefixes are rejected.
 
-`LASEROUT` accepts eligible text using `laserfont.shx`, `laserfont2.shx` or `laserfont3.shx`. Bare text retains its character baseline; the key extends 4.5 mm to its left at height 5, or 2.25 mm at height 2.5. Prefixed LaserFont3 text retains its existing key baseline. See [the AutoCAD notes](cad/README-v3.md) for supported text properties and restrictions.
+`LASEROUT` accepts eligible text using `laserfont.shx`, `laserfont2.shx` or `laserfont3.shx`. Bare text retains its character baseline; the arrow extends 4.5 mm to its left at height 5, or 2.25 mm at height 2.5. Prefixed LaserFont3 text retains its existing symbol baseline. See [the AutoCAD notes](cad/README-v3.md) for supported text properties and restrictions.
 
 SHX is a display approximation. Use `LASEROUT` to create cutting geometry; do not use `TXTEXP`.
 
 ### Samples and checks
 
-- [Complete keyed character set](examples/laserfont3-alphabet.png)
+- [Complete character set with arrows](examples/laserfont3-alphabet.png)
 - [5 mm exact DXF samples](examples/laserfont3-H5-samples-bezier.dxf)
 - [5 mm arc/polyline DXF samples](examples/laserfont3-H5-samples-polyline.dxf)
 - [A4 specimen at actual size](examples/laserfont3-H5-print.pdf) — print at 100% and check the 50 mm scale line.
@@ -66,7 +66,7 @@ python -m unittest discover -s tests -v
 python render_orientation.py
 ```
 
-The Python regression tests reproduce the old `H3`/`I3` ambiguity, check mirrored and rotated keyed labels, preserve the original glyph controls and verify saved DXF groups, dimensions and open paths.
+The Python regression suite covers the old `H3`/`I3` ambiguity, mirrored and rotated label arrangements, original glyph controls, and saved DXF groups, dimensions and open paths. Check the recorded build version and source hashes when using its results.
 
 Native AutoCAD checks record text conversion, the compiled display font, grouping, cancellation, Undo and saved-drawing reopening in [the native test report](cad/native-test-report-v3.json). The report's version and source hashes identify the build tested; results from an earlier version do not verify a later command change.
 
@@ -78,7 +78,7 @@ The complete label must fit within the actual part, clear of outlines, holes and
 
 ## Version 2 reference: historical 20-unit defaults
 
-The preserved version 2 source files are archival. Their 20-unit defaults do not apply to the current AutoCAD workflow above. The measured path counts exclude the version 3 key. Use the installed current loader for active work; loading an archived LISP file can restore obsolete command definitions.
+The preserved version 2 source files are archival. Their 20-unit defaults do not apply to the current AutoCAD workflow above. The measured path counts exclude the version 3 arrow. Use the installed current loader for active work; loading an archived LISP file can restore obsolete command definitions.
 
 ![LaserFont alphabet and number specimen](examples/laserfont2-preview.png)
 

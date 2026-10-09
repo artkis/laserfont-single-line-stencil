@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.3 — 2026-10-09
+
+- Replace the corner symbol with a simple upward arrow before the ID. It points toward the top of the readable lettering and follows the label's rotation; it does not indicate global assembly up.
+- Use two open paths, a stem and a chevron, to form one arrow without a closed hole. At height 5 it measures 5 by 3 mm, with a 1.5 mm gap before the code and the same 4.5 mm added label width.
+- Use the arrow's position before the ID and its direction together as the orientation cue. A plain arrow alone has mirror symmetry.
+- Preserve the original glyphs, one `LASEROUT` conversion command, `LASERFONT` setup, default height 5 and existing text heights. Bare IDs and one existing `~` prefix remain accepted, producing one arrow grouped with the ID.
+- Load the combined runtime once from the installed loader; its integration commands are already embedded.
+
 ## 3.0.2 — 2026-10-09
 
 - Use one AutoCAD conversion command, `LASEROUT`, with `LASERFONT` for style setup. Remove the numbered conversion, insertion and polyline aliases from the current command interface and installer registration.

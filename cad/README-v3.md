@@ -1,7 +1,7 @@
-# LaserFont for AutoCAD — 3.0.2, 9 October 2026
+# LaserFont for AutoCAD — 3.0.3, 9 October 2026
 
 Use **LASEROUT** to convert ordinary editable IDs into open cutting polylines
-with one orientation key. **LASERFONT** sets up the text style and default
+with one simple orientation arrow. **LASERFONT** sets up the text style and default
 height. These are the two commands registered by the installer; LASEROUT is
 the only conversion command.
 
@@ -26,8 +26,9 @@ settings or the Startup Suite.
    `H3` or `I3`. No special insertion command or prefix is required.
 3. Run `LASEROUT` and select the text.
 
-The result contains fitted circular-arc/line `LWPOLYLINE` glyphs and one open,
-zero-width orientation key. The key and glyphs belong to one drawing group.
+The result contains fitted circular-arc/line `LWPOLYLINE` glyphs and one arrow.
+Its stem and chevron are two open, zero-width paths, with no closed hole.
+Both arrow paths and the glyphs belong to one drawing group.
 The cutting geometry needs no installed font on the receiving machine.
 
 The default is **5 drawing units**, or 5 mm in a millimetre drawing. Conversion
@@ -37,14 +38,14 @@ drawing.
 
 The converter accepts eligible text using `laserfont.shx`, `laserfont2.shx` or
 `laserfont3.shx`. Bare text keeps its character baseline, height, rotation,
-layer and applicable appearance properties. The key extends 0.9 times the
+layer and applicable appearance properties. The arrow extends 0.9 times the
 cap height to the left along the local baseline: 4.5 mm at height 5 or 2.25 mm
 at height 2.5. Check that this space is inside the part and clear of cuts and
 bends.
 
 LaserFont3 text that already begins with one `~`, such as `~H3`, is also
-accepted. The font displays this prefix as the key. Conversion preserves that
-key baseline and creates exactly one key, without shifting the characters
+accepted. The font displays this prefix as the arrow. Conversion preserves that
+symbol baseline and creates one arrow, without shifting the characters
 again. Doubled or embedded prefixes are rejected. The prefix is not part of
 the ID.
 
@@ -53,10 +54,14 @@ use `TXTEXP` or close the open stencil gaps.
 
 ## Read and move the complete label
 
-On the intended outside face, the key comes before the ID: **long arm left,
-base below, short arm right**. The small bevel belongs at the lower left.
-At height 5, the key is 5 mm tall and 3 mm wide, with a 1.5 mm gap before the
-character origin. All dimensions scale with the label height.
+On the intended outside face, **the arrow comes before the ID and points
+toward the top of the readable lettering**: ↑ H3. It rotates with the label
+and does not specify the assembly's global up direction.
+
+At height 5, the arrow is 5 mm tall and 3 mm wide, with a 1.5 mm gap before
+the character origin. All dimensions scale with the label height. The plain
+arrow alone has mirror symmetry; read its position and direction together
+with the ID when checking the viewing face.
 
 The tool cannot determine which face of a part is outside. Place the label
 from a verified outside-face view of the finished assembly. A readable label
@@ -65,7 +70,7 @@ on the wrong face still indicates a placement error.
 Each completed label is an AutoCAD `GROUP`. Enable group selection
 (`PICKSTYLE` 1 or 3) when moving labels; the routine does not change that
 setting. Grouping is a selection aid, not a lock. Move, rotate and copy the
-complete key and ID together.
+complete arrow and ID together.
 
 ## Supported input and Undo
 
@@ -77,7 +82,7 @@ background masks and unsupported attachments are rejected.
 For supported MTEXT, a temporary ordinary `EXPLODE` resolves the native TEXT
 baseline. The original remains if that step fails. `TXTEXP` is never used.
 
-The key, glyphs and group must all succeed before conversion commits. A
+Both arrow paths, the glyphs and the group must succeed before conversion commits. A
 failure removes the current label's new geometry and retains its original
 text. Cancellation follows the same rule. One `U`/`UNDO` reverses a completed
 conversion batch, including its groups, and restores the original text.
@@ -91,7 +96,7 @@ change the user's Undo settings.
 See [the native report](native-test-report-v3.json) for the tested version,
 source hashes, command cases and saved-drawing checks. Results for an earlier
 build do not verify a later command change. The Python geometry tests cover
-glyph preservation, the orientation key, reflections and DXF reopening.
+glyph preservation, the arrow-and-ID arrangement, reflections and DXF reopening.
 
 CAM import, physical cutting, kerf, piercing and human recognition require
 separate checks. The mark does not establish assembly handedness or physical
@@ -103,10 +108,10 @@ skipped input, cancellation and Undo with the intended text and UCS.
 Run `python cad/build_cad3.py` from the repository root to rebuild
 `cad/LASER3.lsp`. Run it with `--check` for byte-for-byte reproducibility.
 The versioned filename identifies the implementation; it is not an insertion
-command. The runtime includes its glyph and key data and needs no Python or
+command. The runtime includes its glyph and arrow data and needs no Python or
 JSON files at runtime. Previous-version source files remain archival.
 
-Copyright (c) 2026 Artkis. Glyph and orientation-key designs, data and SHP/SHX
+Copyright (c) 2026 Artkis. Glyph and orientation-arrow designs, data and SHP/SHX
 fonts remain [OFL-1.1](../OFL.txt). The installer, runtime, builders and this
 documentation use [MIT](../LICENSE-MIT.txt). Distribute both licenses with
 the combined runtime.

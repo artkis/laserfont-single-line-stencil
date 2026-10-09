@@ -185,8 +185,8 @@
   (if (or (lf3:chars-reason txt) (<= height 0.0)) (setq ok nil))
   (setq txt (strcase txt))
   (if ok
-    (if (setq next (lf3:bulged *lf3:key-points* 0.0 insert (/ height 20.0) angle appearance))
-      (setq made (list next) *lf3:pending-created* made)
+    (if (setq made (lf3:arrow 0.0 insert (/ height 20.0) angle appearance))
+      (setq *lf3:pending-created* made)
       (setq ok nil)))
   (while (and ok (<= i (strlen txt)))
     (setq ch (substr txt i 1))
@@ -219,10 +219,10 @@
             angle (lf3:get 50 normalized 0.0) made nil
             *lf3:pending-created* nil *lf3:pending-group* nil ok T)
       ;; A leading display key already reserves the key advance; bare text does not.
-      (if (setq next (lf3:bulged *lf3:key-points*
+      (if (setq made (lf3:arrow
                         (if (lf3:keyed-text-p normalized) 0.0 (- *lf3:text-origin*))
                         insert scale angle data))
-        (setq made (list next) *lf3:pending-created* made)
+        (setq *lf3:pending-created* made)
         (setq ok nil))
       (while (and ok (<= i (strlen txt)))
         (setq ch (substr txt i 1))
@@ -314,6 +314,17 @@
                   (cons 42 (caddr p))))))
   (if (entmake items) (entlast) nil))
 
+(defun lf3:arrow (advance insert scale angle appearance / path next made ok)
+  ;; One familiar up arrow: shaft plus open head, with no retraced cut edge.
+  ;; Return reverse creation order to match the surrounding rollback/group list.
+  (setq made nil ok T)
+  (foreach path *lf3:key-paths*
+    (if ok
+      (if (setq next (lf3:bulged path advance insert scale angle appearance))
+        (setq made (cons next made) *lf3:pending-created* made)
+        (setq ok nil))))
+  (if ok made nil))
+
 (defun lf3:convert-poly (ent / data reason normalized txt i ch glyph path next ok offset insert scale angle made)
   (setq data (entget ent) reason (lf3:reason data))
   (if (not *lf3:poly-glyphs*) (setq reason "arc-fit data is unavailable"))
@@ -330,10 +341,10 @@
             angle (lf3:get 50 normalized 0.0) made nil
             *lf3:pending-created* nil *lf3:pending-group* nil ok T)
       ;; A leading display key already reserves the key advance; bare text does not.
-      (if (setq next (lf3:bulged *lf3:key-points*
+      (if (setq made (lf3:arrow
                         (if (lf3:keyed-text-p normalized) 0.0 (- *lf3:text-origin*))
                         insert scale angle data))
-        (setq made (list next) *lf3:pending-created* made)
+        (setq *lf3:pending-created* made)
         (setq ok nil))
       (while (and ok (<= i (strlen txt)))
         (setq ch (substr txt i 1))
@@ -372,7 +383,7 @@
         (setq index (1+ index)))
       (command-s "_.UNDO" "_End") (setq undo-open nil)
       (princ (strcat "\nLASEROUT: " (itoa count) " labels converted; " (itoa skipped)
-                     " skipped. Grouped key plus fitted arc glyph polylines created; stencil gaps retained."
+                     " skipped. Arrow plus ID converted to grouped cutting polylines; stencil gaps retained."
                      " One UNDO reverses this batch."))))
   (princ))
 

@@ -41,7 +41,7 @@ def preview():
     image = Image.new("RGB", (1800, 1110), "#f6f4ee")
     d = ImageDraw.Draw(image)
     d.text((55, 32), "LaserFont 3 | Outside-face ID", fill="#182b32", font=v2.font(48))
-    d.text((55, 96), "5 mm lettering and key  /  8 October 2026", fill="#496069", font=v2.font(25))
+    d.text((55, 96), "5 mm lettering and arrow  /  9 October 2026", fill="#496069", font=v2.font(25))
     titles = [("OUTSIDE / CORRECT", None), ("BACK / LEFT-RIGHT FLIP", "back-x"),
               ("BACK / TOP-BOTTOM FLIP", "back-y"), ("FRONT / UPSIDE DOWN", "upside-down")]
     for col, (title, flip) in enumerate(titles):
@@ -53,19 +53,19 @@ def preview():
             top = 243+row*245
             draw_paths(d, curves, (left+32, top, left+386, top+155), color, flip)
             d.text((left+18, top+177), "H3" if row == 0 else "I3", fill="#4f6268", font=v2.font(22))
-    d.text((55, 792), "Read the WHOLE mark: key + ID", fill="#182b32", font=v2.font(33))
-    d.text((55, 842), "Correct key: long arm LEFT, base BELOW, short arm RIGHT.", fill="#182b32", font=v2.font(27))
-    d.text((55, 889), "One open key path. No closed extra hole. The panel code stays unchanged.", fill="#496069", font=v2.font(24))
+    d.text((55, 792), "Read the WHOLE mark: arrow + ID", fill="#182b32", font=v2.font(33))
+    d.text((55, 842), "Arrow BEFORE the ID, pointing toward the TOP of the readable lettering.", fill="#182b32", font=v2.font(27))
+    d.text((55, 889), "Two open arrow paths. No closed extra hole. The panel code stays unchanged.", fill="#496069", font=v2.font(24))
     d.text((55, 951), "Front/back views are rendered from the saved DXF at equal scale; enlarged for inspection.", fill="#496069", font=v2.font(21))
-    d.text((55, 988), "The key must be placed on the final assembly's OUTSIDE reading face, on top or bottom sheets.", fill="#496069", font=v2.font(21))
-    d.text((55, 1025), "Geometry verified separately from machine cutting and workshop readability.", fill="#496069", font=v2.font(21))
+    d.text((55, 988), "Place the complete label on the final OUTSIDE reading face. The arrow is not an assembly UP mark.", fill="#496069", font=v2.font(21))
+    d.text((55, 1025), "Arrow alone is symmetric. Geometry checks do not verify machine cutting or workshop readability.", fill="#496069", font=v2.font(21))
     image.save(OUT / "laserfont3-front-back.png")
 
     chars = groups(OUT / "laserfont3-H5-character-samples.dxf")
     image = Image.new("RGB", (1800, 1190), "#f6f4ee")
     d = ImageDraw.Draw(image)
-    d.text((45, 25), "LaserFont 3 | Complete keyed character set", fill="#182b32", font=v2.font(43))
-    d.text((45, 85), "Same readable character shapes; the mandatory full-height key identifies the viewing face.", fill="#496069", font=v2.font(25))
+    d.text((45, 25), "LaserFont 3 | Arrow and character set", fill="#182b32", font=v2.font(43))
+    d.text((45, 85), "Arrow before the unchanged ID, pointing toward the top of readable lettering. Read them together.", fill="#496069", font=v2.font(25))
     for i, curves in enumerate(chars):
         row, col = divmod(i, 8)
         x, y = 35+col*221, 150+row*191
@@ -80,8 +80,8 @@ def preview():
     image = Image.new("RGB", (round(210*ppm), round(297*ppm)), "white")
     d = ImageDraw.Draw(image)
     d.text((15*ppm,13*ppm), "LaserFont 3 | 5 mm specimen", fill="black", font=v2.font(52))
-    d.text((15*ppm,23*ppm), "8 October 2026 | Print at 100% / Actual size", fill="black", font=v2.font(29))
-    d.text((15*ppm,31*ppm), "Key + ID: long arm left, base below, short arm right.", fill="black", font=v2.font(28))
+    d.text((15*ppm,23*ppm), "9 October 2026 | Print at 100% / Actual size", fill="black", font=v2.font(29))
+    d.text((15*ppm,31*ppm), "Arrow before ID; arrow points toward the top of readable lettering.", fill="black", font=v2.font(28))
     for i, curves in enumerate(saved):
         xmin = min(x for c in curves for x,y in c)
         ymin = min(y for c in curves for x,y in c)
@@ -92,7 +92,7 @@ def preview():
     d.line((20*ppm,y,70*ppm,y), fill="black", width=2)
     for x in (20,70): d.line((x*ppm,y-2*ppm,x*ppm,y+2*ppm),fill="black",width=2)
     d.text((20*ppm,205*ppm), "This line must measure 50 mm on paper.", fill="black", font=v2.font(29))
-    for i, text in enumerate(("Key at 5 mm: 3 mm wide; 1.5 mm gap to the first character.",
+    for i, text in enumerate(("Arrow at 5 mm: 3 mm wide; 1.5 mm gap to the first character.",
                               "Through-cut centerlines; do not close paths or stencil gaps.",
                               "Check the whole label fits inside the part before cutting.",
                               "Actual CAM import and a cut sample remain to be verified.")):

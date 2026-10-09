@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461322.733912037
+2461323.333865741
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461322.733912037
+2461323.333865741
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-C4
+E9
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{F043D314-0284-4CBB-8938-F11B2562AD44}
+{100DF474-759D-4063-B3F7-3737358EDAF4}
   9
 $VERSIONGUID
   2
-{1E4DDFA3-C732-4E51-9F62-9A664684E8F6}
+{23AC8641-5913-43A9-971A-78BC95671CF8}
   9
 $EXTNAMES
 290
@@ -1725,7 +1725,7 @@ ACAD
   0
 APPID
   5
-C1
+E6
 330
 3
 100
@@ -1739,7 +1739,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-C2
+E7
 330
 3
 100
@@ -2053,7 +2053,7 @@ LWPOLYLINE
 102
 {ACAD_REACTORS
 330
-33
+34
 102
 }
 330
@@ -2065,37 +2065,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
  70
 0
  10
+1.5
+ 20
 0.0
+ 10
+1.5
  20
 5.0
- 10
-0.0
- 20
-0.8
- 10
-0.8
- 20
-0.0
- 10
-3.0
- 20
-0.0
- 10
-3.0
- 20
-1.5
   0
-SPLINE
+LWPOLYLINE
   5
 31
 102
 {ACAD_REACTORS
 330
-33
+34
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+0.0
+ 20
+3.5
+ 10
+1.5
+ 20
+5.0
+ 10
+3.0
+ 20
+3.5
+  0
+SPLINE
+  5
+32
+102
+{ACAD_REACTORS
+330
+34
 102
 }
 330
@@ -2255,11 +2277,11 @@ AcDbSpline
   0
 SPLINE
   5
-32
+33
 102
 {ACAD_REACTORS
 330
-33
+34
 102
 }
 330
@@ -2395,11 +2417,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-34
+35
 102
 {ACAD_REACTORS
 330
-39
+3B
 102
 }
 330
@@ -2411,37 +2433,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+19.5
+ 20
+0.0
+ 10
+19.5
+ 20
+5.0
+  0
+LWPOLYLINE
+  5
+36
+102
+{ACAD_REACTORS
+330
+3B
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 18.0
  20
+3.5
+ 10
+19.5
+ 20
 5.0
  10
-18.0
- 20
-0.8
- 10
-18.8
- 20
-0.0
- 10
 21.0
  20
-0.0
- 10
-21.0
- 20
-1.5
+3.5
   0
 SPLINE
   5
-35
+37
 102
 {ACAD_REACTORS
 330
-39
+3B
 102
 }
 330
@@ -2649,11 +2693,11 @@ AcDbSpline
   0
 SPLINE
   5
-36
+38
 102
 {ACAD_REACTORS
 330
-39
+3B
 102
 }
 330
@@ -2741,11 +2785,11 @@ AcDbSpline
   0
 SPLINE
   5
-37
+39
 102
 {ACAD_REACTORS
 330
-39
+3B
 102
 }
 330
@@ -2833,11 +2877,11 @@ AcDbSpline
   0
 LINE
   5
-38
+3A
 102
 {ACAD_REACTORS
 330
-39
+3B
 102
 }
 330
@@ -2863,11 +2907,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-3A
+3C
 102
 {ACAD_REACTORS
 330
-3C
+3F
 102
 }
 330
@@ -2879,37 +2923,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+37.5
+ 20
+0.0
+ 10
+37.5
+ 20
+5.0
+  0
+LWPOLYLINE
+  5
+3D
+102
+{ACAD_REACTORS
+330
+3F
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 36.0
  20
+3.5
+ 10
+37.5
+ 20
 5.0
  10
-36.0
- 20
-0.8
- 10
-36.8
- 20
-0.0
- 10
 39.0
  20
-0.0
- 10
-39.0
- 20
-1.5
+3.5
   0
 SPLINE
   5
-3B
+3E
 102
 {ACAD_REACTORS
 330
-3C
+3F
 102
 }
 330
@@ -3069,11 +3135,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-3D
+40
 102
 {ACAD_REACTORS
 330
-40
+44
 102
 }
 330
@@ -3085,37 +3151,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+55.5
+ 20
+0.0
+ 10
+55.5
+ 20
+5.0
+  0
+LWPOLYLINE
+  5
+41
+102
+{ACAD_REACTORS
+330
+44
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 54.0
  20
+3.5
+ 10
+55.5
+ 20
 5.0
  10
-54.0
- 20
-0.8
- 10
-54.8
- 20
-0.0
- 10
 57.0
  20
-0.0
- 10
-57.0
- 20
-1.5
+3.5
   0
 SPLINE
   5
-3E
+42
 102
 {ACAD_REACTORS
 330
-40
+44
 102
 }
 330
@@ -3251,11 +3339,11 @@ AcDbSpline
   0
 SPLINE
   5
-3F
+43
 102
 {ACAD_REACTORS
 330
-40
+44
 102
 }
 330
@@ -3391,11 +3479,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-41
+45
 102
 {ACAD_REACTORS
 330
-44
+49
 102
 }
 330
@@ -3407,37 +3495,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+73.5
+ 20
+0.0
+ 10
+73.5
+ 20
+5.0
+  0
+LWPOLYLINE
+  5
+46
+102
+{ACAD_REACTORS
+330
+49
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 72.0
  20
+3.5
+ 10
+73.5
+ 20
 5.0
  10
-72.0
- 20
-0.8
- 10
-72.8
- 20
-0.0
- 10
 75.0
  20
-0.0
- 10
-75.0
- 20
-1.5
+3.5
   0
 SPLINE
   5
-42
+47
 102
 {ACAD_REACTORS
 330
-44
+49
 102
 }
 330
@@ -3597,11 +3707,11 @@ AcDbSpline
   0
 LINE
   5
-43
+48
 102
 {ACAD_REACTORS
 330
-44
+49
 102
 }
 330
@@ -3627,11 +3737,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-45
+4A
 102
 {ACAD_REACTORS
 330
-48
+4E
 102
 }
 330
@@ -3643,37 +3753,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+91.5
+ 20
+0.0
+ 10
+91.5
+ 20
+5.0
+  0
+LWPOLYLINE
+  5
+4B
+102
+{ACAD_REACTORS
+330
+4E
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 90.0
  20
+3.5
+ 10
+91.5
+ 20
 5.0
  10
-90.0
- 20
-0.8
- 10
-90.8
- 20
-0.0
- 10
 93.0
  20
-0.0
- 10
-93.0
- 20
-1.5
+3.5
   0
 SPLINE
   5
-46
+4C
 102
 {ACAD_REACTORS
 330
-48
+4E
 102
 }
 330
@@ -3785,11 +3917,11 @@ AcDbSpline
   0
 LINE
   5
-47
+4D
 102
 {ACAD_REACTORS
 330
-48
+4E
 102
 }
 330
@@ -3815,11 +3947,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-49
+4F
 102
 {ACAD_REACTORS
 330
-4B
+52
 102
 }
 330
@@ -3831,37 +3963,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+109.5
+ 20
+0.0
+ 10
+109.5
+ 20
+5.0
+  0
+LWPOLYLINE
+  5
+50
+102
+{ACAD_REACTORS
+330
+52
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 108.0
  20
+3.5
+ 10
+109.5
+ 20
 5.0
  10
-108.0
- 20
-0.8
- 10
-108.8
- 20
-0.0
- 10
 111.0
  20
-0.0
- 10
-111.0
- 20
-1.5
+3.5
   0
 SPLINE
   5
-4A
+51
 102
 {ACAD_REACTORS
 330
-4B
+52
 102
 }
 330
@@ -4093,215 +4247,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-4C
-102
-{ACAD_REACTORS
-330
-50
-102
-}
-330
-17
-100
-AcDbEntity
-  8
-ID_CUT_SINGLELINE
-100
-AcDbPolyline
- 90
-5
- 70
-0
- 10
-126.0
- 20
-5.0
- 10
-126.0
- 20
-0.8
- 10
-126.8
- 20
-0.0
- 10
-129.0
- 20
-0.0
- 10
-129.0
- 20
-1.5
-  0
-LINE
-  5
-4D
-102
-{ACAD_REACTORS
-330
-50
-102
-}
-330
-17
-100
-AcDbEntity
-  8
-ID_CUT_SINGLELINE
-100
-AcDbLine
- 10
-130.5
- 20
-0.0
- 30
-0.0
- 11
-130.5
- 21
-5.0
- 31
-0.0
-  0
-LINE
-  5
-4E
-102
-{ACAD_REACTORS
-330
-50
-102
-}
-330
-17
-100
-AcDbEntity
-  8
-ID_CUT_SINGLELINE
-100
-AcDbLine
- 10
-133.5
- 20
-0.0
- 30
-0.0
- 11
-133.5
- 21
-5.0
- 31
-0.0
-  0
-LINE
-  5
-4F
-102
-{ACAD_REACTORS
-330
-50
-102
-}
-330
-17
-100
-AcDbEntity
-  8
-ID_CUT_SINGLELINE
-100
-AcDbLine
- 10
-130.5
- 20
-2.5
- 30
-0.0
- 11
-133.5
- 21
-2.5
- 31
-0.0
-  0
-LWPOLYLINE
-  5
-51
-102
-{ACAD_REACTORS
-330
-55
-102
-}
-330
-17
-100
-AcDbEntity
-  8
-ID_CUT_SINGLELINE
-100
-AcDbPolyline
- 90
-5
- 70
-0
- 10
-0.0
- 20
--7.0
- 10
-0.0
- 20
--11.2
- 10
-0.8
- 20
--12.0
- 10
-3.0
- 20
--12.0
- 10
-3.0
- 20
--10.5
-  0
-LINE
-  5
-52
-102
-{ACAD_REACTORS
-330
-55
-102
-}
-330
-17
-100
-AcDbEntity
-  8
-ID_CUT_SINGLELINE
-100
-AcDbLine
- 10
-4.5
- 20
--7.000000000000001
- 30
-0.0
- 11
-6.5
- 21
--7.000000000000001
- 31
-0.0
-  0
-LINE
-  5
 53
 102
 {ACAD_REACTORS
 330
-55
+58
 102
 }
 330
@@ -4311,27 +4261,61 @@ AcDbEntity
   8
 ID_CUT_SINGLELINE
 100
-AcDbLine
+AcDbPolyline
+ 90
+2
+ 70
+0
  10
-5.5
+127.5
  20
--7.000000000000001
- 30
 0.0
- 11
-5.5
- 21
--12.0
- 31
-0.0
+ 10
+127.5
+ 20
+5.0
   0
-LINE
+LWPOLYLINE
   5
 54
 102
 {ACAD_REACTORS
 330
+58
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+126.0
+ 20
+3.5
+ 10
+127.5
+ 20
+5.0
+ 10
+129.0
+ 20
+3.5
+  0
+LINE
+  5
 55
+102
+{ACAD_REACTORS
+330
+58
 102
 }
 330
@@ -4343,19 +4327,19 @@ ID_CUT_SINGLELINE
 100
 AcDbLine
  10
-4.5
+130.5
  20
--12.0
+0.0
  30
 0.0
  11
-6.5
+130.5
  21
--12.0
+5.0
  31
 0.0
   0
-LWPOLYLINE
+LINE
   5
 56
 102
@@ -4371,39 +4355,275 @@ AcDbEntity
   8
 ID_CUT_SINGLELINE
 100
-AcDbPolyline
- 90
-5
- 70
-0
+AcDbLine
  10
-18.0
+133.5
  20
--7.0
- 10
-18.0
- 20
--11.2
- 10
-18.8
- 20
--12.0
- 10
-21.0
- 20
--12.0
- 10
-21.0
- 20
--10.5
+0.0
+ 30
+0.0
+ 11
+133.5
+ 21
+5.0
+ 31
+0.0
   0
-SPLINE
+LINE
   5
 57
 102
 {ACAD_REACTORS
 330
 58
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbLine
+ 10
+130.5
+ 20
+2.5
+ 30
+0.0
+ 11
+133.5
+ 21
+2.5
+ 31
+0.0
+  0
+LWPOLYLINE
+  5
+59
+102
+{ACAD_REACTORS
+330
+5E
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+2
+ 70
+0
+ 10
+1.5
+ 20
+-12.0
+ 10
+1.5
+ 20
+-7.0
+  0
+LWPOLYLINE
+  5
+5A
+102
+{ACAD_REACTORS
+330
+5E
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+0.0
+ 20
+-8.5
+ 10
+1.5
+ 20
+-7.0
+ 10
+3.0
+ 20
+-8.5
+  0
+LINE
+  5
+5B
+102
+{ACAD_REACTORS
+330
+5E
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbLine
+ 10
+4.5
+ 20
+-7.000000000000001
+ 30
+0.0
+ 11
+6.5
+ 21
+-7.000000000000001
+ 31
+0.0
+  0
+LINE
+  5
+5C
+102
+{ACAD_REACTORS
+330
+5E
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbLine
+ 10
+5.5
+ 20
+-7.000000000000001
+ 30
+0.0
+ 11
+5.5
+ 21
+-12.0
+ 31
+0.0
+  0
+LINE
+  5
+5D
+102
+{ACAD_REACTORS
+330
+5E
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbLine
+ 10
+4.5
+ 20
+-12.0
+ 30
+0.0
+ 11
+6.5
+ 21
+-12.0
+ 31
+0.0
+  0
+LWPOLYLINE
+  5
+5F
+102
+{ACAD_REACTORS
+330
+62
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+2
+ 70
+0
+ 10
+19.5
+ 20
+-12.0
+ 10
+19.5
+ 20
+-7.0
+  0
+LWPOLYLINE
+  5
+60
+102
+{ACAD_REACTORS
+330
+62
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
+ 70
+0
+ 10
+18.0
+ 20
+-8.5
+ 10
+19.5
+ 20
+-7.0
+ 10
+21.0
+ 20
+-8.5
+  0
+SPLINE
+  5
+61
+102
+{ACAD_REACTORS
+330
+62
 102
 }
 330
@@ -4515,11 +4735,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-59
+63
 102
 {ACAD_REACTORS
 330
-5C
+67
 102
 }
 330
@@ -4531,37 +4751,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+37.5
+ 20
+-12.0
+ 10
+37.5
+ 20
+-7.0
+  0
+LWPOLYLINE
+  5
+64
+102
+{ACAD_REACTORS
+330
+67
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 36.0
  20
+-8.5
+ 10
+37.5
+ 20
 -7.0
  10
-36.0
- 20
--11.2
- 10
-36.8
- 20
--12.0
- 10
 39.0
  20
--12.0
- 10
-39.0
- 20
--10.5
+-8.5
   0
 LINE
   5
-5A
+65
 102
 {ACAD_REACTORS
 330
-5C
+67
 102
 }
 330
@@ -4587,11 +4829,11 @@ AcDbLine
   0
 SPLINE
   5
-5B
+66
 102
 {ACAD_REACTORS
 330
-5C
+67
 102
 }
 330
@@ -4679,11 +4921,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-5D
+68
 102
 {ACAD_REACTORS
 330
-5F
+6B
 102
 }
 330
@@ -4695,37 +4937,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+55.5
+ 20
+-12.0
+ 10
+55.5
+ 20
+-7.0
+  0
+LWPOLYLINE
+  5
+69
+102
+{ACAD_REACTORS
+330
+6B
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 54.0
  20
+-8.5
+ 10
+55.5
+ 20
 -7.0
  10
-54.0
- 20
--11.2
- 10
-54.8
- 20
--12.0
- 10
 57.0
  20
--12.0
- 10
-57.0
- 20
--10.5
+-8.5
   0
 SPLINE
   5
-5E
+6A
 102
 {ACAD_REACTORS
 330
-5F
+6B
 102
 }
 330
@@ -4837,11 +5101,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-60
+6C
 102
 {ACAD_REACTORS
 330
-62
+6F
 102
 }
 330
@@ -4853,37 +5117,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+73.5
+ 20
+-12.0
+ 10
+73.5
+ 20
+-7.0
+  0
+LWPOLYLINE
+  5
+6D
+102
+{ACAD_REACTORS
+330
+6F
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 72.0
  20
+-8.5
+ 10
+73.5
+ 20
 -7.0
  10
-72.0
- 20
--11.2
- 10
-72.8
- 20
--12.0
- 10
 75.0
  20
--12.0
- 10
-75.0
- 20
--10.5
+-8.5
   0
 SPLINE
   5
-61
+6E
 102
 {ACAD_REACTORS
 330
-62
+6F
 102
 }
 330
@@ -5091,11 +5377,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-63
+70
 102
 {ACAD_REACTORS
 330
-65
+73
 102
 }
 330
@@ -5107,37 +5393,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+91.5
+ 20
+-12.0
+ 10
+91.5
+ 20
+-7.0
+  0
+LWPOLYLINE
+  5
+71
+102
+{ACAD_REACTORS
+330
+73
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 90.0
  20
+-8.5
+ 10
+91.5
+ 20
 -7.0
  10
-90.0
- 20
--11.2
- 10
-90.8
- 20
--12.0
- 10
 93.0
  20
--12.0
- 10
-93.0
- 20
--10.5
+-8.5
   0
 SPLINE
   5
-64
+72
 102
 {ACAD_REACTORS
 330
-65
+73
 102
 }
 330
@@ -5297,11 +5605,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-66
+74
 102
 {ACAD_REACTORS
 330
-69
+78
 102
 }
 330
@@ -5313,37 +5621,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+109.5
+ 20
+-12.0
+ 10
+109.5
+ 20
+-7.0
+  0
+LWPOLYLINE
+  5
+75
+102
+{ACAD_REACTORS
+330
+78
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 108.0
  20
+-8.5
+ 10
+109.5
+ 20
 -7.0
  10
-108.0
- 20
--11.2
- 10
-108.8
- 20
--12.0
- 10
 111.0
  20
--12.0
- 10
-111.0
- 20
--10.5
+-8.5
   0
 SPLINE
   5
-67
+76
 102
 {ACAD_REACTORS
 330
-69
+78
 102
 }
 330
@@ -5431,11 +5761,11 @@ AcDbSpline
   0
 SPLINE
   5
-68
+77
 102
 {ACAD_REACTORS
 330
-69
+78
 102
 }
 330
@@ -5523,11 +5853,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-6A
+79
 102
 {ACAD_REACTORS
 330
-6D
+7D
 102
 }
 330
@@ -5539,37 +5869,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+127.5
+ 20
+-12.0
+ 10
+127.5
+ 20
+-7.0
+  0
+LWPOLYLINE
+  5
+7A
+102
+{ACAD_REACTORS
+330
+7D
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 126.0
  20
+-8.5
+ 10
+127.5
+ 20
 -7.0
  10
-126.0
- 20
--11.2
- 10
-126.8
- 20
--12.0
- 10
 129.0
  20
--12.0
- 10
-129.0
- 20
--10.5
+-8.5
   0
 SPLINE
   5
-6B
+7B
 102
 {ACAD_REACTORS
 330
-6D
+7D
 102
 }
 330
@@ -5705,11 +6057,11 @@ AcDbSpline
   0
 SPLINE
   5
-6C
+7C
 102
 {ACAD_REACTORS
 330
-6D
+7D
 102
 }
 330
@@ -5821,11 +6173,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-6E
+7E
 102
 {ACAD_REACTORS
 330
-72
+83
 102
 }
 330
@@ -5837,37 +6189,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+1.5
+ 20
+-24.0
+ 10
+1.5
+ 20
+-19.0
+  0
+LWPOLYLINE
+  5
+7F
+102
+{ACAD_REACTORS
+330
+83
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 0.0
  20
+-20.5
+ 10
+1.5
+ 20
 -19.0
  10
-0.0
- 20
--23.2
- 10
-0.8
- 20
--24.0
- 10
 3.0
  20
--24.0
- 10
-3.0
- 20
--22.5
+-20.5
   0
 SPLINE
   5
-6F
+80
 102
 {ACAD_REACTORS
 330
-72
+83
 102
 }
 330
@@ -5955,11 +6329,11 @@ AcDbSpline
   0
 SPLINE
   5
-70
+81
 102
 {ACAD_REACTORS
 330
-72
+83
 102
 }
 330
@@ -6047,11 +6421,11 @@ AcDbSpline
   0
 LINE
   5
-71
+82
 102
 {ACAD_REACTORS
 330
-72
+83
 102
 }
 330
@@ -6077,11 +6451,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-73
+84
 102
 {ACAD_REACTORS
 330
-77
+89
 102
 }
 330
@@ -6093,37 +6467,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+19.5
+ 20
+-24.0
+ 10
+19.5
+ 20
+-19.0
+  0
+LWPOLYLINE
+  5
+85
+102
+{ACAD_REACTORS
+330
+89
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 18.0
  20
+-20.5
+ 10
+19.5
+ 20
 -19.0
  10
-18.0
- 20
--23.2
- 10
-18.8
- 20
--24.0
- 10
 21.0
  20
--24.0
- 10
-21.0
- 20
--22.5
+-20.5
   0
 SPLINE
   5
-74
+86
 102
 {ACAD_REACTORS
 330
-77
+89
 102
 }
 330
@@ -6259,11 +6655,11 @@ AcDbSpline
   0
 SPLINE
   5
-75
+87
 102
 {ACAD_REACTORS
 330
-77
+89
 102
 }
 330
@@ -6375,11 +6771,11 @@ AcDbSpline
   0
 LINE
   5
-76
+88
 102
 {ACAD_REACTORS
 330
-77
+89
 102
 }
 330
@@ -6405,11 +6801,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-78
+8A
 102
 {ACAD_REACTORS
 330
-7A
+8D
 102
 }
 330
@@ -6421,37 +6817,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+37.5
+ 20
+-24.0
+ 10
+37.5
+ 20
+-19.0
+  0
+LWPOLYLINE
+  5
+8B
+102
+{ACAD_REACTORS
+330
+8D
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 36.0
  20
+-20.5
+ 10
+37.5
+ 20
 -19.0
  10
-36.0
- 20
--23.2
- 10
-36.8
- 20
--24.0
- 10
 39.0
  20
--24.0
- 10
-39.0
- 20
--22.5
+-20.5
   0
 SPLINE
   5
-79
+8C
 102
 {ACAD_REACTORS
 330
-7A
+8D
 102
 }
 330
@@ -6635,11 +7053,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-7B
+8E
 102
 {ACAD_REACTORS
 330
-7E
+92
 102
 }
 330
@@ -6651,37 +7069,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+55.5
+ 20
+-24.0
+ 10
+55.5
+ 20
+-19.0
+  0
+LWPOLYLINE
+  5
+8F
+102
+{ACAD_REACTORS
+330
+92
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 54.0
  20
+-20.5
+ 10
+55.5
+ 20
 -19.0
  10
-54.0
- 20
--23.2
- 10
-54.8
- 20
--24.0
- 10
 57.0
  20
--24.0
- 10
-57.0
- 20
--22.5
+-20.5
   0
 LINE
   5
-7C
+90
 102
 {ACAD_REACTORS
 330
-7E
+92
 102
 }
 330
@@ -6707,11 +7147,11 @@ AcDbLine
   0
 LINE
   5
-7D
+91
 102
 {ACAD_REACTORS
 330
-7E
+92
 102
 }
 330
@@ -6737,11 +7177,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-7F
+93
 102
 {ACAD_REACTORS
 330
-81
+96
 102
 }
 330
@@ -6753,37 +7193,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+73.5
+ 20
+-24.0
+ 10
+73.5
+ 20
+-19.0
+  0
+LWPOLYLINE
+  5
+94
+102
+{ACAD_REACTORS
+330
+96
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 72.0
  20
+-20.5
+ 10
+73.5
+ 20
 -19.0
  10
-72.0
- 20
--23.2
- 10
-72.8
- 20
--24.0
- 10
 75.0
  20
--24.0
- 10
-75.0
- 20
--22.5
+-20.5
   0
 SPLINE
   5
-80
+95
 102
 {ACAD_REACTORS
 330
-81
+96
 102
 }
 330
@@ -6919,11 +7381,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-82
+97
 102
 {ACAD_REACTORS
 330
-84
+9A
 102
 }
 330
@@ -6935,37 +7397,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+91.5
+ 20
+-24.0
+ 10
+91.5
+ 20
+-19.0
+  0
+LWPOLYLINE
+  5
+98
+102
+{ACAD_REACTORS
+330
+9A
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 90.0
  20
+-20.5
+ 10
+91.5
+ 20
 -19.0
  10
-90.0
- 20
--23.2
- 10
-90.8
- 20
--24.0
- 10
 93.0
  20
--24.0
- 10
-93.0
- 20
--22.5
+-20.5
   0
 SPLINE
   5
-83
+99
 102
 {ACAD_REACTORS
 330
-84
+9A
 102
 }
 330
@@ -7077,11 +7561,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-85
+9B
 102
 {ACAD_REACTORS
 330
-87
+9E
 102
 }
 330
@@ -7093,37 +7577,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+109.5
+ 20
+-24.0
+ 10
+109.5
+ 20
+-19.0
+  0
+LWPOLYLINE
+  5
+9C
+102
+{ACAD_REACTORS
+330
+9E
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 108.0
  20
+-20.5
+ 10
+109.5
+ 20
 -19.0
  10
-108.0
- 20
--23.2
- 10
-108.8
- 20
--24.0
- 10
 111.0
  20
--24.0
- 10
-111.0
- 20
--22.5
+-20.5
   0
 SPLINE
   5
-86
+9D
 102
 {ACAD_REACTORS
 330
-87
+9E
 102
 }
 330
@@ -7331,11 +7837,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-88
+9F
 102
 {ACAD_REACTORS
 330
-8C
+A4
 102
 }
 330
@@ -7347,37 +7853,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+127.5
+ 20
+-24.0
+ 10
+127.5
+ 20
+-19.0
+  0
+LWPOLYLINE
+  5
+A0
+102
+{ACAD_REACTORS
+330
+A4
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 126.0
  20
+-20.5
+ 10
+127.5
+ 20
 -19.0
  10
-126.0
- 20
--23.2
- 10
-126.8
- 20
--24.0
- 10
 129.0
  20
--24.0
- 10
-129.0
- 20
--22.5
+-20.5
   0
 LINE
   5
-89
+A1
 102
 {ACAD_REACTORS
 330
-8C
+A4
 102
 }
 330
@@ -7403,11 +7931,11 @@ AcDbLine
   0
 LINE
   5
-8A
+A2
 102
 {ACAD_REACTORS
 330
-8C
+A4
 102
 }
 330
@@ -7433,11 +7961,11 @@ AcDbLine
   0
 LINE
   5
-8B
+A3
 102
 {ACAD_REACTORS
 330
-8C
+A4
 102
 }
 330
@@ -7463,11 +7991,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-8D
+A5
 102
 {ACAD_REACTORS
 330
-90
+A9
 102
 }
 330
@@ -7479,37 +8007,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+1.5
+ 20
+-36.0
+ 10
+1.5
+ 20
+-31.0
+  0
+LWPOLYLINE
+  5
+A6
+102
+{ACAD_REACTORS
+330
+A9
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 0.0
  20
+-32.5
+ 10
+1.5
+ 20
 -31.0
  10
-0.0
- 20
--35.2
- 10
-0.8
- 20
--36.0
- 10
 3.0
  20
--36.0
- 10
-3.0
- 20
--34.5
+-32.5
   0
 SPLINE
   5
-8E
+A7
 102
 {ACAD_REACTORS
 330
-90
+A9
 102
 }
 330
@@ -7621,11 +8171,11 @@ AcDbSpline
   0
 LINE
   5
-8F
+A8
 102
 {ACAD_REACTORS
 330
-90
+A9
 102
 }
 330
@@ -7651,11 +8201,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-91
+AA
 102
 {ACAD_REACTORS
 330
-93
+AD
 102
 }
 330
@@ -7667,37 +8217,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+19.5
+ 20
+-36.0
+ 10
+19.5
+ 20
+-31.0
+  0
+LWPOLYLINE
+  5
+AB
+102
+{ACAD_REACTORS
+330
+AD
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 18.0
  20
+-32.5
+ 10
+19.5
+ 20
 -31.0
  10
-18.0
- 20
--35.2
- 10
-18.8
- 20
--36.0
- 10
 21.0
  20
--36.0
- 10
-21.0
- 20
--34.5
+-32.5
   0
 SPLINE
   5
-92
+AC
 102
 {ACAD_REACTORS
 330
-93
+AD
 102
 }
 330
@@ -7857,11 +8429,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-94
+AE
 102
 {ACAD_REACTORS
 330
-98
+B3
 102
 }
 330
@@ -7873,37 +8445,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+37.5
+ 20
+-36.0
+ 10
+37.5
+ 20
+-31.0
+  0
+LWPOLYLINE
+  5
+AF
+102
+{ACAD_REACTORS
+330
+B3
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 36.0
  20
+-32.5
+ 10
+37.5
+ 20
 -31.0
  10
-36.0
- 20
--35.2
- 10
-36.8
- 20
--36.0
- 10
 39.0
  20
--36.0
- 10
-39.0
- 20
--34.5
+-32.5
   0
 SPLINE
   5
-95
+B0
 102
 {ACAD_REACTORS
 330
-98
+B3
 102
 }
 330
@@ -7991,11 +8585,11 @@ AcDbSpline
   0
 SPLINE
   5
-96
+B1
 102
 {ACAD_REACTORS
 330
-98
+B3
 102
 }
 330
@@ -8083,11 +8677,11 @@ AcDbSpline
   0
 LINE
   5
-97
+B2
 102
 {ACAD_REACTORS
 330
-98
+B3
 102
 }
 330
@@ -8113,11 +8707,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-99
+B4
 102
 {ACAD_REACTORS
 330
-9C
+B8
 102
 }
 330
@@ -8129,37 +8723,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+55.5
+ 20
+-36.0
+ 10
+55.5
+ 20
+-31.0
+  0
+LWPOLYLINE
+  5
+B5
+102
+{ACAD_REACTORS
+330
+B8
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 54.0
  20
+-32.5
+ 10
+55.5
+ 20
 -31.0
  10
-54.0
- 20
--35.2
- 10
-54.8
- 20
--36.0
- 10
 57.0
  20
--36.0
- 10
-57.0
- 20
--34.5
+-32.5
   0
 SPLINE
   5
-9A
+B6
 102
 {ACAD_REACTORS
 330
-9C
+B8
 102
 }
 330
@@ -8271,11 +8887,11 @@ AcDbSpline
   0
 LINE
   5
-9B
+B7
 102
 {ACAD_REACTORS
 330
-9C
+B8
 102
 }
 330
@@ -8301,11 +8917,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-9D
+B9
 102
 {ACAD_REACTORS
 330
-9F
+BC
 102
 }
 330
@@ -8317,37 +8933,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+73.5
+ 20
+-36.0
+ 10
+73.5
+ 20
+-31.0
+  0
+LWPOLYLINE
+  5
+BA
+102
+{ACAD_REACTORS
+330
+BC
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 72.0
  20
+-32.5
+ 10
+73.5
+ 20
 -31.0
  10
-72.0
- 20
--35.2
- 10
-72.8
- 20
--36.0
- 10
 75.0
  20
--36.0
- 10
-75.0
- 20
--34.5
+-32.5
   0
 SPLINE
   5
-9E
+BB
 102
 {ACAD_REACTORS
 330
-9F
+BC
 102
 }
 330
@@ -8507,11 +9145,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-A0
+BD
 102
 {ACAD_REACTORS
 330
-A2
+C0
 102
 }
 330
@@ -8523,37 +9161,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+91.5
+ 20
+-36.0
+ 10
+91.5
+ 20
+-31.0
+  0
+LWPOLYLINE
+  5
+BE
+102
+{ACAD_REACTORS
+330
+C0
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 90.0
  20
+-32.5
+ 10
+91.5
+ 20
 -31.0
  10
-90.0
- 20
--35.2
- 10
-90.8
- 20
--36.0
- 10
 93.0
  20
--36.0
- 10
-93.0
- 20
--34.5
+-32.5
   0
 SPLINE
   5
-A1
+BF
 102
 {ACAD_REACTORS
 330
-A2
+C0
 102
 }
 330
@@ -8737,11 +9397,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-A3
+C1
 102
 {ACAD_REACTORS
 330
-A6
+C5
 102
 }
 330
@@ -8753,37 +9413,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+109.5
+ 20
+-36.0
+ 10
+109.5
+ 20
+-31.0
+  0
+LWPOLYLINE
+  5
+C2
+102
+{ACAD_REACTORS
+330
+C5
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 108.0
  20
+-32.5
+ 10
+109.5
+ 20
 -31.0
  10
-108.0
- 20
--35.2
- 10
-108.8
- 20
--36.0
- 10
 111.0
  20
--36.0
- 10
-111.0
- 20
--34.5
+-32.5
   0
 SPLINE
   5
-A4
+C3
 102
 {ACAD_REACTORS
 330
-A6
+C5
 102
 }
 330
@@ -8895,11 +9577,11 @@ AcDbSpline
   0
 LINE
   5
-A5
+C4
 102
 {ACAD_REACTORS
 330
-A6
+C5
 102
 }
 330
@@ -8925,11 +9607,11 @@ AcDbLine
   0
 LWPOLYLINE
   5
-A7
+C6
 102
 {ACAD_REACTORS
 330
-A9
+C9
 102
 }
 330
@@ -8941,37 +9623,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+127.5
+ 20
+-36.0
+ 10
+127.5
+ 20
+-31.0
+  0
+LWPOLYLINE
+  5
+C7
+102
+{ACAD_REACTORS
+330
+C9
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 126.0
  20
+-32.5
+ 10
+127.5
+ 20
 -31.0
  10
-126.0
- 20
--35.2
- 10
-126.8
- 20
--36.0
- 10
 129.0
  20
--36.0
- 10
-129.0
- 20
--34.5
+-32.5
   0
 SPLINE
   5
-A8
+C8
 102
 {ACAD_REACTORS
 330
-A9
+C9
 102
 }
 330
@@ -9203,11 +9907,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-AA
+CA
 102
 {ACAD_REACTORS
 330
-AD
+CE
 102
 }
 330
@@ -9219,37 +9923,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+1.5
+ 20
+-48.0
+ 10
+1.5
+ 20
+-43.0
+  0
+LWPOLYLINE
+  5
+CB
+102
+{ACAD_REACTORS
+330
+CE
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 0.0
  20
+-44.5
+ 10
+1.5
+ 20
 -43.0
  10
-0.0
- 20
--47.2
- 10
-0.8
- 20
--48.0
- 10
 3.0
  20
--48.0
- 10
-3.0
- 20
--46.5
+-44.5
   0
 SPLINE
   5
-AB
+CC
 102
 {ACAD_REACTORS
 330
-AD
+CE
 102
 }
 330
@@ -9409,11 +10135,11 @@ AcDbSpline
   0
 SPLINE
   5
-AC
+CD
 102
 {ACAD_REACTORS
 330
-AD
+CE
 102
 }
 330
@@ -9525,11 +10251,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-AE
+CF
 102
 {ACAD_REACTORS
 330
-B0
+D2
 102
 }
 330
@@ -9541,37 +10267,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+19.5
+ 20
+-48.0
+ 10
+19.5
+ 20
+-43.0
+  0
+LWPOLYLINE
+  5
+D0
+102
+{ACAD_REACTORS
+330
+D2
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 18.0
  20
+-44.5
+ 10
+19.5
+ 20
 -43.0
  10
-18.0
- 20
--47.2
- 10
-18.8
- 20
--48.0
- 10
 21.0
  20
--48.0
- 10
-21.0
- 20
--46.5
+-44.5
   0
 SPLINE
   5
-AF
+D1
 102
 {ACAD_REACTORS
 330
-B0
+D2
 102
 }
 330
@@ -9683,11 +10431,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-B1
+D3
 102
 {ACAD_REACTORS
 330
-B5
+D8
 102
 }
 330
@@ -9699,37 +10447,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+37.5
+ 20
+-48.0
+ 10
+37.5
+ 20
+-43.0
+  0
+LWPOLYLINE
+  5
+D4
+102
+{ACAD_REACTORS
+330
+D8
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 36.0
  20
+-44.5
+ 10
+37.5
+ 20
 -43.0
  10
-36.0
- 20
--47.2
- 10
-36.8
- 20
--48.0
- 10
 39.0
  20
--48.0
- 10
-39.0
- 20
--46.5
+-44.5
   0
 SPLINE
   5
-B2
+D5
 102
 {ACAD_REACTORS
 330
-B5
+D8
 102
 }
 330
@@ -9841,11 +10611,11 @@ AcDbSpline
   0
 SPLINE
   5
-B3
+D6
 102
 {ACAD_REACTORS
 330
-B5
+D8
 102
 }
 330
@@ -9957,11 +10727,11 @@ AcDbSpline
   0
 SPLINE
   5
-B4
+D7
 102
 {ACAD_REACTORS
 330
-B5
+D8
 102
 }
 330
@@ -10073,11 +10843,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-B6
+D9
 102
 {ACAD_REACTORS
 330
-B9
+DD
 102
 }
 330
@@ -10089,37 +10859,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+55.5
+ 20
+-48.0
+ 10
+55.5
+ 20
+-43.0
+  0
+LWPOLYLINE
+  5
+DA
+102
+{ACAD_REACTORS
+330
+DD
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 54.0
  20
+-44.5
+ 10
+55.5
+ 20
 -43.0
  10
-54.0
- 20
--47.2
- 10
-54.8
- 20
--48.0
- 10
 57.0
  20
--48.0
- 10
-57.0
- 20
--46.5
+-44.5
   0
 SPLINE
   5
-B7
+DB
 102
 {ACAD_REACTORS
 330
-B9
+DD
 102
 }
 330
@@ -10279,11 +11071,11 @@ AcDbSpline
   0
 SPLINE
   5
-B8
+DC
 102
 {ACAD_REACTORS
 330
-B9
+DD
 102
 }
 330
@@ -10395,11 +11187,11 @@ AcDbSpline
   0
 LWPOLYLINE
   5
-BA
+DE
 102
 {ACAD_REACTORS
 330
-C0
+E5
 102
 }
 330
@@ -10411,37 +11203,59 @@ ID_CUT_SINGLELINE
 100
 AcDbPolyline
  90
-5
+2
+ 70
+0
+ 10
+73.5
+ 20
+-48.0
+ 10
+73.5
+ 20
+-43.0
+  0
+LWPOLYLINE
+  5
+DF
+102
+{ACAD_REACTORS
+330
+E5
+102
+}
+330
+17
+100
+AcDbEntity
+  8
+ID_CUT_SINGLELINE
+100
+AcDbPolyline
+ 90
+3
  70
 0
  10
 72.0
  20
+-44.5
+ 10
+73.5
+ 20
 -43.0
  10
-72.0
- 20
--47.2
- 10
-72.8
- 20
--48.0
- 10
 75.0
  20
--48.0
- 10
-75.0
- 20
--46.5
+-44.5
   0
 SPLINE
   5
-BB
+E0
 102
 {ACAD_REACTORS
 330
-C0
+E5
 102
 }
 330
@@ -10601,11 +11415,11 @@ AcDbSpline
   0
 SPLINE
   5
-BC
+E1
 102
 {ACAD_REACTORS
 330
-C0
+E5
 102
 }
 330
@@ -10741,11 +11555,11 @@ AcDbSpline
   0
 LINE
   5
-BD
+E2
 102
 {ACAD_REACTORS
 330
-C0
+E5
 102
 }
 330
@@ -10771,11 +11585,11 @@ AcDbLine
   0
 SPLINE
   5
-BE
+E3
 102
 {ACAD_REACTORS
 330
-C0
+E5
 102
 }
 330
@@ -10887,11 +11701,11 @@ AcDbSpline
   0
 LINE
   5
-BF
+E4
 102
 {ACAD_REACTORS
 330
-C0
+E5
 102
 }
 330
@@ -11001,151 +11815,151 @@ AcDbDictionary
   3
 *A1
 350
-33
+34
   3
 *A2
 350
-39
+3B
   3
 *A3
 350
-3C
+3F
   3
 *A4
 350
-40
+44
   3
 *A5
 350
-44
+49
   3
 *A6
 350
-48
+4E
   3
 *A7
 350
-4B
+52
   3
 *A8
 350
-50
+58
   3
 *A9
 350
-55
+5E
   3
 *A10
 350
-58
+62
   3
 *A11
 350
-5C
+67
   3
 *A12
 350
-5F
+6B
   3
 *A13
 350
-62
+6F
   3
 *A14
 350
-65
+73
   3
 *A15
 350
-69
+78
   3
 *A16
 350
-6D
+7D
   3
 *A17
 350
-72
+83
   3
 *A18
 350
-77
+89
   3
 *A19
 350
-7A
+8D
   3
 *A20
 350
-7E
+92
   3
 *A21
 350
-81
+96
   3
 *A22
 350
-84
+9A
   3
 *A23
 350
-87
+9E
   3
 *A24
 350
-8C
+A4
   3
 *A25
 350
-90
+A9
   3
 *A26
 350
-93
+AD
   3
 *A27
 350
-98
+B3
   3
 *A28
 350
-9C
+B8
   3
 *A29
 350
-9F
+BC
   3
 *A30
 350
-A2
+C0
   3
 *A31
 350
-A6
+C5
   3
 *A32
 350
-A9
+C9
   3
 *A33
 350
-AD
+CE
   3
 *A34
 350
-B0
+D2
   3
 *A35
 350
-B5
+D8
   3
 *A36
 350
-B9
+DD
   3
 *A37
 350
-C0
+E5
   0
 DICTIONARY
   5
@@ -12053,7 +12867,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-C3
+E8
   0
 DICTIONARYVAR
   5
@@ -12065,11 +12879,11 @@ DictionaryVariables
 280
 0
   1
-1.4.2 @ 2026-10-08T13:36:50.313451+00:00
+1.4.2 @ 2026-10-09T04:00:46.669221+00:00
   0
 GROUP
   5
-33
+34
 102
 {ACAD_REACTORS
 330
@@ -12092,10 +12906,12 @@ LaserFont 3 outside-face ID: A
 31
 340
 32
+340
+33
   0
 GROUP
   5
-39
+3B
 102
 {ACAD_REACTORS
 330
@@ -12113,8 +12929,6 @@ LaserFont 3 outside-face ID: B
  71
 1
 340
-34
-340
 35
 340
 36
@@ -12122,10 +12936,14 @@ LaserFont 3 outside-face ID: B
 37
 340
 38
+340
+39
+340
+3A
   0
 GROUP
   5
-3C
+3F
 102
 {ACAD_REACTORS
 330
@@ -12143,13 +12961,15 @@ LaserFont 3 outside-face ID: C
  71
 1
 340
-3A
+3C
 340
-3B
+3D
+340
+3E
   0
 GROUP
   5
-40
+44
 102
 {ACAD_REACTORS
 330
@@ -12167,15 +12987,17 @@ LaserFont 3 outside-face ID: D
  71
 1
 340
-3D
+40
 340
-3E
+41
 340
-3F
+42
+340
+43
   0
 GROUP
   5
-44
+49
 102
 {ACAD_REACTORS
 330
@@ -12193,15 +13015,17 @@ LaserFont 3 outside-face ID: E
  71
 1
 340
-41
+45
 340
-42
+46
 340
-43
+47
+340
+48
   0
 GROUP
   5
-48
+4E
 102
 {ACAD_REACTORS
 330
@@ -12219,15 +13043,17 @@ LaserFont 3 outside-face ID: F
  71
 1
 340
-45
+4A
 340
-46
+4B
 340
-47
+4C
+340
+4D
   0
 GROUP
   5
-4B
+52
 102
 {ACAD_REACTORS
 330
@@ -12245,13 +13071,15 @@ LaserFont 3 outside-face ID: G
  71
 1
 340
-49
+4F
 340
-4A
+50
+340
+51
   0
 GROUP
   5
-50
+58
 102
 {ACAD_REACTORS
 330
@@ -12269,17 +13097,19 @@ LaserFont 3 outside-face ID: H
  71
 1
 340
-4C
+53
 340
-4D
+54
 340
-4E
+55
 340
-4F
+56
+340
+57
   0
 GROUP
   5
-55
+5E
 102
 {ACAD_REACTORS
 330
@@ -12297,17 +13127,19 @@ LaserFont 3 outside-face ID: I
  71
 1
 340
-51
+59
 340
-52
+5A
 340
-53
+5B
 340
-54
+5C
+340
+5D
   0
 GROUP
   5
-58
+62
 102
 {ACAD_REACTORS
 330
@@ -12325,13 +13157,15 @@ LaserFont 3 outside-face ID: J
  71
 1
 340
-56
+5F
 340
-57
+60
+340
+61
   0
 GROUP
   5
-5C
+67
 102
 {ACAD_REACTORS
 330
@@ -12349,15 +13183,17 @@ LaserFont 3 outside-face ID: K
  71
 1
 340
-59
+63
 340
-5A
+64
 340
-5B
+65
+340
+66
   0
 GROUP
   5
-5F
+6B
 102
 {ACAD_REACTORS
 330
@@ -12375,13 +13211,15 @@ LaserFont 3 outside-face ID: L
  71
 1
 340
-5D
+68
 340
-5E
+69
+340
+6A
   0
 GROUP
   5
-62
+6F
 102
 {ACAD_REACTORS
 330
@@ -12399,13 +13237,15 @@ LaserFont 3 outside-face ID: M
  71
 1
 340
-60
+6C
 340
-61
+6D
+340
+6E
   0
 GROUP
   5
-65
+73
 102
 {ACAD_REACTORS
 330
@@ -12423,13 +13263,15 @@ LaserFont 3 outside-face ID: N
  71
 1
 340
-63
+70
 340
-64
+71
+340
+72
   0
 GROUP
   5
-69
+78
 102
 {ACAD_REACTORS
 330
@@ -12447,15 +13289,17 @@ LaserFont 3 outside-face ID: O
  71
 1
 340
-66
+74
 340
-67
+75
 340
-68
+76
+340
+77
   0
 GROUP
   5
-6D
+7D
 102
 {ACAD_REACTORS
 330
@@ -12473,15 +13317,17 @@ LaserFont 3 outside-face ID: P
  71
 1
 340
-6A
+79
 340
-6B
+7A
 340
-6C
+7B
+340
+7C
   0
 GROUP
   5
-72
+83
 102
 {ACAD_REACTORS
 330
@@ -12499,17 +13345,19 @@ LaserFont 3 outside-face ID: Q
  71
 1
 340
-6E
+7E
 340
-6F
+7F
 340
-70
+80
 340
-71
+81
+340
+82
   0
 GROUP
   5
-77
+89
 102
 {ACAD_REACTORS
 330
@@ -12527,17 +13375,19 @@ LaserFont 3 outside-face ID: R
  71
 1
 340
-73
+84
 340
-74
+85
 340
-75
+86
 340
-76
+87
+340
+88
   0
 GROUP
   5
-7A
+8D
 102
 {ACAD_REACTORS
 330
@@ -12555,13 +13405,15 @@ LaserFont 3 outside-face ID: S
  71
 1
 340
-78
+8A
 340
-79
+8B
+340
+8C
   0
 GROUP
   5
-7E
+92
 102
 {ACAD_REACTORS
 330
@@ -12579,15 +13431,17 @@ LaserFont 3 outside-face ID: T
  71
 1
 340
-7B
+8E
 340
-7C
+8F
 340
-7D
+90
+340
+91
   0
 GROUP
   5
-81
+96
 102
 {ACAD_REACTORS
 330
@@ -12605,13 +13459,15 @@ LaserFont 3 outside-face ID: U
  71
 1
 340
-7F
+93
 340
-80
+94
+340
+95
   0
 GROUP
   5
-84
+9A
 102
 {ACAD_REACTORS
 330
@@ -12629,13 +13485,15 @@ LaserFont 3 outside-face ID: V
  71
 1
 340
-82
+97
 340
-83
+98
+340
+99
   0
 GROUP
   5
-87
+9E
 102
 {ACAD_REACTORS
 330
@@ -12653,13 +13511,15 @@ LaserFont 3 outside-face ID: W
  71
 1
 340
-85
+9B
 340
-86
+9C
+340
+9D
   0
 GROUP
   5
-8C
+A4
 102
 {ACAD_REACTORS
 330
@@ -12677,17 +13537,19 @@ LaserFont 3 outside-face ID: X
  71
 1
 340
-88
+9F
 340
-89
+A0
 340
-8A
+A1
 340
-8B
+A2
+340
+A3
   0
 GROUP
   5
-90
+A9
 102
 {ACAD_REACTORS
 330
@@ -12705,183 +13567,9 @@ LaserFont 3 outside-face ID: Y
  71
 1
 340
-8D
-340
-8E
-340
-8F
-  0
-GROUP
-  5
-93
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbGroup
-300
-LaserFont 3 outside-face ID: Z
- 70
-1
- 71
-1
-340
-91
-340
-92
-  0
-GROUP
-  5
-98
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbGroup
-300
-LaserFont 3 outside-face ID: 0
- 70
-1
- 71
-1
-340
-94
-340
-95
-340
-96
-340
-97
-  0
-GROUP
-  5
-9C
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbGroup
-300
-LaserFont 3 outside-face ID: 1
- 70
-1
- 71
-1
-340
-99
-340
-9A
-340
-9B
-  0
-GROUP
-  5
-9F
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbGroup
-300
-LaserFont 3 outside-face ID: 2
- 70
-1
- 71
-1
-340
-9D
-340
-9E
-  0
-GROUP
-  5
-A2
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbGroup
-300
-LaserFont 3 outside-face ID: 3
- 70
-1
- 71
-1
-340
-A0
-340
-A1
-  0
-GROUP
-  5
-A6
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbGroup
-300
-LaserFont 3 outside-face ID: 4
- 70
-1
- 71
-1
-340
-A3
-340
-A4
-340
 A5
-  0
-GROUP
-  5
-A9
-102
-{ACAD_REACTORS
-330
-C
-102
-}
-330
-C
-100
-AcDbGroup
-300
-LaserFont 3 outside-face ID: 5
- 70
-1
- 71
-1
+340
+A6
 340
 A7
 340
@@ -12901,7 +13589,7 @@ C
 100
 AcDbGroup
 300
-LaserFont 3 outside-face ID: 6
+LaserFont 3 outside-face ID: Z
  70
 1
  71
@@ -12915,7 +13603,199 @@ AC
   0
 GROUP
   5
+B3
+102
+{ACAD_REACTORS
+330
+C
+102
+}
+330
+C
+100
+AcDbGroup
+300
+LaserFont 3 outside-face ID: 0
+ 70
+1
+ 71
+1
+340
+AE
+340
+AF
+340
 B0
+340
+B1
+340
+B2
+  0
+GROUP
+  5
+B8
+102
+{ACAD_REACTORS
+330
+C
+102
+}
+330
+C
+100
+AcDbGroup
+300
+LaserFont 3 outside-face ID: 1
+ 70
+1
+ 71
+1
+340
+B4
+340
+B5
+340
+B6
+340
+B7
+  0
+GROUP
+  5
+BC
+102
+{ACAD_REACTORS
+330
+C
+102
+}
+330
+C
+100
+AcDbGroup
+300
+LaserFont 3 outside-face ID: 2
+ 70
+1
+ 71
+1
+340
+B9
+340
+BA
+340
+BB
+  0
+GROUP
+  5
+C0
+102
+{ACAD_REACTORS
+330
+C
+102
+}
+330
+C
+100
+AcDbGroup
+300
+LaserFont 3 outside-face ID: 3
+ 70
+1
+ 71
+1
+340
+BD
+340
+BE
+340
+BF
+  0
+GROUP
+  5
+C5
+102
+{ACAD_REACTORS
+330
+C
+102
+}
+330
+C
+100
+AcDbGroup
+300
+LaserFont 3 outside-face ID: 4
+ 70
+1
+ 71
+1
+340
+C1
+340
+C2
+340
+C3
+340
+C4
+  0
+GROUP
+  5
+C9
+102
+{ACAD_REACTORS
+330
+C
+102
+}
+330
+C
+100
+AcDbGroup
+300
+LaserFont 3 outside-face ID: 5
+ 70
+1
+ 71
+1
+340
+C6
+340
+C7
+340
+C8
+  0
+GROUP
+  5
+CE
+102
+{ACAD_REACTORS
+330
+C
+102
+}
+330
+C
+100
+AcDbGroup
+300
+LaserFont 3 outside-face ID: 6
+ 70
+1
+ 71
+1
+340
+CA
+340
+CB
+340
+CC
+340
+CD
+  0
+GROUP
+  5
+D2
 102
 {ACAD_REACTORS
 330
@@ -12933,13 +13813,15 @@ LaserFont 3 outside-face ID: 7
  71
 1
 340
-AE
+CF
 340
-AF
+D0
+340
+D1
   0
 GROUP
   5
-B5
+D8
 102
 {ACAD_REACTORS
 330
@@ -12957,17 +13839,19 @@ LaserFont 3 outside-face ID: 8
  71
 1
 340
-B1
+D3
 340
-B2
+D4
 340
-B3
+D5
 340
-B4
+D6
+340
+D7
   0
 GROUP
   5
-B9
+DD
 102
 {ACAD_REACTORS
 330
@@ -12985,15 +13869,17 @@ LaserFont 3 outside-face ID: 9
  71
 1
 340
-B6
+D9
 340
-B7
+DA
 340
-B8
+DB
+340
+DC
   0
 GROUP
   5
-C0
+E5
 102
 {ACAD_REACTORS
 330
@@ -13011,21 +13897,23 @@ LaserFont 3 outside-face ID: A-1
  71
 1
 340
-BA
+DE
 340
-BB
+DF
 340
-BC
+E0
 340
-BD
+E1
 340
-BE
+E2
 340
-BF
+E3
+340
+E4
   0
 DICTIONARYVAR
   5
-C3
+E8
 330
 2D
 100
@@ -13033,7 +13921,7 @@ DictionaryVariables
 280
 0
   1
-1.4.2 @ 2026-10-08T13:36:50.330679+00:00
+1.4.2 @ 2026-10-09T04:00:46.701622+00:00
   0
 ENDSEC
   0

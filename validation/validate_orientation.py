@@ -31,9 +31,11 @@ def main():
     result = unittest.TextTestRunner(stream=io.StringIO(), verbosity=2).run(
         unittest.defaultTestLoader.loadTestsFromModule(module))
     names = ("generate_laserfont3.py", "orientation-key.json", "glyphs-v2.json",
-             "glyphs-v2-polyline.json", "tests/test_orientation.py")
+             "glyphs-v2-polyline.json", "tests/test_orientation.py",
+             "render_orientation.py", "validation/validate_orientation.py")
     report = {
         "schema": 1,
+        "font_version": module.oriented.VERSION,
         "checked_at_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "status": "PASS" if result.wasSuccessful() else "FAIL",
         "tests_run": result.testsRun,
@@ -52,14 +54,16 @@ def main():
             "cap_heights_mm": [5, 10, 20],
             "glyphs": "A-Z, 0-9, hyphen, space",
             "round_trip": "DXF save/reopen with two separate label groups, millimetres and transformed geometry",
-            "reflection_checks": "Sampled complete-label D4 reflections plus exact structural chirality argument for the key",
+            "reflection_checks": "Saved and reopened complete arrow-plus-ID labels: all A-Z and 0-9 characters, hyphen in A-1, and representative IDs including H3/I3, against four D4 reflections and front rotated 180 degrees",
+            "reflection_fixture_count_per_mode": len(module.DIAGNOSTICS.get("complete_label_reflected_D4_hausdorff_mm_at_height5_saved_DXF", {})) // 2,
+            "reflection_height_mm": 5,
             "sample_flattening_distance_mm": 0.0001,
             "numeric_geometry_tolerance_mm": 1e-8,
         },
         "results": module.DIAGNOSTICS,
         "limitations": [
             "D4 samples compare four rotations of a reflection; they are not a continuous-angle proof for the entire label.",
-            "The unique-edge structural argument excludes any reflected congruence of the isolated key.",
+            "The arrow alone is horizontally symmetric. The cue is its before-ID placement and direction toward the top of readable lettering; it is not an assembly UP instruction.",
             "Human recognition, actual CAM import, kerf, piercing and physical cut readability are not tested.",
             "A label cannot prove correct placement on the exterior of a finished part or assembly; that requires a separate placement check.",
             "DXF groups preserve membership, but downstream software may ignore or remove grouping.",

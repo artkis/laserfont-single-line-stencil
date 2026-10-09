@@ -19,7 +19,7 @@ param(
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
-$version = '3.0.2'
+$version = '3.0.3'
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 
 function Get-FullDirectory([string] $Path) {
@@ -91,7 +91,7 @@ $package = $manifest.DocumentElement
 $productCode = $package.GetAttribute('ProductCode')
 if ([string]::IsNullOrWhiteSpace($productCode)) { throw 'The package has no ProductCode; nothing was changed.' }
 $package.SetAttribute('AppVersion', $version)
-$package.SetAttribute('Description', 'LaserFont setup and LASEROUT conversion to keyed cutting polylines')
+$package.SetAttribute('Description', 'LaserFont setup and LASEROUT conversion to cutting polylines with an orientation arrow')
 
 $entries = @($manifest.SelectNodes('/ApplicationPackage/Components/ComponentEntry') | Where-Object {
     $_.GetAttribute('AppName') -eq 'LASEROUT' -or $_.GetAttribute('ModuleName').Replace('\', '/') -match '(^|/)LASEROUT\.lsp$'
@@ -135,12 +135,11 @@ try { $manifest.Save($xmlWriter); $xmlWriter.Flush(); $manifestBytes = $xmlStrea
 finally { $xmlWriter.Dispose(); $xmlStream.Dispose() }
 
 $corePath = ConvertTo-LispPath (Join-Path $support 'LASER3.lsp')
-$integrationPath = ConvertTo-LispPath (Join-Path $support 'integration3.lsp')
 $loader = @"
-;;; LaserFont 3.0.2 demand loader. Utility code: MIT.
+;;; LaserFont 3.0.3 demand loader. Utility code: MIT.
 ;;; Absolute installation paths avoid loading a different copy from a drawing folder.
+;;; LASER3.lsp already embeds its integration commands.
 (load "$corePath")
-(load "$integrationPath")
 (princ)
 "@
 $assets['LASEROUT.lsp'] = $utf8.GetBytes($loader + "`n")
@@ -167,7 +166,7 @@ foreach ($folder in @($support, $contents)) {
     }
 }
 
-if (-not $PSCmdlet.ShouldProcess(($support + ' and ' + $bundle), 'Back up existing files and install LaserFont 3.0.2 with LASEROUT and LASERFONT')) {
+if (-not $PSCmdlet.ShouldProcess(($support + ' and ' + $bundle), 'Back up existing files and install LaserFont 3.0.3 with LASEROUT and LASERFONT')) {
     [pscustomobject]@{Status='NotApplied'; Version=$version; SourceDirectory=$source; SupportDirectory=$support; BundleDirectory=$bundle; FileCount=$targets.Count; Commands=$commands}
     return
 }

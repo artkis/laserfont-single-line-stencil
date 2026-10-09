@@ -1,23 +1,51 @@
 {
   "font_name": "laserfont3",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "font_license": "OFL-1.1",
   "utility_license": "MIT",
   "source": "laserfont2.shp",
   "source_sha256": "d64160c1f0b6381b44ade416889fa6ed74fe8257c132030d28c452e03cac11c1",
   "source_lf_canonical_sha256": "24b75ac80ba22d58c6e24ad04635e7e0e73db7b7c11c263b7e1eb7fc83231895",
   "key_source": "../orientation-key.json",
-  "key_source_sha256": "04d990d6b52290d38bdb8d0075aad05ccc7de7924df01ee8c35f84043ae1ed7e",
+  "key_source_sha256": "91c0df9167bbf979076a21232935812c899aaea6de684af65af591457e32efbd",
   "output": "laserfont3.shp",
-  "output_sha256": "9026e35fb421875c8721e600135bf1d41a984c0323959dbc132e5ad594837112",
-  "output_lf_canonical_sha256": "9026e35fb421875c8721e600135bf1d41a984c0323959dbc132e5ad594837112",
+  "output_sha256": "90f98423f25d2ca547a689de27030d080db3ce97f5f25d70e9256ae745d9afc2",
+  "output_lf_canonical_sha256": "90f98423f25d2ca547a689de27030d080db3ce97f5f25d70e9256ae745d9afc2",
   "output_newlines": "LF",
   "cap_height_design_units": 20,
   "reserved_character": "~",
   "reserved_codepoint": 126,
+  "orientation_symbol": "up arrow",
+  "key_open_paths": 2,
+  "key_paths_design_units": [
+    [
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        20
+      ]
+    ],
+    [
+      [
+        0,
+        14
+      ],
+      [
+        6,
+        20
+      ],
+      [
+        12,
+        14
+      ]
+    ]
+  ],
   "key_advance_design_units": 18,
-  "key_width_at_height5_mm": 3.0,
-  "key_height_at_height5_mm": 4.999999999999998,
+  "key_width_at_height5_mm": 2.9999999999999996,
+  "key_height_at_height5_mm": 5.0,
   "key_advance_at_height5_mm": 4.5,
   "legacy_records_preserved_lf_canonically": 95,
   "legacy_record_names_preserved": [
@@ -118,136 +146,193 @@
     "0007D"
   ],
   "legacy_character_encoding_unchanged_except_reserved_tilde": true,
-  "key_shape_bytes": 197,
-  "key_display_segments": 29,
+  "key_shape_bytes": 194,
+  "key_display_segments": 26,
   "display_only": true,
   "display_bound_from_legacy_at_height5_mm": 0.0027677669529663686,
   "compile_status": "AUTOCAD_2023_COMPILE_SUCCESS",
   "limits": [
     "SHX is an editable display approximation, not a cutting path.",
-    "The complete ID must include exactly one leading tilde key.",
+    "A leading tilde displays one arrow; LASEROUT adds the arrow automatically to bare labels.",
     "Final outside-face placement and physical readability require separate checks."
   ],
   "compiled_output": "laserfont3.shx",
-  "compiled_output_sha256": "7f7e96150ce879b940ee920d771bfba2d12d4d4cdb770259ffdffcb16361ee9d",
-  "compiled_output_bytes": 39268,
-  "native_engine": "AutoCAD Core Engine Console T.53.0.0 (2023)",
-  "native_profile_isolated": true,
-  "native_text_font_loaded": true,
-  "native_text_height_mm": 5,
-  "native_text_boxes": {
-    "~": {
-      "min": [
-        0.0,
-        1.4988e-15,
-        0.0
-      ],
-      "max": [
-        3.0,
-        5.0,
-        0.0
-      ],
-      "size_mm": [
-        3.0,
-        4.999999999999998,
-        0.0
-      ]
-    },
-    "H3": {
-      "min": [
-        0.0,
-        -1.88478e-15,
-        0.0
-      ],
-      "max": [
-        7.0,
-        5.0,
-        0.0
-      ],
-      "size_mm": [
-        7.0,
-        5.000000000000002,
-        0.0
-      ]
-    },
-    "~H3": {
-      "min": [
-        0.0,
-        -1.88478e-15,
-        0.0
-      ],
-      "max": [
-        11.5,
-        5.0,
-        0.0
-      ],
-      "size_mm": [
-        11.5,
-        5.000000000000002,
-        0.0
-      ]
-    },
-    "I3": {
-      "min": [
-        0.0,
-        -1.88478e-15,
-        0.0
-      ],
-      "max": [
-        6.0,
-        5.0,
-        0.0
-      ],
-      "size_mm": [
-        6.0,
-        5.000000000000002,
-        0.0
-      ]
-    },
-    "~I3": {
-      "min": [
-        0.0,
-        -1.88478e-15,
-        0.0
-      ],
-      "max": [
-        10.5,
-        5.0,
-        0.0
-      ],
-      "size_mm": [
-        10.5,
-        5.000000000000002,
-        0.0
-      ]
-    },
-    "~M17": {
-      "min": [
-        0.0,
-        -1.11022e-15,
-        0.0
-      ],
-      "max": [
-        15.535,
-        5.0,
-        0.0
-      ],
-      "size_mm": [
-        15.535,
-        5.000000000000001,
-        0.0
-      ]
-    }
+  "compiled_output_sha256": "326a2258f914457dc58e575f4378d27b14c5206dfa9ff124cf6c440aeb80079a",
+  "compiled_output_bytes": 39265,
+  "native_compiled_input_shp_raw_sha256": "90f98423f25d2ca547a689de27030d080db3ce97f5f25d70e9256ae745d9afc2",
+  "native_compiled_input_shp_lf_canonical_sha256": "90f98423f25d2ca547a689de27030d080db3ce97f5f25d70e9256ae745d9afc2",
+  "native_font_boxes_at_height5_mm": {
+    "~": [
+      3.0,
+      5.0
+    ],
+    "H3": [
+      7.0,
+      5.0
+    ],
+    "~H3": [
+      11.5,
+      5.0
+    ],
+    "I3": [
+      6.0,
+      5.0
+    ],
+    "~I3": [
+      10.5,
+      5.0
+    ]
   },
   "compiled_binary_legacy_records_unchanged_except_tilde": 95,
-  "compiled_key_single_open_path": true,
-  "compiled_key_Hausdorff_error_at_height5_mm": 1.5632082117998628e-15,
+  "compiled_key_open_paths": 2,
+  "compiled_key_one_symbol": true,
+  "compiled_key_expected_paths_design_units": [
+    [
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        20
+      ]
+    ],
+    [
+      [
+        0,
+        14
+      ],
+      [
+        6,
+        20
+      ],
+      [
+        12,
+        14
+      ]
+    ]
+  ],
+  "compiled_key_decoded_vertices_design_units": [
+    [
+      [
+        6.0,
+        0.0
+      ],
+      [
+        6.0,
+        1.25
+      ],
+      [
+        6.0,
+        2.5
+      ],
+      [
+        6.0,
+        3.75
+      ],
+      [
+        6.0,
+        5.0
+      ],
+      [
+        6.0,
+        6.25
+      ],
+      [
+        6.0,
+        7.5
+      ],
+      [
+        6.0,
+        8.75
+      ],
+      [
+        6.0,
+        10.0
+      ],
+      [
+        6.0,
+        11.25
+      ],
+      [
+        6.0,
+        12.5
+      ],
+      [
+        6.0,
+        13.75
+      ],
+      [
+        6.0,
+        15.0
+      ],
+      [
+        6.0,
+        16.25
+      ],
+      [
+        6.0,
+        17.5
+      ],
+      [
+        6.0,
+        18.75
+      ],
+      [
+        6.0,
+        20.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        14.0
+      ],
+      [
+        1.2,
+        15.2
+      ],
+      [
+        2.4,
+        16.4
+      ],
+      [
+        3.5999999999999996,
+        17.599999999999998
+      ],
+      [
+        4.8,
+        18.799999999999997
+      ],
+      [
+        6.0,
+        19.999999999999996
+      ],
+      [
+        7.2,
+        18.799999999999997
+      ],
+      [
+        8.4,
+        17.599999999999998
+      ],
+      [
+        9.6,
+        16.4
+      ],
+      [
+        10.799999999999999,
+        15.2
+      ],
+      [
+        11.999999999999998,
+        14.0
+      ]
+    ]
+  ],
+  "compiled_key_max_vertex_to_expected_stroke_error_at_height5_mm": 6.661338147750939e-16,
+  "compiled_key_advance_design_units": 18,
   "native_plot_preview_verified": false,
-  "display_review": "Independent compiled-SHX vector decoding and native TEXT bounding boxes; native PDF plotting not completed.",
-  "native_log_sha256": "fafb3ade7f5524347f8238ff3d5dd003ad7df0d58cb4b1d55e0923ae7694e60c",
-  "native_compiled_input_shp_raw_sha256": "caf73aba9dd50df564e63e85326d61741bf07b41b9483b19f99b0f8bfdb1e383",
-  "native_compiled_input_shp_lf_canonical_sha256": "9026e35fb421875c8721e600135bf1d41a984c0323959dbc132e5ad594837112",
-  "delivered_shp_equivalent_to_native_compile_input_after_lf_normalization": true,
-  "compiled_binary_preserved_without_recompile": true,
-  "compile_proof_continuity": "Native compilation used the recorded raw SHP; delivered LF source has identical canonical content and font records. SHX bytes are unchanged."
+  "display_review": "Compiled-SHX decoding proves two open arrow strokes with pen-up between them and all 95 other records unchanged. Native TEXT bounding boxes confirm 5 mm height and unchanged key-to-glyph advance.",
+  "native_log_sha256": "be6d51aa467f12084f24498b428890092ce69828b5843b961bc808624ffe1ba6"
 }

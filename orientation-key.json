@@ -1,12 +1,37 @@
 {
-  "name": "LaserFont outside-face corner key",
-  "version": "3.0.0",
+  "name": "LaserFont outside-face upward arrow",
+  "version": "3.0.3",
   "copyright": "Copyright (c) 2026 Artkis",
   "license": "OFL-1.1",
   "height_mm": 20,
-  "vertices_mm": [[0, 20], [0, 3.2], [3.2, 0], [12, 0], [12, 6]],
+  "paths_mm": [
+    [
+      [
+        6,
+        0
+      ],
+      [
+        6,
+        20
+      ]
+    ],
+    [
+      [
+        0,
+        14
+      ],
+      [
+        6,
+        20
+      ],
+      [
+        12,
+        14
+      ]
+    ]
+  ],
   "text_origin_x_mm": 18,
-  "front_convention": "Key before the ID; long arm left, base below, short arm right.",
-  "geometry": "One open zero-width polyline; no closed hole.",
-  "qualification": "Geometry cue only. Outside-face placement, actual CAM and physical readability need separate verification."
+  "front_convention": "One upward arrow before the complete ID, pointing toward the top of the readable lettering. Read arrow and ID together from the final outside face.",
+  "geometry": "One simple arrow made from two open zero-width polylines; no closed hole.",
+  "qualification": "The arrow alone is symmetric. The before-ID placement and up direction together distinguish the complete label. This is a text-reading cue, not an assembly UP instruction. Outside-face placement, actual CAM and physical readability need separate verification."
 }
